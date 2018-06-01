@@ -1,0 +1,10 @@
+README for configs
+
+This directory will hold configuration files for various aspects of the
+nypm-nycbug-associates collaboration, e.g., Vagrantfiles.
+
+The names of config files stored here should be specific and self-documenting.
+For example, do not store a file named simply "Vagrantfile", as we are likely
+to generate many Vagrantfiles in the course of our work.  Instead, store it
+with a name that maps it to a specific installation, e.g.,
+Vagrantfile.perlmongers-nycbug-generic-freebsd11.
