@@ -70,5 +70,8 @@ Vagrant.configure("2") do |config|
      echo hostname="$HOSTNAME" >> /etc/rc.conf
      echo Hello World
      hostname
+     if [ ! -f /etc/localtime ]; then
+        tzsetup America/New_York
+     fi
   SHELL
 end
