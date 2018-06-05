@@ -6,6 +6,7 @@ use Carp;
 use Cwd;
 use File::Basename;
 use File::Spec::Functions qw( catfile catdir );
+use File::Temp qw( tempfile );
 use Getopt::Long;
 
 =head1 NAME
@@ -48,6 +49,7 @@ So we'll have to allow to have those two elements be command-line-providable to 
 =cut
 
 my ($vagrant_file, $output_dir, $hostname, $verbose) = ('') x 4;
+my $cwd = cwd();
 
 GetOptions(
 	"vagrant_file=s"    => \$vagrant_file,
@@ -56,10 +58,13 @@ GetOptions(
 	"verbose"           => \$verbose,
 ) or croak "Unable to process command-line options";
 
-$vagrant_file ||= catfile(cwd(), 'Vagrantfile');
+$vagrant_file ||= catfile($cwd, 'Vagrantfile');
 croak "Could not locate '$vagrant_file'" unless (-e $vagrant_file);
 if ($output_dir) {
     croak "Could not locate output directory '$output_dir'" unless (-d $output_dir);
+}
+else {
+    $output_dir = $cwd;
 }
 
 my $vagrant_dir = dirname($vagrant_file);
@@ -67,6 +72,15 @@ $ENV{VAGRANT_CWD} = $vagrant_dir;
 
 system(qq|vagrant validate|)
     and croak "Unable to validate $vagrant_file";
+
+my ($fh, $tfile) = tempfile();
+system(qq{vagrant up | tee $tfile})
+    and croak "Unable to call 'vagrant up' and pipe output to $tfile";
+
+my $output_file = filter_vagrant_up( {
+    vagrant_log     => $tfile,
+    output_dir      => $output_dir,
+} );
 
 say "Finished!";
 
