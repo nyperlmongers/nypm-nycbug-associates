@@ -11,6 +11,8 @@ my %WriteMakefileArgs = (
     AUTHOR              => 'James E Keenan (jkeenan@pobox.com)',
     ABSTRACT            => 'Compactly log the output of \'vagrant up\'',
     INSTALLDIRS         => ($] < 5.011 ? 'perl' : 'site'),
+    EXE_FILES           => [ 'scripts/log_vagrant_up' ],
+
     PREREQ_PM           => {
         'Test::Simple' => 0.44,
     },

@@ -34,6 +34,11 @@ Given a file holding the output of a C<vagrant up> call, filter out superflouous
 
 =item * Arguments
 
+    my $output_file = filter_vagrant_up( {
+        vagrant_log     => '/path/to/vagrant_log_file',
+        output_dir      => '/path/to/output/directory',
+    } );
+
 Single hash reference.  Elements of that hash include:
 
 =over 4

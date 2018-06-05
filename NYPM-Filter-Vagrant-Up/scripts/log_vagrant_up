@@ -2,6 +2,73 @@
 use 5.14.0;
 use warnings;
 use NYPM::Filter::Vagrant::Up qw( filter_vagrant_up );
+use Carp;
+use Cwd;
+use File::Basename;
+use File::Spec::Functions qw( catfile catdir );
+use Getopt::Long;
+
+=head1 NAME
+
+log_vagrant_up - Call 'vagrant up' and log its output
+
+=head1 USAGE
+
+    log_vagrant_up --vagrant_file=/usr/home/jkeenan/learn/vagrant/fbsd_with_shell_script/Vagrantfile \
+
+=head1 DESCRIPTION
+
+=head2 Assumptions
+
+=head3 F<Vagrantfile> already present
+
+Program will assume that you have already called F<vagrant init E<lt>box_nameE<gt>> and so have a Vagrantfile whose location can be passed to program's command line.
+
+=head2 Objectives
+
+Program will issue a F<vagrant up> call for the targeted F<Vagrantfile>, taking steps to record STDOUT and STDERR in a temporary file.  That temporary file will then be passed to 
+C<NYPM::Filter::Vagrant::Up::filter_vagrant_up()> for filtering, timestamping and compressing.
+
+I have to read Vagrant documentation to see how to provide a path to a vagrant
+file, as F<vagrant up> by default assumes you find one in the current directory.
+
+I have to decide if I want to provide a C<--hostname> option.
+
+Program should check validity of command-line arguments before invoking F<vagrant up>, as that is a network call.
+
+C<filter_vagrant_up()> is documented to be called like this:
+
+    my $output_file = filter_vagrant_up( {
+        vagrant_log     => '/path/to/vagrant_log_file',
+        output_dir      => '/path/to/output/directory',
+    } );
+
+So we'll have to allow to have those two elements be command-line-providable to this program.
+
+=cut
+
+my ($vagrant_file, $output_dir, $hostname, $verbose) = ('') x 4;
+
+GetOptions(
+	"vagrant_file=s"    => \$vagrant_file,
+	"output_dir=s"      => \$output_dir,
+	"hostname=s"        => \$hostname,
+	"verbose"           => \$verbose,
+) or croak "Unable to process command-line options";
+
+$vagrant_file ||= catfile(cwd(), 'Vagrantfile');
+croak "Could not locate '$vagrant_file'" unless (-e $vagrant_file);
+if ($output_dir) {
+    croak "Could not locate output directory '$output_dir'" unless (-d $output_dir);
+}
+
+my $vagrant_dir = dirname($vagrant_file);
+$ENV{VAGRANT_CWD} = $vagrant_dir;
+
+system(qq|vagrant validate|)
+    and croak "Unable to validate $vagrant_file";
+
+say "Finished!";
 
 1;
 
