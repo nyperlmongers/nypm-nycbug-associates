@@ -1,0 +1,7 @@
+#!/usr/bin/env perl
+use 5.14.0;
+use warnings;
+use NYPM::Filter::Vagrant::Up qw( filter_vagrant_up );
+
+1;
+

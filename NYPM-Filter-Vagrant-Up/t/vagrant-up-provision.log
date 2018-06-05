@@ -1,0 +1,5963 @@
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Checking if box 'generic/freebsd11' is up to date...
+==> default: Running provisioner: shell...
+    default: Running: inline script
+    default: ev: <experiment37>
+    default: experiment37
+    default: Updating FreeBSD repository catalogue...
+    default: Fetching meta.txz: . done
+    default: Fetching packagesite.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: Processing entries: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: FreeBSD repository update completed. 31153 packages processed.
+    default: All repositories are up to date.
+    default: Updating FreeBSD repository catalogue...
+    default: FreeBSD repository is up to date.
+    default: All repositories are up to date.
+    default: The following 12 package(s) will be affected (of 0 checked):
+    default: 
+    default: New packages to be INSTALLED:
+    default: 	git: 2.16.3
+    default: 	subversion: 1.9.7_4
+    default: 	screen: 4.6.2
+    default: 	p5-Authen-SASL: 2.16_1
+    default: 	p5-GSSAPI: 0.28_1
+    default: 	p5-Digest-HMAC: 1.03_1
+    default: 	p5-Error: 0.17025
+    default: 	cvsps: 2.1_2
+    default: 	serf: 1.3.9_3
+    default: 	apr: 1.6.3.1.6.1_1
+    default: 	db5: 5.3.28_6
+    default: 	sqlite3: 3.22.0_2
+    default: 
+    default: Number of packages to be installed: 12
+    default: 
+    default: The process will require 101 MiB more space.
+    default: 22 MiB to be downloaded.
+    default: [1/12] Fetching git-2.16.3.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [2/12] Fetching subversion-1.9.7_4.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [3/12] Fetching screen-4.6.2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [4/12] Fetching p5-Authen-SASL-2.16_1.txz: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [5/12] Fetching p5-GSSAPI-0.28_1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [6/12] Fetching p5-Digest-HMAC-1.03_1.txz: .. done
+    default: [7/12] Fetching p5-Error-0.17025.txz: .
+    default: .
+    default: . done
+    default: [8/12] Fetching cvsps-2.1_2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [9/12] Fetching serf-1.3.9_3.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [10/12] Fetching apr-1.6.3.1.6.1_1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [11/12] Fetching db5-5.3.28_6.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [12/12] Fetching sqlite3-3.22.0_2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: Checking integrity...
+    default:  done (0 conflicting)
+    default: [1/12] Installing db5-5.3.28_6...
+    default: [1/12] Extracting db5-5.3.28_6: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [2/12] Installing p5-GSSAPI-0.28_1...
+    default: [2/12] Extracting p5-GSSAPI-0.28_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [3/12] Installing p5-Digest-HMAC-1.03_1...
+    default: [3/12] Extracting p5-Digest-HMAC-1.03_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [4/12] Installing apr-1.6.3.1.6.1_1...
+    default: [4/12] Extracting apr-1.6.3.1.6.1_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [5/12] Installing p5-Authen-SASL-2.16_1...
+    default: [5/12] Extracting p5-Authen-SASL-2.16_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [6/12] Installing p5-Error-0.17025...
+    default: [6/12] Extracting p5-Error-0.17025: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [7/12] Installing cvsps-2.1_2...
+    default: [7/12] Extracting cvsps-2.1_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [8/12] Installing serf-1.3.9_3...
+    default: [8/12] Extracting serf-1.3.9_3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [9/12] Installing sqlite3-3.22.0_2...
+    default: [9/12] Extracting sqlite3-3.22.0_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [10/12] Installing git-2.16.3...
+    default: ===> Creating groups.
+    default: Creating group 'git_daemon' with gid '964'.
+    default: ===> Creating users
+    default: Creating user 'git_daemon' with uid '964'.
+    default: [10/12] Extracting git-2.16.3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [11/12] Installing subversion-1.9.7_4...
+    default: [11/12] Extracting subversion-1.9.7_4: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [12/12] Installing screen-4.6.2...
+    default: [12/12] Extracting screen-4.6.2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: Message from apr-1.6.3.1.6.1_1:
+    default: 
+    default: /!\ ================================================================== /!\
+    default: 
+    default: The Apache Portable Runtime project removed support for FreeTDS with
+    default: version 1.6. Users requiring MS-SQL connectivity must migrate
+    default: configurations to use the added ODBC driver and FreeTDS' ODBC features.
+    default: 
+    default: /!\ ================================================================== /!\
+    default: Message from cvsps-2.1_2:
+    default: 
+    default: ===>   NOTICE:
+    default: 
+    default: The cvsps port currently does not have a maintainer. As a result, it is
+    default: more likely to have unresolved issues, not be up-to-date, or even be removed in
+    default: the future. To volunteer to maintain this port, please create an issue at:
+    default: 
+    default: https://bugs.freebsd.org/bugzilla
+    default: 
+    default: More information about port maintainership is available at:
+    default: 
+    default: https://www.freebsd.org/doc/en/articles/contributing/ports-contributing.html#maintain-port
+    default: Message from git-2.16.3:
+    default: 
+    default: ------------------------------------------------------------------------
+    default: *************************** GITWEB *************************************
+    default: If you installed the GITWEB option please follow these instructions:
+    default: 
+    default: In the directory /usr/local/share/examples/git/gitweb you can find all files to
+    default: make gitweb work as a public repository on the web.
+    default: 
+    default: All you have to do to make gitweb work is:
+    default: 1) Copy the files /usr/local/share/examples/git/gitweb/* to a directory on
+    default:    your web server (e.g. Apache2) in which you are able to execute
+    default:    CGI-scripts.
+    default: 2) In gitweb.cgi, adjust the variable $projectroot to point to
+    default:    your git repository (that is where you have your *.git project
+    default:    directories).
+    default: *************************** GITWEB *************************************
+    default: 
+    default: *************************** CONTRIB ************************************
+    default: If you installed the CONTRIB option please note that the scripts are
+    default: installed in /usr/local/share/git-core/contrib. Some of them require
+    default: other ports to be installed (perl, python, etc), which you may need to
+    default: install manually.
+    default: *************************** CONTRIB ************************************
+    default: ------------------------------------------------------------------------
+    default: Message from screen-4.6.2:
+    default: 
+    default: =============================================================
+    default: 
+    default: As of GNU Screen 4.4.0:
+    default: 
+    default: Note that there was fix to screen message structure field
+    default: responsible for $TERM handling, making it impossible
+    default: to attach to older versions.
+    default: 
+    default: =============================================================
+    default: Updating FreeBSD repository catalogue...
+    default: FreeBSD repository is up to date.
+    default: All repositories are up to date.
+    default: The following 17 package(s) will be affected (of 0 checked):
+    default: 
+    default: New packages to be INSTALLED:
+    default: 	p5-ack: 2.22
+    default: 	p5-App-cpanminus: 1.7042
+    default: 	p5-Data-Dump: 1.23_1
+    default: 	p5-Devel-Cover: 1.29
+    default: 	p5-File-Path: 2.15
+    default: 	p5-List-Compare: 0.53
+    default: 	p5-Text-CSV-Hashify: 0.08
+    default: 	p5-Text-CSV_XS: 1.34
+    default: 	p5-File-Next: 1.16
+    default: 	p5-Template-Toolkit: 2.27
+    default: 	p5-AppConfig: 1.71
+    default: 	p5-HTML-Parser: 3.72
+    default: 	p5-HTML-Tagset: 3.20_1
+    default: 	p5-Pod-Coverage: 0.23_1
+    default: 	p5-Devel-Symdump: 2.1800
+    default: 	p5-Parallel-Iterator: 1.00_1
+    default: 	p5-Text-CSV: 1.95
+    default: 
+    default: Number of packages to be installed: 17
+    default: 
+    default: The process will require 4 MiB more space.
+    default: 1 MiB to be downloaded.
+    default: [1/17] Fetching p5-ack-2.22.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [2/17] Fetching p5-App-cpanminus-1.7042.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [3/17] Fetching p5-Data-Dump-1.23_1.txz: .
+    default: .
+    default: .. done
+    default: [4/17] Fetching p5-Devel-Cover-1.29.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [5/17] Fetching p5-File-Path-2.15.txz: 
+    default: .
+    default: .
+    default: .. done
+    default: [6/17] Fetching p5-List-Compare-0.53.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [7/17] Fetching p5-Text-CSV-Hashify-0.08.txz: .
+    default: . done
+    default: [8/17] Fetching p5-Text-CSV_XS-1.34.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [9/17] Fetching p5-File-Next-1.16.txz: 
+    default: .
+    default: . done
+    default: [10/17] Fetching p5-Template-Toolkit-2.27.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [11/17] Fetching p5-AppConfig-1.71.txz: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [12/17] Fetching p5-HTML-Parser-3.72.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [13/17] Fetching p5-HTML-Tagset-3.20_1.txz: 
+    default: .
+    default: . done
+    default: [14/17] Fetching p5-Pod-Coverage-0.23_1.txz: 
+    default: .
+    default: .. done
+    default: [15/17] Fetching p5-Devel-Symdump-2.1800.txz: 
+    default: .
+    default: . done
+    default: [16/17] Fetching p5-Parallel-Iterator-1.00_1.txz: 
+    default: .
+    default: .
+    default:  done
+    default: [17/17] Fetching p5-Text-CSV-1.95.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: Checking integrity...
+    default:  done (0 conflicting)
+    default: [1/17] Installing p5-AppConfig-1.71...
+    default: [1/17] Extracting p5-AppConfig-1.71: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [2/17] Installing p5-HTML-Tagset-3.20_1...
+    default: [2/17] Extracting p5-HTML-Tagset-3.20_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [3/17] Installing p5-Devel-Symdump-2.1800...
+    default: [3/17] Extracting p5-Devel-Symdump-2.1800: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [4/17] Installing p5-File-Next-1.16...
+    default: [4/17] Extracting p5-File-Next-1.16: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [5/17] Installing p5-Template-Toolkit-2.27...
+    default: [5/17] Extracting p5-Template-Toolkit-2.27: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [6/17] Installing p5-HTML-Parser-3.72...
+    default: [6/17] Extracting p5-HTML-Parser-3.72: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [7/17] Installing p5-Pod-Coverage-0.23_1...
+    default: [7/17] Extracting p5-Pod-Coverage-0.23_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [8/17] Installing p5-Parallel-Iterator-1.00_1...
+    default: [8/17] Extracting p5-Parallel-Iterator-1.00_1: 
+    default: .
+    default: .. done
+    default: [9/17] Installing p5-Text-CSV-1.95...
+    default: [9/17] Extracting p5-Text-CSV-1.95: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [10/17] Installing p5-ack-2.22...
+    default: [10/17] Extracting p5-ack-2.22: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [11/17] Installing p5-App-cpanminus-1.7042...
+    default: [11/17] Extracting p5-App-cpanminus-1.7042: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [12/17] Installing p5-Data-Dump-1.23_1...
+    default: [12/17] Extracting p5-Data-Dump-1.23_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [13/17] Installing p5-Devel-Cover-1.29...
+    default: [13/17] Extracting p5-Devel-Cover-1.29: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [14/17] Installing p5-File-Path-2.15...
+    default: [14/17] Extracting p5-File-Path-2.15: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [15/17] Installing p5-List-Compare-0.53...
+    default: [15/17] Extracting p5-List-Compare-0.53: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [16/17] Installing p5-Text-CSV-Hashify-0.08...
+    default: [16/17] Extracting p5-Text-CSV-Hashify-0.08: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [17/17] Installing p5-Text-CSV_XS-1.34...
+    default: [17/17] Extracting p5-Text-CSV_XS-1.34: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: Updating FreeBSD repository catalogue...
+    default: FreeBSD repository is up to date.
+    default: All repositories are up to date.
+    default: The following 69 package(s) will be affected (of 0 checked):
+    default: 
+    default: New packages to be INSTALLED:
+    default: 	p5-App-cpanminus-reporter: 0.17
+    default: 	p5-CPAN-Testers-Common-Client: 0.13
+    default: 	p5-Devel-Platform-Info: 0.16
+    default: 	p5-Email-Address: 1.909
+    default: 	p5-Email-Address-XS: 1.03
+    default: 	p5-Email-Sender: 1.300011_1
+    default: 	p5-Email-Simple: 2.214
+    default: 	p5-File-Fetch: 0.56
+    default: 	p5-LWP-Protocol-https: 6.07_1
+    default: 	p5-libwww: 6.33
+    default: 	p5-WWW-RobotRules: 6.02_1
+    default: 	p5-URI: 1.73
+    default: 	p5-LWP-MediaTypes: 6.02_1
+    default: 	p5-HTTP-Negotiate: 6.01_1
+    default: 	p5-HTTP-Message: 6.16
+    default: 	p5-HTTP-Date: 6.02_1
+    default: 
+    default: 	p5-IO-HTML: 1.001_1
+    default: 	p5-Encode-Locale: 1.05
+    default: 	p5-HTTP-Daemon: 6.01_1
+    default: 	p5-HTTP-Cookies: 6.04
+    default: 	p5-File-Listing: 6.04_1
+    default: 	p5-Authen-NTLM: 1.09_1
+    default: 	p5-Net-HTTP: 6.17
+    default: 	p5-IO-Socket-SSL: 2.051
+    default: 	p5-Mozilla-CA: 20160104
+    default: 	p5-Net-SSLeay: 1.85
+    default: 
+    default: 	p5-Try-Tiny: 0.28
+    default: 	p5-Test-Reporter-Transport-Metabase: 1.999010
+    default: 	p5-Test-Reporter: 1.62_1
+    default: 	p5-Metabase-Fact: 0.025
+    default: 	p5-Test-Exception: 0.43
+    default: 	p5-Sub-Uplevel: 0.2800
+    default: 	p5-Data-GUID: 0.047_1
+    default: 	p5-Sub-Install: 0.928_1
+    default: 	p5-Sub-Exporter: 0.987_1
+    default: 	p5-Params-Util: 1.07_2
+    default: 	p5-Data-OptList: 0.110
+    default: 	p5-Data-UUID: 1.221
+    default: 	p5-CPAN-DistnameInfo: 0.12_1
+    default: 	p5-JSON: 2.97.001
+    default: 	p5-Metabase-Client-Simple: 0.012
+    default: 	p5-Crypt-SSLeay: 0.72_3
+    default: 	p5-Config-Perl-V: 0.29
+    default: 	p5-CPAN-Testers-Report: 1.999003
+    default: 	p5-IO-Prompt-Tiny: 0.003
+    default: 	p5-File-HomeDir: 1.002
+    default: 	p5-File-Which: 1.22
+    default: 	p5-Config-Tiny: 2.23
+    default: 	p5-Capture-Tiny: 0.46
+    default: 	p5-Probe-Perl: 0.03
+    default: 	p5-Email-Abstract: 3.008_1
+    default: 	p5-Module-Pluggable: 5.2
+    default: 	p5-MRO-Compat: 0.13
+    default: 	p5-Class-C3: 0.33
+    default: 	p5-Algorithm-C3: 0.10_1
+    default: 	p5-List-MoreUtils: 0.428
+    default: 	p5-List-MoreUtils-XS: 0.428
+    default: 	p5-Exporter-Tiny: 1.000000
+    default: 	p5-Throwable: 0.200013
+    default: 	p5-Moo: 2.003004
+    default: 	p5-Sub-Quote: 2.005000
+    default: 	p5-Role-Tiny: 2.000006
+    default: 	p5-Class-Method-Modifiers: 2.12
+    default: 	p5-Module-Runtime: 0.016
+    default: 	p5-Devel-GlobalDestruction: 0.14
+    default: 	p5-Sub-Exporter-Progressive: 0.001013
+    default: 	p5-Devel-StackTrace: 2.03
+    default: 	p5-MooX-Types-MooseLike: 0.29
+    default: 	p5-Email-Date-Format: 1.005
+    default: 
+    default: Number of packages to be installed: 69
+    default: 
+    default: The process will require 6 MiB more space.
+    default: 2 MiB to be downloaded.
+    default: [1/69] Fetching p5-App-cpanminus-reporter-0.17.txz: 
+    default: .
+    default: .. done
+    default: [2/69] Fetching p5-CPAN-Testers-Common-Client-0.13.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [3/69] Fetching p5-Devel-Platform-Info-0.16.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [4/69] Fetching p5-Email-Address-1.909.txz: 
+    default: .
+    default: .
+    default: . done
+    default: [5/69] Fetching p5-Email-Address-XS-1.03.txz: 
+    default: .
+    default: .
+    default: .. done
+    default: [6/69] Fetching p5-Email-Sender-1.300011_1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [7/69] Fetching p5-Email-Simple-2.214.txz: 
+    default: .
+    default: .
+    default: . done
+    default: [8/69] Fetching p5-File-Fetch-0.56.txz: .
+    default: .
+    default: .
+    default:  done
+    default: [9/69] Fetching p5-LWP-Protocol-https-6.07_1.txz: .. done
+    default: [10/69] Fetching p5-libwww-6.33.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [11/69] Fetching p5-WWW-RobotRules-6.02_1.txz: 
+    default: .
+    default: . done
+    default: [12/69] Fetching p5-URI-1.73.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [13/69] Fetching p5-LWP-MediaTypes-6.02_1.txz: .
+    default: .
+    default: . done
+    default: [14/69] Fetching p5-HTTP-Negotiate-6.01_1.txz: 
+    default: .
+    default: . done
+    default: [15/69] Fetching p5-HTTP-Message-6.16.txz: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [16/69] Fetching p5-HTTP-Date-6.02_1.txz: ..
+    default:  done
+    default: [17/69] Fetching p5-IO-HTML-1.001_1.txz: 
+    default: .
+    default: . done
+    default: [18/69] Fetching p5-Encode-Locale-1.05.txz: 
+    default: .
+    default: . done
+    default: [19/69] Fetching p5-HTTP-Daemon-6.01_1.txz: .
+    default: . done
+    default: [20/69] Fetching p5-HTTP-Cookies-6.04.txz: 
+    default: .
+    default: .
+    default: . done
+    default: [21/69] Fetching p5-File-Listing-6.04_1.txz: 
+    default: .
+    default: . done
+    default: [22/69] Fetching p5-Authen-NTLM-1.09_1.txz: 
+    default: .
+    default: . done
+    default: [23/69] Fetching p5-Net-HTTP-6.17.txz: 
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [24/69] Fetching p5-IO-Socket-SSL-2.051.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [25/69] Fetching p5-Mozilla-CA-20160104.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [26/69] Fetching p5-Net-SSLeay-1.85.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [27/69] Fetching p5-Try-Tiny-0.28.txz: 
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [28/69] Fetching p5-Test-Reporter-Transport-Metabase-1.999010.txz: 
+    default: . done
+    default: [29/69] Fetching p5-Test-Reporter-1.62_1.txz: 
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [30/69] Fetching p5-Metabase-Fact-0.025.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [31/69] Fetching p5-Test-Exception-0.43.txz: 
+    default: .
+    default: . done
+    default: [32/69] Fetching p5-Sub-Uplevel-0.2800.txz: .
+    default: . done
+    default: [33/69] Fetching p5-Data-GUID-0.047_1.txz: . done
+    default: [34/69] Fetching p5-Sub-Install-0.928_1.txz: 
+    default: .
+    default: . done
+    default: [35/69] Fetching p5-Sub-Exporter-0.987_1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [36/69] Fetching p5-Params-Util-1.07_2.txz: 
+    default: .
+    default: .
+    default: . done
+    default: [37/69] Fetching p5-Data-OptList-0.110.txz: .. done
+    default: [38/69] Fetching p5-Data-UUID-1.221.txz: 
+    default: .
+    default: . done
+    default: [39/69] Fetching p5-CPAN-DistnameInfo-0.12_1.txz: . done
+    default: [40/69] Fetching p5-JSON-2.97.001.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [41/69] Fetching p5-Metabase-Client-Simple-0.012.txz: . done
+    default: [42/69] Fetching p5-Crypt-SSLeay-0.72_3.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [43/69] Fetching p5-Config-Perl-V-0.29.txz: 
+    default: .
+    default: . done
+    default: [44/69] Fetching p5-CPAN-Testers-Report-1.999003.txz: .
+    default: .
+    default: . done
+    default: [45/69] Fetching p5-IO-Prompt-Tiny-0.003.txz: .. done
+    default: [46/69] Fetching p5-File-HomeDir-1.002.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [47/69] Fetching p5-File-Which-1.22.txz: .
+    default: . done
+    default: [48/69] Fetching p5-Config-Tiny-2.23.txz: ..
+    default:  done
+    default: [49/69] Fetching p5-Capture-Tiny-0.46.txz: .
+    default: ..
+    default:  done
+    default: [50/69] Fetching p5-Probe-Perl-0.03.txz: 
+    default: .
+    default: . done
+    default: [51/69] Fetching p5-Email-Abstract-3.008_1.txz: .
+    default: .. done
+    default: [52/69] Fetching p5-Module-Pluggable-5.2.txz: .
+    default: .
+    default: .
+    default:  done
+    default: [53/69] Fetching p5-MRO-Compat-0.13.txz: ..
+    default:  done
+    default: [54/69] Fetching p5-Class-C3-0.33.txz: .
+    default: .
+    default: . done
+    default: [55/69] Fetching p5-Algorithm-C3-0.10_1.txz: .. done
+    default: [56/69] Fetching p5-List-MoreUtils-0.428.txz: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [57/69] Fetching p5-List-MoreUtils-XS-0.428.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [58/69] Fetching p5-Exporter-Tiny-1.000000.txz: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [59/69] Fetching p5-Throwable-0.200013.txz: .
+    default: . done
+    default: [60/69] Fetching p5-Moo-2.003004.txz: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [61/69] Fetching p5-Sub-Quote-2.005000.txz: .
+    default: .
+    default: . done
+    default: [62/69] Fetching p5-Role-Tiny-2.000006.txz: 
+    default: .
+    default: .
+    default:  done
+    default: [63/69] Fetching p5-Class-Method-Modifiers-2.12.txz: .
+    default: . done
+    default: [64/69] Fetching p5-Module-Runtime-0.016.txz: 
+    default: .
+    default: . done
+    default: [65/69] Fetching p5-Devel-GlobalDestruction-0.14.txz: .
+    default:  done
+    default: [66/69] Fetching p5-Sub-Exporter-Progressive-0.001013.txz: 
+    default: .
+    default: . done
+    default: [67/69] Fetching p5-Devel-StackTrace-2.03.txz: 
+    default: .
+    default: .. done
+    default: [68/69] Fetching p5-MooX-Types-MooseLike-0.29.txz: .
+    default: . done
+    default: [69/69] Fetching p5-Email-Date-Format-1.005.txz: 
+    default: . done
+    default: Checking integrity...
+    default:  done (0 conflicting)
+    default: [1/69] Installing p5-URI-1.73...
+    default: [1/69] Extracting p5-URI-1.73: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [2/69] Installing p5-LWP-MediaTypes-6.02_1...
+    default: [2/69] Extracting p5-LWP-MediaTypes-6.02_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [3/69] Installing p5-HTTP-Date-6.02_1...
+    default: [3/69] Extracting p5-HTTP-Date-6.02_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [4/69] Installing p5-IO-HTML-1.001_1...
+    default: [4/69] Extracting p5-IO-HTML-1.001_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [5/69] Installing p5-Encode-Locale-1.05...
+    default: [5/69] Extracting p5-Encode-Locale-1.05: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [6/69] Installing p5-Mozilla-CA-20160104...
+    default: [6/69] Extracting p5-Mozilla-CA-20160104: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [7/69] Installing p5-Net-SSLeay-1.85...
+    default: [7/69] Extracting p5-Net-SSLeay-1.85: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [8/69] Installing p5-HTTP-Message-6.16...
+    default: [8/69] Extracting p5-HTTP-Message-6.16: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [9/69] Installing p5-IO-Socket-SSL-2.051...
+    default: [9/69] Extracting p5-IO-Socket-SSL-2.051: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [10/69] Installing p5-Sub-Install-0.928_1...
+    default: [10/69] Extracting p5-Sub-Install-0.928_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [11/69] Installing p5-Params-Util-1.07_2...
+    default: [11/69] Extracting p5-Params-Util-1.07_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [12/69] Installing p5-WWW-RobotRules-6.02_1...
+    default: [12/69] Extracting p5-WWW-RobotRules-6.02_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [13/69] Installing p5-HTTP-Negotiate-6.01_1...
+    default: [13/69] Extracting p5-HTTP-Negotiate-6.01_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [14/69] Installing p5-HTTP-Daemon-6.01_1...
+    default: [14/69] Extracting p5-HTTP-Daemon-6.01_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [15/69] Installing p5-HTTP-Cookies-6.04...
+    default: [15/69] Extracting p5-HTTP-Cookies-6.04: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [16/69] Installing p5-File-Listing-6.04_1...
+    default: [16/69] Extracting p5-File-Listing-6.04_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [17/69] Installing p5-Authen-NTLM-1.09_1...
+    default: [17/69] Extracting p5-Authen-NTLM-1.09_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [18/69] Installing p5-Net-HTTP-6.17...
+    default: [18/69] Extracting p5-Net-HTTP-6.17: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [19/69] Installing p5-Try-Tiny-0.28...
+    default: [19/69] Extracting p5-Try-Tiny-0.28: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [20/69] Installing p5-Data-OptList-0.110...
+    default: [20/69] Extracting p5-Data-OptList-0.110: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [21/69] Installing p5-libwww-6.33...
+    default: [21/69] Extracting p5-libwww-6.33: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [22/69] Installing p5-Sub-Uplevel-0.2800...
+    default: [22/69] Extracting p5-Sub-Uplevel-0.2800: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [23/69] Installing p5-Sub-Exporter-0.987_1...
+    default: [23/69] Extracting p5-Sub-Exporter-0.987_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [24/69] Installing p5-Data-UUID-1.221...
+    default: [24/69] Extracting p5-Data-UUID-1.221: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [25/69] Installing p5-LWP-Protocol-https-6.07_1...
+    default: [25/69] Extracting p5-LWP-Protocol-https-6.07_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [26/69] Installing p5-Test-Exception-0.43...
+    default: [26/69] Extracting p5-Test-Exception-0.43: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [27/69] Installing p5-Data-GUID-0.047_1...
+    default: [27/69] Extracting p5-Data-GUID-0.047_1: 
+    default: .
+    default: .. done
+    default: [28/69] Installing p5-CPAN-DistnameInfo-0.12_1...
+    default: [28/69] Extracting p5-CPAN-DistnameInfo-0.12_1: 
+    default: .
+    default: .. done
+    default: [29/69] Installing p5-JSON-2.97.001...
+    default: [29/69] Extracting p5-JSON-2.97.001: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [30/69] Installing p5-Algorithm-C3-0.10_1...
+    default: [30/69] Extracting p5-Algorithm-C3-0.10_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [31/69] Installing p5-Class-Method-Modifiers-2.12...
+    default: [31/69] Extracting p5-Class-Method-Modifiers-2.12: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [32/69] Installing p5-Sub-Exporter-Progressive-0.001013...
+    default: [32/69] Extracting p5-Sub-Exporter-Progressive-0.001013: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [33/69] Installing p5-Metabase-Fact-0.025...
+    default: [33/69] Extracting p5-Metabase-Fact-0.025: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [34/69] Installing p5-Crypt-SSLeay-0.72_3...
+    default: [34/69] Extracting p5-Crypt-SSLeay-0.72_3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [35/69] Installing p5-File-Which-1.22...
+    default: [35/69] Extracting p5-File-Which-1.22: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [36/69] Installing p5-Class-C3-0.33...
+    default: [36/69] Extracting p5-Class-C3-0.33: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [37/69] Installing p5-Sub-Quote-2.005000...
+    default: [37/69] Extracting p5-Sub-Quote-2.005000: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [38/69] Installing p5-Role-Tiny-2.000006...
+    default: [38/69] Extracting p5-Role-Tiny-2.000006: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [39/69] Installing p5-Module-Runtime-0.016...
+    default: [39/69] Extracting p5-Module-Runtime-0.016: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [40/69] Installing p5-Devel-GlobalDestruction-0.14...
+    default: [40/69] Extracting p5-Devel-GlobalDestruction-0.14: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [41/69] Installing p5-Email-Date-Format-1.005...
+    default: [41/69] Extracting p5-Email-Date-Format-1.005: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [42/69] Installing p5-Devel-Platform-Info-0.16...
+    default: [42/69] Extracting p5-Devel-Platform-Info-0.16: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [43/69] Installing p5-Email-Simple-2.214...
+    default: [43/69] Extracting p5-Email-Simple-2.214: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [44/69] Installing p5-Test-Reporter-1.62_1...
+    default: [44/69] Extracting p5-Test-Reporter-1.62_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [45/69] Installing p5-Metabase-Client-Simple-0.012...
+    default: [45/69] Extracting p5-Metabase-Client-Simple-0.012: 
+    default: .
+    default: .. done
+    default: [46/69] Installing p5-Config-Perl-V-0.29...
+    default: [46/69] Extracting p5-Config-Perl-V-0.29: 
+    default: .
+    default: .. done
+    default: [47/69] Installing p5-CPAN-Testers-Report-1.999003...
+    default: [47/69] Extracting p5-CPAN-Testers-Report-1.999003: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [48/69] Installing p5-File-HomeDir-1.002...
+    default: [48/69] Extracting p5-File-HomeDir-1.002: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [49/69] Installing p5-Capture-Tiny-0.46...
+    default: [49/69] Extracting p5-Capture-Tiny-0.46: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [50/69] Installing p5-Probe-Perl-0.03...
+    default: [50/69] Extracting p5-Probe-Perl-0.03: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [51/69] Installing p5-Module-Pluggable-5.2...
+    default: [51/69] Extracting p5-Module-Pluggable-5.2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [52/69] Installing p5-MRO-Compat-0.13...
+    default: [52/69] Extracting p5-MRO-Compat-0.13: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [53/69] Installing p5-List-MoreUtils-XS-0.428...
+    default: [53/69] Extracting p5-List-MoreUtils-XS-0.428: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [54/69] Installing p5-Exporter-Tiny-1.000000...
+    default: [54/69] Extracting p5-Exporter-Tiny-1.000000: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [55/69] Installing p5-Moo-2.003004...
+    default: [55/69] Extracting p5-Moo-2.003004: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [56/69] Installing p5-Devel-StackTrace-2.03...
+    default: [56/69] Extracting p5-Devel-StackTrace-2.03: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [57/69] Installing p5-CPAN-Testers-Common-Client-0.13...
+    default: [57/69] Extracting p5-CPAN-Testers-Common-Client-0.13: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [58/69] Installing p5-Email-Address-1.909...
+    default: [58/69] Extracting p5-Email-Address-1.909: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [59/69] Installing p5-Test-Reporter-Transport-Metabase-1.999010...
+    default: [59/69] Extracting p5-Test-Reporter-Transport-Metabase-1.999010: 
+    default: .
+    default: .. done
+    default: [60/69] Installing p5-IO-Prompt-Tiny-0.003...
+    default: [60/69] Extracting p5-IO-Prompt-Tiny-0.003: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [61/69] Installing p5-Config-Tiny-2.23...
+    default: [61/69] Extracting p5-Config-Tiny-2.23: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [62/69] Installing p5-Email-Abstract-3.008_1...
+    default: [62/69] Extracting p5-Email-Abstract-3.008_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [63/69] Installing p5-List-MoreUtils-0.428...
+    default: [63/69] Extracting p5-List-MoreUtils-0.428: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [64/69] Installing p5-Throwable-0.200013...
+    default: [64/69] Extracting p5-Throwable-0.200013: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [65/69] Installing p5-MooX-Types-MooseLike-0.29...
+    default: [65/69] Extracting p5-MooX-Types-MooseLike-0.29: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [66/69] Installing p5-App-cpanminus-reporter-0.17...
+    default: [66/69] Extracting p5-App-cpanminus-reporter-0.17: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [67/69] Installing p5-Email-Address-XS-1.03...
+    default: [67/69] Extracting p5-Email-Address-XS-1.03: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [68/69] Installing p5-Email-Sender-1.300011_1...
+    default: [68/69] Extracting p5-Email-Sender-1.300011_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [69/69] Installing p5-File-Fetch-0.56...
+    default: [69/69] Extracting p5-File-Fetch-0.56: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: Message from p5-Email-Address-1.909:
+    default: 
+    default: ===>   NOTICE:
+    default: 
+    default: This port is deprecated; you may wish to reconsider installing it:
+    default: 
+    default: Deprecated by upstream.
+    default: 
+    default: It is scheduled to be removed on or after 2018-12-31.
+    default: Updating FreeBSD repository catalogue...
+    default: FreeBSD repository is up to date.
+    default: All repositories are up to date.
+    default: The following 191 package(s) will be affected (of 0 checked):
+    default: 
+    default: New packages to be INSTALLED:
+    default: 	augeas: 1.10.1
+    default: 	en-aspell: 7.1.0_1
+    default: 	freeglut: 3.0.0_1
+    default: 	fusefs-libs: 2.9.5
+    default: 	gdk-pixbuf: 0.22.0_17
+    default: 	gnuplot: 5.2.2_1
+    default: 	gsl: 2.4
+    default: 	gtk3: 3.22.29
+    default: 	hdf: 4.2.11_4,1
+    default: 	imlib2: 1.5.1,2
+    default: 	ja-p5-Text-MeCab: 0.20009_3
+    default: 	libapreq2: 2.13_5
+    default: 	libglade2: 2.6.4_9
+    default: 	libidn: 1.33_1
+    default: 	libqrencode: 4.0.0
+    default: 	libssh2: 1.8.0,3
+    default: 	libtermkey: 0.20_1
+    default: 	libxfce4util: 4.12.1
+    default: 	libxul: 45.9.0_11
+    default: 	libzmq2: 2.2.0_3
+    default: 	libzmq3: 3.2.5
+    default: 	libzmq4: 4.2.3
+    default: 	p5-Authen-PAM: 0.16_2
+    default: 	p5-Cairo: 1.106
+    default: 	p5-Crypt-OpenPGP: 1.06_2
+    default: 	p5-DBD-mysql: 4.046
+    default: 	p5-DBD-ODBC: 1.58
+    default: 	p5-DBD-Pg: 3.7.4
+    default: 	p5-ExtUtils-F77: 1.20_5
+    default: 
+    default: 	p5-GraphViz: 2.24
+    default: 	p5-Gtk2: 1.24992
+    default: 	p5-Gtk3: 0.026_1
+    default: 	p5-HTML-Tidy: 1.60
+    default: 	p5-Inline-Java: 0.540_2
+    default: 	p5-Net-LibIDN: 0.12_4
+    default: 	p5-Net-LibIDN2: 1.00
+    default: 	p5-Tcl: 1.05
+    default: 	p5-Text-Aspell: 0.09_3
+    default: 	p5-WordNet-QueryData: 1.49_1
+    default: 	p5-ZeroMQ: 0.21_3
+    default: 	pkgconf: 1.4.2,1
+    default: 	proj: 4.9.3
+    default: 	protobuf: 3.5.1.1
+    default: 	rpm4: 4.13.1
+    default: 	rsync: 3.1.3
+    default: 	tcl-wrapper: 1.1_3
+    default: 	unibilium: 2.0.0
+    default: 	v8: 3.18.5_5
+    default: 	yaz: 5.23.1_1
+    default: 	aspell: 0.60.6.1_7
+    default: 	libGLU: 9.0.0_3
+    default: 	gtk12: 1.2.10_25
+    default: 	glib12: 1.2.10_15
+    default: 	wx28-gtk2: 2.8.12_7
+    default: 	wx28-gtk2-common: 2.8.12_7
+    default: 	pangox-compat: 0.0.2_2
+    default: 	gstreamer-plugins: 0.10.36_8,3
+    default: 	gstreamer: 0.10.36_6
+    default: 	orc: 0.4.25
+    default: 	libIDL: 0.8.14_3
+    default: 	gconf2: 3.2.6_5
+    default: 	polkit: 0.113_5
+    default: 	spidermonkey170: 17.0.0_8
+    default: 	nspr: 4.19
+    default: 	dconf: 0.26.1
+    default: 	ORBit2: 2.14.19_2
+    default: 	libmspack: 0.5
+    default: 	lua53: 5.3.4_2
+    default: 	libgd: 2.2.4_1,1
+    default: 	webp: 0.6.1
+    default: 	giflib: 5.1.4
+    default: 	tex-kpathsea: 6.2.1_1
+    default: 	adwaita-icon-theme: 3.22.0
+    default: 	librsvg2: 2.40.17
+    default: 	libcroco: 0.6.12
+    default: 	libgsf: 1.14.41
+    default: 	colord: 1.2.12
+    default: 	lcms2: 2.9
+    default: 	argyllcms: 1.9.2_2
+    default: 	libXScrnSaver: 1.2.2_3
+    default: 	scrnsaverproto: 1.2.2
+    default: 	at-spi2-atk: 2.24.0
+    default: 	at-spi2-core: 2.24.0
+    default: 	libXtst: 1.2.3
+    default: 	recordproto: 1.14.2
+    default: 	hdf-szip: 2.1_2
+    default: 	gcc6: 6.4.0_4
+    default: 	mpfr: 3.1.6
+    default: 	mpc: 1.1.0
+    default: 	gcc-ecj: 4.5
+    default: 	binutils: 2.30_2,1
+    default: 	libid3tag: 0.15.1b_1
+    default: 	ja-mecab: 0.996_3
+    default: 	p5-Class-Accessor: 0.51
+    default: 	apache24: 2.4.33
+    default: 	xmlcatmgr: 2.2_2
+    default: 
+    default: 	startup-notification: 0.12_4
+    default: 	hunspell: 1.6.2
+    default: 	nss: 3.37.1
+    default: 	libvpx: 1.7.0
+    default: 	libv4l: 1.6.3_2
+    default: 	ffmpeg: 3.4.2,1
+    default: 	xvid: 1.3.4,1
+    default: 	x265: 2.6_1
+    default: 	libx264: 0.152.2854
+    default: 	libvdpau: 1.1.1
+    default: 	libva: 2.1.0
+    default: 	v4l_compat: 1.6.3
+    default: 	libtheora: 1.1.1_7
+    default: 	libvorbis: 1.3.6,3
+    default: 	libogg: 1.3.3,4
+    default: 	opencv-core: 2.4.13.1_1
+    default: 	opus: 1.2.1
+    default: 	libevent: 2.1.8_1
+    default: 
+    default: 	icu: 61.1,1
+    default: 	soundtouch: 1.9.2_4
+    default: 	alsa-plugins: 1.1.1_2
+    default: 	alsa-lib: 1.1.2_1
+    default: 	openpgm: 5.2.122_3
+    default: 	norm: 1.5r6
+    default: 	p5-Digest-SHA1: 2.13_1
+    default: 	p5-Crypt-Twofish: 2.17_1
+    default: 	p5-Crypt-Rijndael: 1.11_1
+    default: 	p5-Crypt-RSA: 1.99_2
+    default: 	p5-Tie-EncryptedHash: 1.24_1
+    default: 	p5-Crypt-CBC: 2.33_1
+    default: 	p5-Digest-MD2: 2.04_1
+    default: 	p5-Crypt-Random: 1.25_2
+    default: 	p5-Math-Pari: 2.01080900
+    default: 	p5-Class-Loader: 2.03_1
+    default: 	p5-Crypt-Primes: 0.50_2
+    default: 	p5-Crypt-Blowfish: 2.14_1
+    default: 
+    default: 	p5-Data-Buffer: 0.04_1
+    default: 	p5-Sort-Versions: 1.5_1
+    default: 	p5-Convert-ASCII-Armour: 1.4_3
+    default: 	p5-Crypt-RIPEMD160: 0.06
+    default: 	p5-Crypt-IDEA: 1.10_1
+    default: 	p5-Crypt-DSA: 1.17_1
+    default: 	p5-Convert-PEM: 0.08_1
+    default: 	p5-Crypt-DES_EDE3: 0.01_2
+    default: 	p5-Crypt-DES: 2.07_1
+    default: 	p5-Class-ErrorHandler: 0.04
+    default: 	p5-Convert-ASN1: 0.27_2
+    default: 	p5-Crypt-CAST5_PP: 1.04_1
+    default: 	p5-DBI: 1.641
+    default: 	mysql56-client: 5.6.40
+    default: 	liblz4: 1.8.1.2,1
+    default: 	unixODBC: 2.3.5
+    default: 	postgresql95-client: 9.5.12
+    default: 
+    default: 	p5-XML-Twig: 3.52
+    default: 	p5-HTML-Tree: 5.07
+    default: 	p5-XML-XPath: 1.42
+    default: 	p5-XML-Parser: 2.44
+    default: 
+    default: 	p5-Tie-IxHash: 1.23_1
+    default: 
+    default: 	p5-Text-Iconv: 1.7_3
+    default: 	graphviz: 2.40.1_4
+    default: 	libXp: 1.0.3,1
+    default: 	printproto: 1.0.5
+    default: 	libXaw: 1.0.13,2
+    default: 	libltdl: 2.4.6
+    default: 
+    default: 	p5-Parse-RecDescent: 1.967.009_2
+    default: 	p5-IPC-Run: 0.98
+    default: 	p5-IO-Tty: 1.12_2
+    default: 	p5-Pango: 1.227
+    default: 	p5-Glib2: 1.326
+    default: 	p5-ExtUtils-PkgConfig: 1.16
+    default: 	p5-ExtUtils-Depends: 0.405
+    default: 	p5-Glib-Object-Introspection: 0.044
+    default: 	p5-Cairo-GObject: 1.004_2
+    default: 	tidyp: 1.04_2
+    default: 	openjdk8: 8.162.12_2
+    default: 	javavmwrapper: 2.6
+    default: 	java-zoneinfo: 2018.c
+    default: 	p5-Inline-C: 0.78
+    default: 	p5-Pegex: 0.64
+    default: 	p5-YAML-LibYAML: 0.67
+    default: 	p5-JSON-XS: 3.04
+    default: 	p5-common-sense: 3.74
+    default: 	p5-Types-Serialiser: 1.0_1
+    default: 	p5-Inline: 0.80
+    default: 	tcl86: 8.6.8
+    default: 	WordNet: 3.0_3
+    default: 	e2fsprogs-libuuid: 1.44.2
+    default: 	p5-Task-Weaken: 1.05
+    default: 	lua51: 5.1.5_9
+    default: 	popt: 1.16_2
+    default: 	libarchive: 3.3.2,1
+    default: 	lzo2: 2.10_1
+    default: 	libxslt: 1.1.32
+    default: 	libgcrypt: 1.8.2
+    default: 	libgpg-error: 1.28
+    default: 
+    default: Number of packages to be installed: 191
+    default: 
+    default: The process will require 1 GiB more space.
+    default: 318 MiB to be downloaded.
+    default: [1/191] Fetching augeas-1.10.1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [2/191] Fetching en-aspell-7.1.0_1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [3/191] Fetching freeglut-3.0.0_1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [4/191] Fetching fusefs-libs-2.9.5.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [5/191] Fetching gdk-pixbuf-0.22.0_17.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [6/191] Fetching gnuplot-5.2.2_1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [7/191] Fetching gsl-2.4.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [8/191] Fetching gtk3-3.22.29.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [9/191] Fetching hdf-4.2.11_4,1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [10/191] Fetching imlib2-1.5.1,2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [11/191] Fetching ja-p5-Text-MeCab-0.20009_3.txz: .
+    default: .
+    default: .. done
+    default: [12/191] Fetching libapreq2-2.13_5.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [13/191] Fetching libglade2-2.6.4_9.txz: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [14/191] Fetching libidn-1.33_1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [15/191] Fetching libqrencode-4.0.0.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [16/191] Fetching libssh2-1.8.0,3.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [17/191] Fetching libtermkey-0.20_1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [18/191] Fetching libxfce4util-4.12.1.txz: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [19/191] Fetching libxul-45.9.0_11.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [20/191] Fetching libzmq2-2.2.0_3.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [21/191] Fetching libzmq3-3.2.5.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [22/191] Fetching libzmq4-4.2.3.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [23/191] Fetching p5-Authen-PAM-0.16_2.txz: .
+    default: .
+    default: . done
+    default: [24/191] Fetching p5-Cairo-1.106.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [25/191] Fetching p5-Crypt-OpenPGP-1.06_2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [26/191] Fetching p5-DBD-mysql-4.046.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [27/191] Fetching p5-DBD-ODBC-1.58.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [28/191] Fetching p5-DBD-Pg-3.7.4.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [29/191] Fetching p5-ExtUtils-F77-1.20_5.txz: 
+    default: .
+    default: . done
+    default: [30/191] Fetching p5-GraphViz-2.24.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [31/191] Fetching p5-Gtk2-1.24992.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [32/191] Fetching p5-Gtk3-0.026_1.txz: 
+    default: .
+    default: .
+    default: . done
+    default: [33/191] Fetching p5-HTML-Tidy-1.60.txz: 
+    default: .
+    default: .
+    default: . done
+    default: [34/191] Fetching p5-Inline-Java-0.540_2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [35/191] Fetching p5-Net-LibIDN-0.12_4.txz: 
+    default: .
+    default: .. done
+    default: [36/191] Fetching p5-Net-LibIDN2-1.00.txz: .
+    default: .
+    default: . done
+    default: [37/191] Fetching p5-Tcl-1.05.txz: .
+    default: .
+    default: .
+    default: . done
+    default: [38/191] Fetching p5-Text-Aspell-0.09_3.txz: 
+    default: .
+    default: .
+    default: . done
+    default: [39/191] Fetching p5-WordNet-QueryData-1.49_1.txz: 
+    default: .
+    default: . done
+    default: [40/191] Fetching p5-ZeroMQ-0.21_3.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [41/191] Fetching pkgconf-1.4.2,1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [42/191] Fetching proj-4.9.3.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [43/191] Fetching protobuf-3.5.1.1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [44/191] Fetching rpm4-4.13.1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [45/191] Fetching rsync-3.1.3.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [46/191] Fetching tcl-wrapper-1.1_3.txz: 
+    default: .
+    default: . done
+    default: [47/191] Fetching unibilium-2.0.0.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [48/191] Fetching v8-3.18.5_5.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [49/191] Fetching yaz-5.23.1_1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [50/191] Fetching aspell-0.60.6.1_7.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [51/191] Fetching libGLU-9.0.0_3.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [52/191] Fetching gtk12-1.2.10_25.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [53/191] Fetching glib12-1.2.10_15.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [54/191] Fetching wx28-gtk2-2.8.12_7.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [55/191] Fetching wx28-gtk2-common-2.8.12_7.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [56/191] Fetching pangox-compat-0.0.2_2.txz: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [57/191] Fetching gstreamer-plugins-0.10.36_8,3.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [58/191] Fetching gstreamer-0.10.36_6.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [59/191] Fetching orc-0.4.25.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [60/191] Fetching libIDL-0.8.14_3.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [61/191] Fetching gconf2-3.2.6_5.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [62/191] Fetching polkit-0.113_5.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [63/191] Fetching spidermonkey170-17.0.0_8.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [64/191] Fetching nspr-4.19.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [65/191] Fetching dconf-0.26.1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [66/191] Fetching ORBit2-2.14.19_2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [67/191] Fetching libmspack-0.5.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [68/191] Fetching lua53-5.3.4_2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [69/191] Fetching libgd-2.2.4_1,1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [70/191] Fetching webp-0.6.1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [71/191] Fetching giflib-5.1.4.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [72/191] Fetching tex-kpathsea-6.2.1_1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [73/191] Fetching adwaita-icon-theme-3.22.0.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [74/191] Fetching librsvg2-2.40.17.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [75/191] Fetching libcroco-0.6.12.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [76/191] Fetching libgsf-1.14.41.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [77/191] Fetching colord-1.2.12.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [78/191] Fetching lcms2-2.9.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [79/191] Fetching argyllcms-1.9.2_2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [80/191] Fetching libXScrnSaver-1.2.2_3.txz: 
+    default: .
+    default: . done
+    default: [81/191] Fetching scrnsaverproto-1.2.2.txz: . done
+    default: [82/191] Fetching at-spi2-atk-2.24.0.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [83/191] Fetching at-spi2-core-2.24.0.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [84/191] Fetching libXtst-1.2.3.txz: .
+    default: .
+    default: . done
+    default: [85/191] Fetching recordproto-1.14.2.txz: . done
+    default: [86/191] Fetching hdf-szip-2.1_2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [87/191] Fetching gcc6-6.4.0_4.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [88/191] Fetching mpfr-3.1.6.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [89/191] Fetching mpc-1.1.0.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [90/191] Fetching gcc-ecj-4.5.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [91/191] Fetching binutils-2.30_2,1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [92/191] Fetching libid3tag-0.15.1b_1.txz: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [93/191] Fetching ja-mecab-0.996_3.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [94/191] Fetching p5-Class-Accessor-0.51.txz: 
+    default: .
+    default: .
+    default: . done
+    default: [95/191] Fetching apache24-2.4.33.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [96/191] Fetching xmlcatmgr-2.2_2.txz: 
+    default: .
+    default: .
+    default: . done
+    default: [97/191] Fetching startup-notification-0.12_4.txz: 
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [98/191] Fetching hunspell-1.6.2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [99/191] Fetching nss-3.37.1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [100/191] Fetching libvpx-1.7.0.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [101/191] Fetching libv4l-1.6.3_2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [102/191] Fetching ffmpeg-3.4.2,1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [103/191] Fetching xvid-1.3.4,1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [104/191] Fetching x265-2.6_1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [105/191] Fetching libx264-0.152.2854.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [106/191] Fetching libvdpau-1.1.1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [107/191] Fetching libva-2.1.0.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [108/191] Fetching v4l_compat-1.6.3.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [109/191] Fetching libtheora-1.1.1_7.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [110/191] Fetching libvorbis-1.3.6,3.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [111/191] Fetching libogg-1.3.3,4.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [112/191] Fetching opencv-core-2.4.13.1_1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [113/191] Fetching opus-1.2.1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [114/191] Fetching libevent-2.1.8_1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [115/191] Fetching icu-61.1,1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [116/191] Fetching soundtouch-1.9.2_4.txz: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [117/191] Fetching alsa-plugins-1.1.1_2.txz: 
+    default: .
+    default: .
+    default: .. done
+    default: [118/191] Fetching alsa-lib-1.1.2_1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [119/191] Fetching openpgm-5.2.122_3.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [120/191] Fetching norm-1.5r6.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [121/191] Fetching p5-Digest-SHA1-2.13_1.txz: 
+    default: .
+    default: .. done
+    default: [122/191] Fetching p5-Crypt-Twofish-2.17_1.txz: 
+    default: .
+    default: .. done
+    default: [123/191] Fetching p5-Crypt-Rijndael-1.11_1.txz: .
+    default: . done
+    default: [124/191] Fetching p5-Crypt-RSA-1.99_2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [125/191] Fetching p5-Tie-EncryptedHash-1.24_1.txz: 
+    default: .
+    default: . done
+    default: [126/191] Fetching p5-Crypt-CBC-2.33_1.txz: 
+    default: .
+    default: .
+    default: . done
+    default: [127/191] Fetching p5-Digest-MD2-2.04_1.txz: .
+    default: . done
+    default: [128/191] Fetching p5-Crypt-Random-1.25_2.txz: 
+    default: ..
+    default:  done
+    default: [129/191] Fetching p5-Math-Pari-2.01080900.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [130/191] Fetching p5-Class-Loader-2.03_1.txz: . done
+    default: [131/191] Fetching p5-Crypt-Primes-0.50_2.txz: 
+    default: .
+    default: .
+    default: . done
+    default: [132/191] Fetching p5-Crypt-Blowfish-2.14_1.txz: .
+    default: . done
+    default: [133/191] Fetching p5-Data-Buffer-0.04_1.txz: .
+    default: . done
+    default: [134/191] Fetching p5-Sort-Versions-1.5_1.txz: 
+    default: . done
+    default: [135/191] Fetching p5-Convert-ASCII-Armour-1.4_3.txz: . done
+    default: [136/191] Fetching p5-Crypt-RIPEMD160-0.06.txz: 
+    default: .
+    default: .
+    default: . done
+    default: [137/191] Fetching p5-Crypt-IDEA-1.10_1.txz: .
+    default: . done
+    default: [138/191] Fetching p5-Crypt-DSA-1.17_1.txz: 
+    default: .
+    default: .
+    default: .. done
+    default: [139/191] Fetching p5-Convert-PEM-0.08_1.txz: 
+    default: .
+    default: . done
+    default: [140/191] Fetching p5-Crypt-DES_EDE3-0.01_2.txz: .
+    default:  done
+    default: [141/191] Fetching p5-Crypt-DES-2.07_1.txz: .
+    default: . done
+    default: [142/191] Fetching p5-Class-ErrorHandler-0.04.txz: . done
+    default: [143/191] Fetching p5-Convert-ASN1-0.27_2.txz: .
+    default: .
+    default: .
+    default: . done
+    default: [144/191] Fetching p5-Crypt-CAST5_PP-1.04_1.txz: 
+    default: .
+    default: . done
+    default: [145/191] Fetching p5-DBI-1.641.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [146/191] Fetching mysql56-client-5.6.40.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [147/191] Fetching liblz4-1.8.1.2,1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [148/191] Fetching unixODBC-2.3.5.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [149/191] Fetching postgresql95-client-9.5.12.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [150/191] Fetching p5-XML-Twig-3.52.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [151/191] Fetching p5-HTML-Tree-5.07.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [152/191] Fetching p5-XML-XPath-1.42.txz: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [153/191] Fetching p5-XML-Parser-2.44.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [154/191] Fetching p5-Tie-IxHash-1.23_1.txz: 
+    default: .
+    default: . done
+    default: [155/191] Fetching p5-Text-Iconv-1.7_3.txz: 
+    default: .
+    default: . done
+    default: [156/191] Fetching graphviz-2.40.1_4.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [157/191] Fetching libXp-1.0.3,1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [158/191] Fetching printproto-1.0.5.txz: 
+    default: .
+    default: . done
+    default: [159/191] Fetching libXaw-1.0.13,2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [160/191] Fetching libltdl-2.4.6.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [161/191] Fetching p5-Parse-RecDescent-1.967.009_2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [162/191] Fetching p5-IPC-Run-0.98.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [163/191] Fetching p5-IO-Tty-1.12_2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [164/191] Fetching p5-Pango-1.227.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [165/191] Fetching p5-Glib2-1.326.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [166/191] Fetching p5-ExtUtils-PkgConfig-1.16.txz: 
+    default: .
+    default: . done
+    default: [167/191] Fetching p5-ExtUtils-Depends-0.405.txz: .
+    default: . done
+    default: [168/191] Fetching p5-Glib-Object-Introspection-0.044.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [169/191] Fetching p5-Cairo-GObject-1.004_2.txz: .
+    default: . done
+    default: [170/191] Fetching tidyp-1.04_2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [171/191] Fetching openjdk8-8.162.12_2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [172/191] Fetching javavmwrapper-2.6.txz: .
+    default: .. done
+    default: [173/191] Fetching java-zoneinfo-2018.c.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [174/191] Fetching p5-Inline-C-0.78.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [175/191] Fetching p5-Pegex-0.64.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [176/191] Fetching p5-YAML-LibYAML-0.67.txz: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [177/191] Fetching p5-JSON-XS-3.04.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [178/191] Fetching p5-common-sense-3.74.txz: .
+    default: . done
+    default: [179/191] Fetching p5-Types-Serialiser-1.0_1.txz: 
+    default: .
+    default: . done
+    default: [180/191] Fetching p5-Inline-0.80.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [181/191] Fetching tcl86-8.6.8.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [182/191] Fetching WordNet-3.0_3.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [183/191] Fetching e2fsprogs-libuuid-1.44.2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [184/191] Fetching p5-Task-Weaken-1.05.txz: .
+    default: . done
+    default: [185/191] Fetching lua51-5.1.5_9.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [186/191] Fetching popt-1.16_2.txz: .
+    default: ..
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [187/191] Fetching libarchive-3.3.2,1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [188/191] Fetching lzo2-2.10_1.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [189/191] Fetching libxslt-1.1.32.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [190/191] Fetching libgcrypt-1.8.2.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [191/191] Fetching libgpg-error-1.28.txz: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: Checking integrity...
+    default:  done (3 conflicting)
+    default:   - libzmq3-3.2.5 conflicts with libzmq2-2.2.0_3 on /usr/local/include/zmq.h
+    default:   - libzmq4-4.2.3 conflicts with libzmq2-2.2.0_3 on /usr/local/include/zmq_utils.h
+    default:   - libzmq4-4.2.3 conflicts with libzmq3-3.2.5 on /usr/local/lib/libzmq.so
+    default: Cannot solve problem using SAT solver, trying another plan
+    default: Cannot solve problem using SAT solver, trying another plan
+    default: Checking integrity...
+    default:  done (0 conflicting)
+    default: Conflicts with the existing packages have been found.
+    default: One more solver iteration is needed to resolve them.
+    default: The following 189 package(s) will be affected (of 0 checked):
+    default: 
+    default: New packages to be INSTALLED:
+    default: 	nspr: 4.19
+    default: 	libIDL: 0.8.14_3
+    default: 	spidermonkey170: 17.0.0_8
+    default: 	scrnsaverproto: 1.2.2
+    default: 	recordproto: 1.14.2
+    default: 	p5-Crypt-CBC: 2.33_1
+    default: 	p5-common-sense: 3.74
+    default: 	pkgconf: 1.4.2,1
+    default: 
+    default: 	gstreamer: 0.10.36_6
+    default: 	orc: 0.4.25
+    default: 	polkit: 0.113_5
+    default: 	dconf: 0.26.1
+    default: 
+    default: 	ORBit2: 2.14.19_2
+    default: 	giflib: 5.1.4
+    default: 	libXScrnSaver: 1.2.2_3
+    default: 	libXtst: 1.2.3
+    default: 	libogg: 1.3.3,4
+    default: 	p5-Math-Pari: 2.01080900
+    default: 	p5-Class-Loader: 2.03_1
+    default: 	p5-Crypt-DES: 2.07_1
+    default: 	printproto: 1.0.5
+    default: 	p5-Types-Serialiser: 1.0_1
+    default: 	libGLU: 9.0.0_3
+    default: 	pangox-compat: 0.0.2_2
+    default: 
+    default: 	gstreamer-plugins: 0.10.36_8,3
+    default: 	gconf2: 3.2.6_5
+    default: 	libmspack: 0.5
+    default: 	webp: 0.6.1
+    default: 	libcroco: 0.6.12
+    default: 	libgsf: 1.14.41
+    default: 	lcms2: 2.9
+    default: 	argyllcms: 1.9.2_2
+    default: 	at-spi2-core: 2.24.0
+    default: 	mpfr: 3.1.6
+    default: 	v4l_compat: 1.6.3
+    default: 	libvorbis: 1.3.6,3
+    default: 	p5-Crypt-Random: 1.25_2
+    default: 	p5-Crypt-DES_EDE3: 0.01_2
+    default: 	p5-Class-ErrorHandler: 0.04
+    default: 	p5-Convert-ASN1: 0.27_2
+    default: 	p5-XML-Parser: 2.44
+    default: 	libXp: 1.0.3,1
+    default: 	p5-Parse-RecDescent: 1.967.009_2
+    default: 	p5-ExtUtils-PkgConfig: 1.16
+    default: 	p5-ExtUtils-Depends: 0.405
+    default: 	p5-YAML-LibYAML: 0.67
+    default: 	p5-JSON-XS: 3.04
+    default: 	libgpg-error: 1.28
+    default: 	p5-Cairo: 1.106
+    default: 	glib12: 1.2.10_15
+    default: 	wx28-gtk2-common: 2.8.12_7
+    default: 
+    default: 	libgd: 2.2.4_1,1
+    default: 	adwaita-icon-theme: 3.22.0
+    default: 	librsvg2: 2.40.17
+    default: 	colord: 1.2.12
+    default: 	at-spi2-atk: 2.24.0
+    default: 	mpc: 1.1.0
+    default: 	gcc-ecj: 4.5
+    default: 	binutils: 2.30_2,1
+    default: 	libvpx: 1.7.0
+    default: 	libv4l: 1.6.3_2
+    default: 	xvid: 1.3.4,1
+    default: 	x265: 2.6_1
+    default: 	libx264: 0.152.2854
+    default: 	libvdpau: 1.1.1
+    default: 	libva: 2.1.0
+    default: 	libtheora: 1.1.1_7
+    default: 	opencv-core: 2.4.13.1_1
+    default: 	opus: 1.2.1
+    default: 	libevent: 2.1.8_1
+    default: 	alsa-lib: 1.1.2_1
+    default: 	p5-Digest-SHA1: 2.13_1
+    default: 	p5-Tie-EncryptedHash: 1.24_1
+    default: 	p5-Digest-MD2: 2.04_1
+    default: 	p5-Crypt-Primes: 0.50_2
+    default: 	p5-Crypt-Blowfish: 2.14_1
+    default: 	p5-Data-Buffer: 0.04_1
+    default: 	p5-Sort-Versions: 1.5_1
+    default: 	p5-Convert-ASCII-Armour: 1.4_3
+    default: 	p5-Convert-PEM: 0.08_1
+    default: 	liblz4: 1.8.1.2,1
+    default: 	p5-HTML-Tree: 5.07
+    default: 	p5-XML-XPath: 1.42
+    default: 	p5-Tie-IxHash: 1.23_1
+    default: 	p5-Text-Iconv: 1.7_3
+    default: 	libXaw: 1.0.13,2
+    default: 	libltdl: 2.4.6
+    default: 	p5-IO-Tty: 1.12_2
+    default: 	p5-Glib2: 1.326
+    default: 	javavmwrapper: 2.6
+    default: 	java-zoneinfo: 2018.c
+    default: 	p5-Pegex: 0.64
+    default: 	p5-Inline: 0.80
+    default: 	tcl86: 8.6.8
+    default: 	lzo2: 2.10_1
+    default: 	libgcrypt: 1.8.2
+    default: 	gtk3: 3.22.29
+    default: 	libidn: 1.33_1
+    default: 	libzmq2: 2.2.0_3
+    default: 	unibilium: 2.0.0
+    default: 	aspell: 0.60.6.1_7
+    default: 	gtk12: 1.2.10_25
+    default: 	wx28-gtk2: 2.8.12_7
+    default: 	lua53: 5.3.4_2
+    default: 	tex-kpathsea: 6.2.1_1
+    default: 	hdf-szip: 2.1_2
+    default: 	gcc6: 6.4.0_4
+    default: 	libid3tag: 0.15.1b_1
+    default: 	ja-mecab: 0.996_3
+    default: 	p5-Class-Accessor: 0.51
+    default: 	apache24: 2.4.33
+    default: 	xmlcatmgr: 2.2_2
+    default: 	startup-notification: 0.12_4
+    default: 	hunspell: 1.6.2
+    default: 	nss: 3.37.1
+    default: 	ffmpeg: 3.4.2,1
+    default: 	icu: 61.1,1
+    default: 	soundtouch: 1.9.2_4
+    default: 	alsa-plugins: 1.1.1_2
+    default: 	p5-Crypt-Twofish: 2.17_1
+    default: 
+    default: 	p5-Crypt-Rijndael: 1.11_1
+    default: 	p5-Crypt-RSA: 1.99_2
+    default: 	p5-Crypt-RIPEMD160: 0.06
+    default: 	p5-Crypt-IDEA: 1.10_1
+    default: 	p5-Crypt-DSA: 1.17_1
+    default: 	p5-Crypt-CAST5_PP: 1.04_1
+    default: 	p5-DBI: 1.641
+    default: 	mysql56-client: 5.6.40
+    default: 	unixODBC: 2.3.5
+    default: 	postgresql95-client: 9.5.12
+    default: 	p5-XML-Twig: 3.52
+    default: 	graphviz: 2.40.1_4
+    default: 	p5-IPC-Run: 0.98
+    default: 	p5-Pango: 1.227
+    default: 	p5-Glib-Object-Introspection: 0.044
+    default: 	p5-Cairo-GObject: 1.004_2
+    default: 	tidyp: 1.04_2
+    default: 	openjdk8: 8.162.12_2
+    default: 	p5-Inline-C: 0.78
+    default: 	WordNet: 3.0_3
+    default: 	e2fsprogs-libuuid: 1.44.2
+    default: 	p5-Task-Weaken: 1.05
+    default: 	lua51: 5.1.5_9
+    default: 	popt: 1.16_2
+    default: 	libarchive: 3.3.2,1
+    default: 	libxslt: 1.1.32
+    default: 
+    default: 	augeas: 1.10.1
+    default: 	en-aspell: 7.1.0_1
+    default: 	freeglut: 3.0.0_1
+    default: 	fusefs-libs: 2.9.5
+    default: 	gdk-pixbuf: 0.22.0_17
+    default: 	gnuplot: 5.2.2_1
+    default: 	gsl: 2.4
+    default: 	hdf: 4.2.11_4,1
+    default: 	imlib2: 1.5.1,2
+    default: 	ja-p5-Text-MeCab: 0.20009_3
+    default: 	libapreq2: 2.13_5
+    default: 	libglade2: 2.6.4_9
+    default: 	libqrencode: 4.0.0
+    default: 	libssh2: 1.8.0,3
+    default: 	libtermkey: 0.20_1
+    default: 	libxfce4util: 4.12.1
+    default: 	libxul: 45.9.0_11
+    default: 	p5-Authen-PAM: 0.16_2
+    default: 	p5-Crypt-OpenPGP: 1.06_2
+    default: 	p5-DBD-mysql: 4.046
+    default: 	p5-DBD-ODBC: 1.58
+    default: 	p5-DBD-Pg: 3.7.4
+    default: 	p5-ExtUtils-F77: 1.20_5
+    default: 	p5-GraphViz: 2.24
+    default: 	p5-Gtk2: 1.24992
+    default: 	p5-Gtk3: 0.026_1
+    default: 	p5-HTML-Tidy: 1.60
+    default: 	p5-Inline-Java: 0.540_2
+    default: 	p5-Net-LibIDN: 0.12_4
+    default: 	p5-Net-LibIDN2: 1.00
+    default: 	p5-Tcl: 1.05
+    default: 	p5-Text-Aspell: 0.09_3
+    default: 	p5-WordNet-QueryData: 1.49_1
+    default: 	p5-ZeroMQ: 0.21_3
+    default: 
+    default: 	proj: 4.9.3
+    default: 	protobuf: 3.5.1.1
+    default: 	rpm4: 4.13.1
+    default: 	rsync: 3.1.3
+    default: 	tcl-wrapper: 1.1_3
+    default: 	v8: 3.18.5_5
+    default: 	yaz: 5.23.1_1
+    default: 	openpgm: 5.2.122_3
+    default: 	norm: 1.5r6
+    default: 
+    default: Number of packages to be installed: 189
+    default: 
+    default: The process will require 1 GiB more space.
+    default: [1/189] Installing nspr-4.19...
+    default: [1/189] Extracting nspr-4.19: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [2/189] Installing libIDL-0.8.14_3...
+    default: [2/189] Extracting libIDL-0.8.14_3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [3/189] Installing spidermonkey170-17.0.0_8...
+    default: [3/189] Extracting spidermonkey170-17.0.0_8: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [4/189] Installing scrnsaverproto-1.2.2...
+    default: [4/189] Extracting scrnsaverproto-1.2.2: 
+    default: .
+    default: .. done
+    default: [5/189] Installing recordproto-1.14.2...
+    default: [5/189] Extracting recordproto-1.14.2: 
+    default: .
+    default: .
+    default: .. done
+    default: [6/189] Installing p5-Crypt-CBC-2.33_1...
+    default: [6/189] Extracting p5-Crypt-CBC-2.33_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [7/189] Installing p5-common-sense-3.74...
+    default: [7/189] Extracting p5-common-sense-3.74: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [8/189] Installing pkgconf-1.4.2,1...
+    default: [8/189] Extracting pkgconf-1.4.2,1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [9/189] Installing gstreamer-0.10.36_6...
+    default: [9/189] Extracting gstreamer-0.10.36_6: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [10/189] Installing orc-0.4.25...
+    default: [10/189] Extracting orc-0.4.25: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [11/189] Installing polkit-0.113_5...
+    default: ===> Creating groups.
+    default: Creating group 'polkitd' with gid '565'.
+    default: ===> Creating users
+    default: Creating user 'polkitd' with uid '565'.
+    default: [11/189] Extracting polkit-0.113_5: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [12/189] Installing dconf-0.26.1...
+    default: [12/189] Extracting dconf-0.26.1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [13/189] Installing ORBit2-2.14.19_2...
+    default: [13/189] Extracting ORBit2-2.14.19_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [14/189] Installing giflib-5.1.4...
+    default: [14/189] Extracting giflib-5.1.4: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [15/189] Installing libXScrnSaver-1.2.2_3...
+    default: [15/189] Extracting libXScrnSaver-1.2.2_3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [16/189] Installing libXtst-1.2.3...
+    default: [16/189] Extracting libXtst-1.2.3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [17/189] Installing libogg-1.3.3,4...
+    default: [17/189] Extracting libogg-1.3.3,4: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [18/189] Installing p5-Math-Pari-2.01080900...
+    default: [18/189] Extracting p5-Math-Pari-2.01080900: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [19/189] Installing p5-Class-Loader-2.03_1...
+    default: [19/189] Extracting p5-Class-Loader-2.03_1: 
+    default: .
+    default: .
+    default: .. done
+    default: [20/189] Installing p5-Crypt-DES-2.07_1...
+    default: [20/189] Extracting p5-Crypt-DES-2.07_1: 
+    default: .
+    default: .
+    default: .. done
+    default: [21/189] Installing printproto-1.0.5...
+    default: [21/189] Extracting printproto-1.0.5: 
+    default: .
+    default: .
+    default: .. done
+    default: [22/189] Installing p5-Types-Serialiser-1.0_1...
+    default: [22/189] Extracting p5-Types-Serialiser-1.0_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [23/189] Installing libGLU-9.0.0_3...
+    default: [23/189] Extracting libGLU-9.0.0_3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [24/189] Installing pangox-compat-0.0.2_2...
+    default: [24/189] Extracting pangox-compat-0.0.2_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [25/189] Installing gstreamer-plugins-0.10.36_8,3...
+    default: [25/189] Extracting gstreamer-plugins-0.10.36_8,3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [26/189] Installing gconf2-3.2.6_5...
+    default: [26/189] Extracting gconf2-3.2.6_5: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [27/189] Installing libmspack-0.5...
+    default: [27/189] Extracting libmspack-0.5: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [28/189] Installing webp-0.6.1...
+    default: [28/189] Extracting webp-0.6.1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [29/189] Installing libcroco-0.6.12...
+    default: [29/189] Extracting libcroco-0.6.12: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [30/189] Installing libgsf-1.14.41...
+    default: [30/189] Extracting libgsf-1.14.41: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [31/189] Installing lcms2-2.9...
+    default: [31/189] Extracting lcms2-2.9: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [32/189] Installing argyllcms-1.9.2_2...
+    default: [32/189] Extracting argyllcms-1.9.2_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [33/189] Installing at-spi2-core-2.24.0...
+    default: [33/189] Extracting at-spi2-core-2.24.0: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [34/189] Installing mpfr-3.1.6...
+    default: [34/189] Extracting mpfr-3.1.6: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [35/189] Installing v4l_compat-1.6.3...
+    default: [35/189] Extracting v4l_compat-1.6.3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [36/189] Installing libvorbis-1.3.6,3...
+    default: [36/189] Extracting libvorbis-1.3.6,3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [37/189] Installing p5-Crypt-Random-1.25_2...
+    default: [37/189] Extracting p5-Crypt-Random-1.25_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [38/189] Installing p5-Crypt-DES_EDE3-0.01_2...
+    default: [38/189] Extracting p5-Crypt-DES_EDE3-0.01_2: 
+    default: .
+    default: .. done
+    default: [39/189] Installing p5-Class-ErrorHandler-0.04...
+    default: [39/189] Extracting p5-Class-ErrorHandler-0.04: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [40/189] Installing p5-Convert-ASN1-0.27_2...
+    default: [40/189] Extracting p5-Convert-ASN1-0.27_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [41/189] Installing p5-XML-Parser-2.44...
+    default: [41/189] Extracting p5-XML-Parser-2.44: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [42/189] Installing libXp-1.0.3,1...
+    default: [42/189] Extracting libXp-1.0.3,1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [43/189] Installing p5-Parse-RecDescent-1.967.009_2...
+    default: [43/189] Extracting p5-Parse-RecDescent-1.967.009_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [44/189] Installing p5-ExtUtils-PkgConfig-1.16...
+    default: [44/189] Extracting p5-ExtUtils-PkgConfig-1.16: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [45/189] Installing p5-ExtUtils-Depends-0.405...
+    default: [45/189] Extracting p5-ExtUtils-Depends-0.405: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [46/189] Installing p5-YAML-LibYAML-0.67...
+    default: [46/189] Extracting p5-YAML-LibYAML-0.67: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [47/189] Installing p5-JSON-XS-3.04...
+    default: [47/189] Extracting p5-JSON-XS-3.04: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [48/189] Installing libgpg-error-1.28...
+    default: [48/189] Extracting libgpg-error-1.28: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [49/189] Installing p5-Cairo-1.106...
+    default: [49/189] Extracting p5-Cairo-1.106: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [50/189] Installing glib12-1.2.10_15...
+    default: [50/189] Extracting glib12-1.2.10_15: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [51/189] Installing wx28-gtk2-common-2.8.12_7...
+    default: [51/189] Extracting wx28-gtk2-common-2.8.12_7: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [52/189] Installing libgd-2.2.4_1,1...
+    default: [52/189] Extracting libgd-2.2.4_1,1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [53/189] Installing adwaita-icon-theme-3.22.0...
+    default: [53/189] Extracting adwaita-icon-theme-3.22.0: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [54/189] Installing librsvg2-2.40.17...
+    default: [54/189] Extracting librsvg2-2.40.17: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [55/189] Installing colord-1.2.12...
+    default: ===> Creating groups.
+    default: Creating group 'colord' with gid '970'.
+    default: ===> Creating users
+    default: Creating user 'colord' with uid '970'.
+    default: [55/189] Extracting colord-1.2.12: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [56/189] Installing at-spi2-atk-2.24.0...
+    default: [56/189] Extracting at-spi2-atk-2.24.0: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [57/189] Installing mpc-1.1.0...
+    default: [57/189] Extracting mpc-1.1.0: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [58/189] Installing gcc-ecj-4.5...
+    default: [58/189] Extracting gcc-ecj-4.5: 
+    default: . done
+    default: [59/189] Installing binutils-2.30_2,1...
+    default: [59/189] Extracting binutils-2.30_2,1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [60/189] Installing libvpx-1.7.0...
+    default: [60/189] Extracting libvpx-1.7.0: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [61/189] Installing libv4l-1.6.3_2...
+    default: [61/189] Extracting libv4l-1.6.3_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [62/189] Installing xvid-1.3.4,1...
+    default: [62/189] Extracting xvid-1.3.4,1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [63/189] Installing x265-2.6_1...
+    default: [63/189] Extracting x265-2.6_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [64/189] Installing libx264-0.152.2854...
+    default: [64/189] Extracting libx264-0.152.2854: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [65/189] Installing libvdpau-1.1.1...
+    default: [65/189] Extracting libvdpau-1.1.1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [66/189] Installing libva-2.1.0...
+    default: [66/189] Extracting libva-2.1.0: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [67/189] Installing libtheora-1.1.1_7...
+    default: [67/189] Extracting libtheora-1.1.1_7: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [68/189] Installing opencv-core-2.4.13.1_1...
+    default: [68/189] Extracting opencv-core-2.4.13.1_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [69/189] Installing opus-1.2.1...
+    default: [69/189] Extracting opus-1.2.1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [70/189] Installing libevent-2.1.8_1...
+    default: [70/189] Extracting libevent-2.1.8_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [71/189] Installing alsa-lib-1.1.2_1...
+    default: [71/189] Extracting alsa-lib-1.1.2_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [72/189] Installing p5-Digest-SHA1-2.13_1...
+    default: [72/189] Extracting p5-Digest-SHA1-2.13_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [73/189] Installing p5-Tie-EncryptedHash-1.24_1...
+    default: [73/189] Extracting p5-Tie-EncryptedHash-1.24_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [74/189] Installing p5-Digest-MD2-2.04_1...
+    default: [74/189] Extracting p5-Digest-MD2-2.04_1: 
+    default: .
+    default: .
+    default: .. done
+    default: [75/189] Installing p5-Crypt-Primes-0.50_2...
+    default: [75/189] Extracting p5-Crypt-Primes-0.50_2: 
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [76/189] Installing p5-Crypt-Blowfish-2.14_1...
+    default: [76/189] Extracting p5-Crypt-Blowfish-2.14_1: 
+    default: .
+    default: .
+    default: .. done
+    default: [77/189] Installing p5-Data-Buffer-0.04_1...
+    default: [77/189] Extracting p5-Data-Buffer-0.04_1: 
+    default: .
+    default: .. done
+    default: [78/189] Installing p5-Sort-Versions-1.5_1...
+    default: [78/189] Extracting p5-Sort-Versions-1.5_1: 
+    default: .
+    default: .. done
+    default: [79/189] Installing p5-Convert-ASCII-Armour-1.4_3...
+    default: [79/189] Extracting p5-Convert-ASCII-Armour-1.4_3: 
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [80/189] Installing p5-Convert-PEM-0.08_1...
+    default: [80/189] Extracting p5-Convert-PEM-0.08_1: 
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [81/189] Installing liblz4-1.8.1.2,1...
+    default: [81/189] Extracting liblz4-1.8.1.2,1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [82/189] Installing p5-HTML-Tree-5.07...
+    default: [82/189] Extracting p5-HTML-Tree-5.07: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [83/189] Installing p5-XML-XPath-1.42...
+    default: [83/189] Extracting p5-XML-XPath-1.42: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [84/189] Installing p5-Tie-IxHash-1.23_1...
+    default: [84/189] Extracting p5-Tie-IxHash-1.23_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [85/189] Installing p5-Text-Iconv-1.7_3...
+    default: [85/189] Extracting p5-Text-Iconv-1.7_3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [86/189] Installing libXaw-1.0.13,2...
+    default: [86/189] Extracting libXaw-1.0.13,2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [87/189] Installing libltdl-2.4.6...
+    default: [87/189] Extracting libltdl-2.4.6: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [88/189] Installing p5-IO-Tty-1.12_2...
+    default: [88/189] Extracting p5-IO-Tty-1.12_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [89/189] Installing p5-Glib2-1.326...
+    default: [89/189] Extracting p5-Glib2-1.326: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [90/189] Installing javavmwrapper-2.6...
+    default: [90/189] Extracting javavmwrapper-2.6: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [91/189] Installing java-zoneinfo-2018.c...
+    default: [91/189] Extracting java-zoneinfo-2018.c: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [92/189] Installing p5-Pegex-0.64...
+    default: [92/189] Extracting p5-Pegex-0.64: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [93/189] Installing p5-Inline-0.80...
+    default: [93/189] Extracting p5-Inline-0.80: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [94/189] Installing tcl86-8.6.8...
+    default: [94/189] Extracting tcl86-8.6.8: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [95/189] Installing lzo2-2.10_1...
+    default: [95/189] Extracting lzo2-2.10_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [96/189] Installing libgcrypt-1.8.2...
+    default: [96/189] Extracting libgcrypt-1.8.2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [97/189] Installing gtk3-3.22.29...
+    default: [97/189] Extracting gtk3-3.22.29: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [98/189] Installing libidn-1.33_1...
+    default: [98/189] Extracting libidn-1.33_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [99/189] Installing libzmq2-2.2.0_3...
+    default: [99/189] Extracting libzmq2-2.2.0_3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [100/189] Installing unibilium-2.0.0...
+    default: [100/189] Extracting unibilium-2.0.0: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [101/189] Installing aspell-0.60.6.1_7...
+    default: [101/189] Extracting aspell-0.60.6.1_7: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [102/189] Installing gtk12-1.2.10_25...
+    default: [102/189] Extracting gtk12-1.2.10_25: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [103/189] Installing wx28-gtk2-2.8.12_7...
+    default: [103/189] Extracting wx28-gtk2-2.8.12_7: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [104/189] Installing lua53-5.3.4_2...
+    default: [104/189] Extracting lua53-5.3.4_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [105/189] Installing tex-kpathsea-6.2.1_1...
+    default: [105/189] Extracting tex-kpathsea-6.2.1_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [106/189] Installing hdf-szip-2.1_2...
+    default: [106/189] Extracting hdf-szip-2.1_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [107/189] Installing gcc6-6.4.0_4...
+    default: [107/189] Extracting gcc6-6.4.0_4: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [108/189] Installing libid3tag-0.15.1b_1...
+    default: [108/189] Extracting libid3tag-0.15.1b_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [109/189] Installing ja-mecab-0.996_3...
+    default: [109/189] Extracting ja-mecab-0.996_3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [110/189] Installing p5-Class-Accessor-0.51...
+    default: [110/189] Extracting p5-Class-Accessor-0.51: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [111/189] Installing apache24-2.4.33...
+    default: ===> Creating groups.
+    default: Using existing group 'www'.
+    default: ===> Creating users
+    default: Using existing user 'www'.
+    default: [111/189] Extracting apache24-2.4.33: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [112/189] Installing xmlcatmgr-2.2_2...
+    default: [112/189] Extracting xmlcatmgr-2.2_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default:  + Creating /usr/local/share/sgml/catalog
+    default:  + Registering CATALOG catalog.ports (SGML)
+    default:  + Creating /usr/local/share/sgml/catalog.ports
+    default:  + Creating /usr/local/share/xml/catalog
+    default:  + Registering nextCatalog catalog.ports (XML)
+    default:  + Creating /usr/local/share/xml/catalog.ports
+    default: [113/189] Installing startup-notification-0.12_4...
+    default: [113/189] Extracting startup-notification-0.12_4: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [114/189] Installing hunspell-1.6.2...
+    default: [114/189] Extracting hunspell-1.6.2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [115/189] Installing nss-3.37.1...
+    default: [115/189] Extracting nss-3.37.1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [116/189] Installing ffmpeg-3.4.2,1...
+    default: [116/189] Extracting ffmpeg-3.4.2,1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [117/189] Installing icu-61.1,1...
+    default: [117/189] Extracting icu-61.1,1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [118/189] Installing soundtouch-1.9.2_4...
+    default: [118/189] Extracting soundtouch-1.9.2_4: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [119/189] Installing alsa-plugins-1.1.1_2...
+    default: [119/189] Extracting alsa-plugins-1.1.1_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [120/189] Installing p5-Crypt-Twofish-2.17_1...
+    default: [120/189] Extracting p5-Crypt-Twofish-2.17_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [121/189] Installing p5-Crypt-Rijndael-1.11_1...
+    default: [121/189] Extracting p5-Crypt-Rijndael-1.11_1: 
+    default: .
+    default: .
+    default: .. done
+    default: [122/189] Installing p5-Crypt-RSA-1.99_2...
+    default: [122/189] Extracting p5-Crypt-RSA-1.99_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [123/189] Installing p5-Crypt-RIPEMD160-0.06...
+    default: [123/189] Extracting p5-Crypt-RIPEMD160-0.06: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [124/189] Installing p5-Crypt-IDEA-1.10_1...
+    default: [124/189] Extracting p5-Crypt-IDEA-1.10_1: 
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [125/189] Installing p5-Crypt-DSA-1.17_1...
+    default: [125/189] Extracting p5-Crypt-DSA-1.17_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [126/189] Installing p5-Crypt-CAST5_PP-1.04_1...
+    default: [126/189] Extracting p5-Crypt-CAST5_PP-1.04_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [127/189] Installing p5-DBI-1.641...
+    default: [127/189] Extracting p5-DBI-1.641: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [128/189] Installing mysql56-client-5.6.40...
+    default: [128/189] Extracting mysql56-client-5.6.40: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [129/189] Installing unixODBC-2.3.5...
+    default: [129/189] Extracting unixODBC-2.3.5: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [130/189] Installing postgresql95-client-9.5.12...
+    default: [130/189] Extracting postgresql95-client-9.5.12: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [131/189] Installing p5-XML-Twig-3.52...
+    default: [131/189] Extracting p5-XML-Twig-3.52: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [132/189] Installing graphviz-2.40.1_4...
+    default: [132/189] Extracting graphviz-2.40.1_4: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [133/189] Installing p5-IPC-Run-0.98...
+    default: [133/189] Extracting p5-IPC-Run-0.98: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [134/189] Installing p5-Pango-1.227...
+    default: [134/189] Extracting p5-Pango-1.227: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [135/189] Installing p5-Glib-Object-Introspection-0.044...
+    default: [135/189] Extracting p5-Glib-Object-Introspection-0.044: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [136/189] Installing p5-Cairo-GObject-1.004_2...
+    default: [136/189] Extracting p5-Cairo-GObject-1.004_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [137/189] Installing tidyp-1.04_2...
+    default: [137/189] Extracting tidyp-1.04_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [138/189] Installing openjdk8-8.162.12_2...
+    default: [138/189] Extracting openjdk8-8.162.12_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [139/189] Installing p5-Inline-C-0.78...
+    default: [139/189] Extracting p5-Inline-C-0.78: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [140/189] Installing WordNet-3.0_3...
+    default: [140/189] Extracting WordNet-3.0_3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [141/189] Installing e2fsprogs-libuuid-1.44.2...
+    default: [141/189] Extracting e2fsprogs-libuuid-1.44.2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: ldconfig: warning: /usr/local/lib/e2fsprogs: 
+    default: No such file or directory
+    default: [142/189] Installing p5-Task-Weaken-1.05...
+    default: [142/189] Extracting p5-Task-Weaken-1.05: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [143/189] Installing lua51-5.1.5_9...
+    default: [143/189] Extracting lua51-5.1.5_9: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [144/189] Installing popt-1.16_2...
+    default: [144/189] Extracting popt-1.16_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [145/189] Installing libarchive-3.3.2,1...
+    default: [145/189] Extracting libarchive-3.3.2,1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [146/189] Installing libxslt-1.1.32...
+    default: [146/189] Extracting libxslt-1.1.32: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [147/189] Installing augeas-1.10.1...
+    default: [147/189] Extracting augeas-1.10.1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [148/189] Installing en-aspell-7.1.0_1...
+    default: [148/189] Extracting en-aspell-7.1.0_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [149/189] Installing freeglut-3.0.0_1...
+    default: [149/189] Extracting freeglut-3.0.0_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [150/189] Installing fusefs-libs-2.9.5...
+    default: [150/189] Extracting fusefs-libs-2.9.5: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [151/189] Installing gdk-pixbuf-0.22.0_17...
+    default: [151/189] Extracting gdk-pixbuf-0.22.0_17: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [152/189] Installing gnuplot-5.2.2_1...
+    default: [152/189] Extracting gnuplot-5.2.2_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [153/189] Installing gsl-2.4...
+    default: [153/189] Extracting gsl-2.4: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [154/189] Installing hdf-4.2.11_4,1...
+    default: [154/189] Extracting hdf-4.2.11_4,1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [155/189] Installing imlib2-1.5.1,2...
+    default: [155/189] Extracting imlib2-1.5.1,2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [156/189] Installing ja-p5-Text-MeCab-0.20009_3...
+    default: [156/189] Extracting ja-p5-Text-MeCab-0.20009_3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [157/189] Installing libapreq2-2.13_5...
+    default: [157/189] Extracting libapreq2-2.13_5: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [158/189] Installing libglade2-2.6.4_9...
+    default: [158/189] Extracting libglade2-2.6.4_9: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [159/189] Installing libqrencode-4.0.0...
+    default: [159/189] Extracting libqrencode-4.0.0: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [160/189] Installing libssh2-1.8.0,3...
+    default: [160/189] Extracting libssh2-1.8.0,3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [161/189] Installing libtermkey-0.20_1...
+    default: [161/189] Extracting libtermkey-0.20_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [162/189] Installing libxfce4util-4.12.1...
+    default: [162/189] Extracting libxfce4util-4.12.1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [163/189] Installing libxul-45.9.0_11...
+    default: [163/189] Extracting libxul-45.9.0_11: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [164/189] Installing p5-Authen-PAM-0.16_2...
+    default: [164/189] Extracting p5-Authen-PAM-0.16_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default:  done
+    default: [165/189] Installing p5-Crypt-OpenPGP-1.06_2...
+    default: [165/189] Extracting p5-Crypt-OpenPGP-1.06_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [166/189] Installing p5-DBD-mysql-4.046...
+    default: [166/189] Extracting p5-DBD-mysql-4.046: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [167/189] Installing p5-DBD-ODBC-1.58...
+    default: [167/189] Extracting p5-DBD-ODBC-1.58: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [168/189] Installing p5-DBD-Pg-3.7.4...
+    default: [168/189] Extracting p5-DBD-Pg-3.7.4: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [169/189] Installing p5-ExtUtils-F77-1.20_5...
+    default: [169/189] Extracting p5-ExtUtils-F77-1.20_5: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [170/189] Installing p5-GraphViz-2.24...
+    default: [170/189] Extracting p5-GraphViz-2.24: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [171/189] Installing p5-Gtk2-1.24992...
+    default: [171/189] Extracting p5-Gtk2-1.24992: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [172/189] Installing p5-Gtk3-0.026_1...
+    default: [172/189] Extracting p5-Gtk3-0.026_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [173/189] Installing p5-HTML-Tidy-1.60...
+    default: [173/189] Extracting p5-HTML-Tidy-1.60: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [174/189] Installing p5-Inline-Java-0.540_2...
+    default: [174/189] Extracting p5-Inline-Java-0.540_2: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [175/189] Installing p5-Net-LibIDN-0.12_4...
+    default: [175/189] Extracting p5-Net-LibIDN-0.12_4: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [176/189] Installing p5-Net-LibIDN2-1.00...
+    default: [176/189] Extracting p5-Net-LibIDN2-1.00: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [177/189] Installing p5-Tcl-1.05...
+    default: [177/189] Extracting p5-Tcl-1.05: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [178/189] Installing p5-Text-Aspell-0.09_3...
+    default: [178/189] Extracting p5-Text-Aspell-0.09_3: 
+    default: .
+    default: .
+    default: .. done
+    default: [179/189] Installing p5-WordNet-QueryData-1.49_1...
+    default: [179/189] Extracting p5-WordNet-QueryData-1.49_1: 
+    default: .
+    default: .. done
+    default: [180/189] Installing p5-ZeroMQ-0.21_3...
+    default: [180/189] Extracting p5-ZeroMQ-0.21_3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [181/189] Installing proj-4.9.3...
+    default: [181/189] Extracting proj-4.9.3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [182/189] Installing protobuf-3.5.1.1...
+    default: [182/189] Extracting protobuf-3.5.1.1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [183/189] Installing rpm4-4.13.1...
+    default: [183/189] Extracting rpm4-4.13.1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: 
+    default: No RPM database found.  If you wish to use RPM to install
+    default: RPM packages the you will need to initialise the database
+    default: with the commands:
+    default: 
+    default: 	mkdir -p /var/lib/rpm
+    default: 	/usr/local/bin/rpm --initdb
+    default: [184/189] Installing rsync-3.1.3...
+    default: [184/189] Extracting rsync-3.1.3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [185/189] Installing tcl-wrapper-1.1_3...
+    default: [185/189] Extracting tcl-wrapper-1.1_3: 
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [186/189] Installing v8-3.18.5_5...
+    default: [186/189] Extracting v8-3.18.5_5: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .. done
+    default: [187/189] Installing yaz-5.23.1_1...
+    default: [187/189] Extracting yaz-5.23.1_1: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [188/189] Installing openpgm-5.2.122_3...
+    default: [188/189] Extracting openpgm-5.2.122_3: 
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: .
+    default: . done
+    default: [189/189] Installing norm-1.5r6...
+    default: [189/189] Extracting norm-1.5r6: 
+    default: .
+    default: .
+    default: .. done
+    default: Message from opencv-core-2.4.13.1_1:
+    default: 
+    default: ===>   NOTICE:
+    default: 
+    default: The opencv-core port currently does not have a maintainer. As a result, it is
+    default: more likely to have unresolved issues, not be up-to-date, or even be removed in
+    default: the future. To volunteer to maintain this port, please create an issue at:
+    default: 
+    default: https://bugs.freebsd.org/bugzilla
+    default: 
+    default: More information about port maintainership is available at:
+    default: 
+    default: https://www.freebsd.org/doc/en/articles/contributing/ports-contributing.html#maintain-port
+    default: Message from gcc6-6.4.0_4:
+    default: 
+    default: To ensure binaries built with this toolchain find appropriate versions
+    default: of the necessary run-time libraries, you may want to link using
+    default: 
+    default:   -Wl,-rpath=/usr/local/lib/gcc6
+    default: 
+    default: For ports leveraging USE_GCC, USES=compiler, or USES=fortran this happens
+    default: transparently.
+    default: Message from ja-mecab-0.996_3:
+    default: 
+    default: ========================================================
+    default:                      **** NOTE ****
+    default:   ipadic was split into japanese/mecab-ipadic port.
+    default: ========================================================
+    default: 
+    default: ===>   NOTICE:
+    default: 
+    default: The ja-mecab port currently does not have a maintainer. As a result, it is
+    default: more likely to have unresolved issues, not be up-to-date, or even be removed in
+    default: the future. To volunteer to maintain this port, please create an issue at:
+    default: 
+    default: https://bugs.freebsd.org/bugzilla
+    default: 
+    default: More information about port maintainership is available at:
+    default: 
+    default: https://www.freebsd.org/doc/en/articles/contributing/ports-contributing.html#maintain-port
+    default: Message from apache24-2.4.33:
+    default: 
+    default: To run apache www server from startup, add apache24_enable="yes"
+    default: in your /etc/rc.conf. Extra options can be found in startup script.
+    default: 
+    default: Your hostname must be resolvable using at least 1 mechanism in
+    default: /etc/nsswitch.conf typically DNS or /etc/hosts or apache might
+    default: have issues starting depending on the modules you are using.
+    default: 
+    default: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    default: 
+    default: - apache24 default build changed from static MPM to modular MPM
+    default: - more modules are now enabled per default in the port
+    default: - icons and error pages moved from WWWDIR to DATADIR
+    default: 
+    default:    If build with modular MPM and no MPM is activated in
+    default:    httpd.conf, then mpm_prefork will be activated as default
+    default:    MPM in etc/apache24/modules.d to keep compatibility with
+    default:    existing php/perl/python modules!
+    default: 
+    default: Please compare the existing httpd.conf with httpd.conf.sample
+    default: and merge missing modules/instructions into httpd.conf!
+    default: 
+    default: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    default: Message from xmlcatmgr-2.2_2:
+    default: 
+    default: The following catalogs are installed:
+    default: 
+    default:  1) /usr/local/share/sgml/catalog
+    default: 
+    default:    The top level catalog for SGML stuff.  It is not changed
+    default:    by any ports/packages except textproc/xmlcatmgr.
+    default: 
+    default:  2) /usr/local/share/sgml/catalog.ports
+    default: 
+    default:    This catalog is for handling SGML stuff installed under
+    default:    /usr/local/share/sgml.  It is changed by ports/packages.
+    default: 
+    default:  3) /usr/local/share/xml/catalog
+    default: 
+    default:    The top level catalog for XML stuff.  It is not changed
+    default:    by any ports/packages except textproc/xmlcatmgr.
+    default: 
+    default:  4) /usr/local/share/xml/catalog.ports
+    default: 
+    default:    This catalog is for handling XML stuff installed under
+    default:    /usr/local/share/xml.  It is changed by ports/packages.
+    default: Message from mysql56-client-5.6.40:
+    default: 
+    default: * * * * * * * * * * * * * * * * * * * * * * * *
+    default: 
+    default: Please be aware the database client is vulnerable
+    default: to CVE-2015-3152 - SSL Downgrade aka "BACKRONYM".
+    default: You may find more information at the following URL:
+    default: 
+    default: http://www.vuxml.org/freebsd/36bd352d-299b-11e5-86ff-14dae9d210b8.html
+    default: 
+    default: Although this database client is not listed as
+    default: "affected", it is vulnerable and will not be
+    default: receiving a patch. Please take note of this when
+    default: deploying this software.
+    default: 
+    default: * * * * * * * * * * * * * * * * * * * * * * * *
+    default: Message from postgresql95-client-9.5.12:
+    default: 
+    default: The PostgreSQL port has a collection of "side orders":
+    default: 
+    default: postgresql-docs
+    default:   For all of the html documentation
+    default: 
+    default: p5-Pg
+    default:   A perl5 API for client access to PostgreSQL databases.
+    default: 
+    default: postgresql-tcltk
+    default:   If you want tcl/tk client support.
+    default: 
+    default: postgresql-jdbc
+    default:   For Java JDBC support.
+    default: 
+    default: postgresql-odbc
+    default:   For client access from unix applications using ODBC as access
+    default:   method. Not needed to access unix PostgreSQL servers from Win32
+    default:   using ODBC. See below.
+    default: 
+    default: ruby-postgres, py-psycopg2
+    default:   For client access to PostgreSQL databases using the ruby & python
+    default:   languages.
+    default: 
+    default: postgresql-plperl, postgresql-pltcl & postgresql-plruby
+    default:   For using perl5, tcl & ruby as procedural languages.
+    default: 
+    default: postgresql-contrib
+    default:   Lots of contributed utilities, postgresql functions and
+    default:   datatypes. There you find pg_standby, pgcrypto and many other cool
+    default:   things.
+    default: 
+    default: etc...
+    default: Message from openjdk8-8.162.12_2:
+    default: 
+    default: ======================================================================
+    default: 
+    default: This OpenJDK implementation requires fdescfs(5) mounted on /dev/fd and
+    default: procfs(5) mounted on /proc.
+    default: 
+    default: If you have not done it yet, please do the following:
+    default: 
+    default: 	mount -t fdescfs fdesc /dev/fd
+    default: 	mount -t procfs proc /proc
+    default: 
+    default: To make it permanent, you need the following lines in /etc/fstab:
+    default: 
+    default: 	fdesc	/dev/fd		fdescfs		rw	0	0
+    default: 	proc	/proc		procfs		rw	0	0
+    default: 
+    default: ======================================================================
+    default: Message from WordNet-3.0_3:
+    default: 
+    default: For the GUI word-browser ``wnb'' to function, Tk-8.6 must
+    default: 	be installed. This dependency is not automatic, because there
+    default: 	are plenty of uses for WordNet on servers without X11.
+    default: 
+    default: 	The command-line utility ``wn'', for example, requires only Tcl.
+    default: Message from freeglut-3.0.0_1:
+    default: 
+    default: Joystick support is untested and it is unknown if it works.
+    default: 
+    default: Do not hesitate to contact x11@FreeBSD.org if this causes issues.
+    default: Message from fusefs-libs-2.9.5:
+    default: 
+    default: Install the fuse kernel module to use this port.
+    default: Message from hdf-4.2.11_4,1:
+    default: 
+    default: ===>   NOTICE:
+    default: 
+    default: The hdf port currently does not have a maintainer. As a result, it is
+    default: more likely to have unresolved issues, not be up-to-date, or even be removed in
+    default: the future. To volunteer to maintain this port, please create an issue at:
+    default: 
+    default: https://bugs.freebsd.org/bugzilla
+    default: 
+    default: More information about port maintainership is available at:
+    default: 
+    default: https://www.freebsd.org/doc/en/articles/contributing/ports-contributing.html#maintain-port
+    default: Message from libxul-45.9.0_11:
+    default: 
+    default: ===>   NOTICE:
+    default: 
+    default: This port is deprecated; you may wish to reconsider installing it:
+    default: 
+    default: NPAPI are no longer supported.
+    default: 
+    default: It is scheduled to be removed on or after 2018-06-20.
+    default: Message from tcl-wrapper-1.1_3:
+    default: 
+    default: *******************************************************************
+    default: You may wish to modify (or create) the configuration file:
+    default: /usr/local/etc/tclsh.conf
+    default: 
+    default: Sample configuration file is located at:
+    default: /usr/local/etc/tclsh.conf.sample
+    default: *******************************************************************
+    default: Message from yaz-5.23.1_1:
+    default: 
+    default: ===>   NOTICE:
+    default: 
+    default: The yaz port currently does not have a maintainer. As a result, it is
+    default: more likely to have unresolved issues, not be up-to-date, or even be removed in
+    default: the future. To volunteer to maintain this port, please create an issue at:
+    default: 
+    default: https://bugs.freebsd.org/bugzilla
+    default: 
+    default: More information about port maintainership is available at:
+    default: 
+    default: https://www.freebsd.org/doc/en/articles/contributing/ports-contributing.html#maintain-port
+    default: Message from openpgm-5.2.122_3:
+    default: 
+    default: ===>   NOTICE:
+    default: 
+    default: The openpgm port currently does not have a maintainer. As a result, it is
+    default: more likely to have unresolved issues, not be up-to-date, or even be removed in
+    default: the future. To volunteer to maintain this port, please create an issue at:
+    default: 
+    default: https://bugs.freebsd.org/bugzilla
+    default: 
+    default: More information about port maintainership is available at:
+    default: 
+    default: https://www.freebsd.org/doc/en/articles/contributing/ports-contributing.html#maintain-port
