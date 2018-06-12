@@ -159,5 +159,9 @@ Vagrant.configure("2") do |config|
         unibilium \
         v8 \
         yaz
+
+     # CPAN libraries needed for test-against-dev
+     sudo cpan Perl::Download::FTP \
+	CPAN::cpanminus::reporter::RetainReports
   SHELL
 end
