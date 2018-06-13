@@ -1,0 +1,488 @@
+#!/usr/bin/env perl
+use 5.14.0;
+use warnings;
+use Archive::Extract;
+use Data::Dump qw( dd pp );
+use Carp;
+use Cwd;
+use File::Basename;
+use File::Copy;
+use File::Path qw(make_path);
+use File::Fetch;
+use File::Spec;
+use File::Temp qw(tempdir);
+use Getopt::Long;
+use Text::CSV_XS;
+use Test::Against::Dev;
+
+=head1 NAME
+
+build-from-tarball-cpan-river - Test CPAN river against downloaded RC tarball
+
+=head1 OBJECTIVE
+
+This program is intended for use in testing the overall Test-Against-Blead
+procedure, specifically, for testing branches of that distribution.
+
+This program assumes that you have already manually downloaded a Perl 5
+release tarball in F<.tar.gz> format to a location on disk.  The program
+builds and installs that F<perl>, installs F<cpanm> against that F<perl>, then
+tries to install a selected subset of CPAN modules against that F<perl>, then
+parses the F<cpanm> F<build.log> to write JSON files and creates a PSV file
+with summary data.
+
+
+    $> build-from-tarball-cpan-river \
+        --tarball_for_manual_build=/home/jkeenan/Downloads/perl-5.28.0-RC2.tar.gz \
+        --application_dir=/home/jkeenan/var/tad \
+        --minor_version=28 \
+        --patch_version=0 \
+        --compression=gz \
+        --river_file=/home/jkeenan/var/tad/src/modules-for-cpanm-20180523.txt \
+        --title=528RC2 \
+        --verbose=1
+
+=cut
+
+my $starttime = time();
+my (
+    $application_dir,
+    $tdir,
+    $minor_version,
+    $patch_version, 
+    $tarball_for_manual_build,
+    $compression, 
+    $river_file,
+    $title
+) = (undef) x 8;
+my $verbose = 0;
+
+GetOptions(
+    "application_dir=s"             => \$application_dir,
+    "tdir=s"                        => \$tdir,
+    "minor_version=i"               => \$minor_version,
+    "patch_version=i"               => \$patch_version,
+    "tarball_for_manual_build=s"    => \$tarball_for_manual_build,
+    "compression=s"                 => \$compression,
+    "river_file=s"                  => \$river_file,
+    "title=s"                       => \$title,
+    "verbose=i"                     => \$verbose,
+) or croak "Unable to get options";
+
+=pod
+
+    "host=s"                        => \$host,
+    "hostdir=s"                     => \$hostdir,
+
+=cut
+
+unless (-d $application_dir) {
+    croak "Could not locate application_dir '$application_dir'";
+}
+else {
+    say "application_dir:       $application_dir" if $verbose;
+}
+
+say "Perl minor_version:    $minor_version" if $verbose;
+
+unless ($patch_version >= 0 and $patch_version <= 15) {
+    croak "patch_version '$patch_version' seems strange";
+}
+else {
+    say "patch_version:         $patch_version" if $verbose;
+}
+
+unless (defined($tdir) and (-d $tdir)) { $tdir = tempdir(CLEANUP => 1); }
+say "scratch directory:     $tdir" if $verbose;
+
+$compression = 'gz';  # Only one value for now.
+if (! defined($tarball_for_manual_build) and $verbose) {
+    say "compression:           $compression";
+}
+unless (-f $river_file) {
+    croak "Could not locate river source file '$river_file'";
+}
+else {
+    say "river_file (source):   $river_file" if $verbose;
+}
+
+unless (length($title) > 2) {
+    croak "Title '$title' is suspiciously short";
+}
+else {
+    say "title:                 $title" if $verbose;
+}
+
+if ($tarball_for_manual_build) {
+    croak "Tarball for manual build not found at '$tarball_for_manual_build'"
+        unless -f $tarball_for_manual_build;
+    say "manual build tarball:  $tarball_for_manual_build" if $verbose;
+}
+
+##### END OPTIONS PROCESSING #####
+
+=pod
+
+A lot of hackery from here to the conclusion of the 'if' block.  This was
+needed because Test::Against::Dev, in its current version, assumes we're only
+dealing with monthly dev releases (whether downloaded via FTP or previously
+downloaded to disk).  It doesn't account for the possibility of comparing RC
+releases.  Consequently, it expects all its directories to be named something
+like 'perl-5.28.0' and cannot abide 'perl-5.28.0-RC2'.  But Archive::Extract
+(at least as I am calling it here), extracts to 'perl-5.28.0-RC2' if that's
+the stem-name of the tarball.
+
+=cut
+
+my $specific_release = basename($tarball_for_manual_build);
+$specific_release =~ s{^(.*)\.tar\.gz$}{$1};
+my $RC_condition;
+$RC_condition++ if $specific_release =~ m/-RC/;
+my ($stripped_release) = $specific_release =~ s{^(.*?)(-RC\d+)?$}{$1}r;
+say "stripped release:      $stripped_release" if $verbose;
+my $cwd = cwd();
+my ($tadobj, $release_dir, $this_cpanm, $cpanm_dir);
+
+if ($tarball_for_manual_build) {
+    my $rv = extract_tarball($tarball_for_manual_build, $tdir, $verbose);
+    croak "Unable to extract tarball" unless $rv;
+
+    my $tdir_specific_release = File::Spec->catdir($tdir, $specific_release);
+    my $tdir_stripped_release = File::Spec->catdir($tdir, $stripped_release);
+    if ($RC_condition) {
+        symlink $tdir_specific_release, $tdir_stripped_release;
+    }
+    else {
+        $tdir_stripped_release = $tdir_specific_release;
+    }
+    chdir $tdir_stripped_release or croak "Unable to change to '$tdir_stripped_release'";
+    $release_dir = File::Spec->catdir($application_dir, 'testing', $stripped_release);
+    my $configure_command = "sh ./Configure -des -Dusedevel -Uversiononly -Dprefix=";
+    $configure_command .= $release_dir;
+    $configure_command .= " -Dman1dir=none -Dman3dir=none";
+    $configure_command .= qq| -Duseithreads -Doptimize="-O2 -pipe -fstack-protector -fno-strict-aliasing"|;
+    my $make_command = 'make';
+    my $make_install_command = 'make install';
+    unless ($verbose > 1) {
+        $configure_command      .= " 1>/dev/null";
+        $make_command           .= " 1>/dev/null";
+        $make_install_command   .= " 1>/dev/null";
+    }
+    say "Configuring perl with '$configure_command'" if $verbose;
+    system(qq|$configure_command|)
+        and croak "Unable to configure with '$configure_command'";
+    say "Building perl with '$make_command'" if $verbose;
+    system(qq|$make_command|)
+        and croak "Unable to build with '$make_install_command'";
+    say "Installing perl with '$make_install_command'" if $verbose;
+    system(qq|$make_install_command|)
+        and croak "Unable to install with '$make_install_command'";
+
+    my $bin_dir = File::Spec->catdir($release_dir, 'bin');
+    my $lib_dir = File::Spec->catdir($release_dir, 'lib');
+    my $this_perl = File::Spec->catfile($bin_dir, 'perl');
+    croak "Could not locate '$bin_dir'" unless (-d $bin_dir);
+    croak "Could not locate '$lib_dir'" unless (-d $lib_dir);
+    croak "Could not locate '$this_perl'" unless (-f $this_perl);
+
+    ($this_cpanm, $cpanm_dir) = manual_cpanm_install($release_dir, $bin_dir, $verbose);
+
+    chdir $cwd or croak "Unable to change back to $cwd";
+
+    $tadobj = Test::Against::Dev->new_from_existing_perl_cpanm( {
+        application_dir => $application_dir,
+        path_to_perl    => File::Spec->catfile(
+            $application_dir, 'testing', $stripped_release, 'bin', 'perl'),
+        perl_version    => $stripped_release,
+    } );
+    croak "new_from_existing_perl_cpanm() did not return defined value"
+        unless defined $tadobj;
+    $tadobj->{cpanm_dir} = $cpanm_dir;
+    $tadobj->{this_cpanm} = $this_cpanm;
+}
+
+my $bin_dir = $tadobj->get_bin_dir();
+unless (-d $bin_dir) {
+    croak "Failed to locate bin_dir";;
+}
+else {
+    say "Located bin_dir: $bin_dir";
+}
+
+my $lib_dir = $tadobj->get_lib_dir();
+unless (-d $lib_dir) {
+    croak "Failed to locate lib_dir";;
+}
+else {
+    say "Located lib_dir: $lib_dir";
+}
+
+$cpanm_dir = $tadobj->get_cpanm_dir();
+unless (-d $cpanm_dir) {
+    croak "Failed to locate cpanm_dir";;
+}
+else {
+    say "Located cpanm_dir: $cpanm_dir";
+}
+
+pp({ %{$tadobj} });
+
+my $expected_log = File::Spec->catfile($release_dir, '.cpanm', 'build.log');
+my $gzipped_build_log;
+say "Expecting to log cpanm in $expected_log";
+
+
+{
+    local $@;
+    croak "Could not locate CPAN river file for testing at $river_file"
+        unless (-f $river_file);
+    $gzipped_build_log = $tadobj->run_cpanm( {
+        module_file => $river_file,
+        title       => $title,
+        verbose     => $verbose,
+    } );
+    unless ($@) {
+        say "run_cpanm operated as intended; see $expected_log for PASS/FAIL/etc.";
+    }
+    else {
+        say "run_cpanm did not operate as intended";
+    }
+    croak "Could not locate gzipped build.log at $gzipped_build_log"
+        unless (-f $gzipped_build_log);
+}
+
+my $ranalysis_dir = $tadobj->analyze_cpanm_build_logs( { verbose => $verbose } );
+unless (-d $ranalysis_dir) {
+    croak "analyze_cpanm_build_logs failed";
+}
+else {
+    say "analyze_cpanm_build_logs() returned path to version-specific analysis directory '$ranalysis_dir'";
+}
+
+my $fpsvfile = $tadobj->analyze_json_logs( { verbose => $verbose } );
+unless ($fpsvfile) {
+    croak "analyze_json_logs failed";
+}
+else {
+    say "analyze_json_logs() returned $fpsvfile";
+}
+
+chdir $cwd;
+
+#my $foutput = consolidate_psv_files( {
+#    application_dir     => $application_dir,
+#    minor_version       => $minor_version,
+#    patch_version       => $patch_version,
+#    title               => $title,
+#    verbose             => $verbose,
+#} );
+#croak "$foutput not created" unless (-f $foutput);
+#say "Created $foutput" if $verbose;
+
+say "Mar 18 2018: sidestepping consolidate_psv_files() because I want to see if my JSON fix works.";
+say "Hence, not attempting to write master PSV file.";
+say "Elapsed time: ", compute_running_time($starttime, time());
+
+say "\nFinished!";
+exit 0;
+
+##### SUBROUTINES #####
+
+sub extract_tarball {
+    my ($tarball_for_manual_build, $tdir, $verbose) = @_;
+    my $ae = Archive::Extract->new( archive => $tarball_for_manual_build );
+    my $ok = $ae->extract( to => $tdir );
+    croak $ae->error unless $ok;
+    say "Successfully extracted '$tarball_for_manual_build' to '$tdir'" if $verbose;
+    return 1;
+}
+
+sub manual_cpanm_install {
+    my ($release_dir, $bin_dir, $verbose) = @_;
+    my $uri = 'http://cpansearch.perl.org/src/MIYAGAWA/App-cpanminus-1.7043/bin/cpanm';
+
+    my $cpanm_dir = File::Spec->catdir($release_dir, '.cpanm');
+    unless (-d $cpanm_dir) { make_path($cpanm_dir, { mode => 0755 }); }
+    croak "Could not locate $cpanm_dir" unless (-d $cpanm_dir);
+
+    say "Fetching 'cpanm' from $uri" if $verbose;
+    my $ff = File::Fetch->new(uri => $uri);
+    my ($scalar, $where);
+    $where = $ff->fetch( to => \$scalar );
+    croak "Did not download 'cpanm'" unless (-f $where);
+    open my $IN, '<', \$scalar or croak "Unable to open scalar for reading";
+    my $this_cpanm = File::Spec->catfile($bin_dir, 'cpanm');
+    open my $OUT, '>', $this_cpanm or croak "Unable to open $this_cpanm for writing";
+    while (<$IN>) {
+        chomp $_;
+        say $OUT $_;
+    }
+    close $OUT or croak "Unable to close $this_cpanm after writing";
+    close $IN or croak "Unable to close scalar after reading";
+    unless (-f $this_cpanm) {
+        croak "Unable to locate '$this_cpanm'";
+    }
+    else {
+        say "Installed '$this_cpanm'" if $verbose;
+    }
+    my $cnt = chmod 0755, $this_cpanm;
+    croak "Unable to make '$this_cpanm' executable" unless $cnt;
+    return ($this_cpanm, $cpanm_dir);
+}
+
+=pod
+
+    my $foutput = consolidate_psv_files( {
+        application_dir     => $application_dir,
+        minor_version       => $minor_version,
+        patch_version       => $patch_version,
+        title               => $title,
+        verbose             => $verbose,
+        range_begin         => 2,   # optional; defaults to 0
+    } );
+
+=cut
+
+sub consolidate_psv_files {
+    my $args = shift;
+    croak "Argument to consolidate_psv_files must be hashref"
+        unless ref($args) eq 'HASH';
+    for my $k ( qw| application_dir minor_version patch_version title | ) {
+        croak "consolidate_psv_files:  must supply '$k' element"
+            unless length($args->{$k});
+    }
+
+    my $resultsdir = File::Spec->catdir($args->{application_dir}, 'results');
+    croak "Unable to locate '$resultsdir'" unless -d $resultsdir;
+    my $range_begin = $args->{range_begin} || 0;
+    my $range_end = $args->{patch_version};
+    my $perl_dev_cycle = "5.${minor_version}";
+    my $verbose = $args->{verbose} || 0;
+
+    croak "range-begin parameter must be less than or equal to range-end parameter"
+        unless $range_begin <= $range_end;
+    my @version_dirs = ();
+    for my $r ($range_begin..$range_end) {
+        my $vdir = File::Spec->catdir($resultsdir, "perl-$perl_dev_cycle.$r");
+        push @version_dirs, $vdir;
+    }
+    my @version_storage_dirs = ();
+    for my $v (@version_dirs) {
+        my $vsdir = File::Spec->catdir($v, 'storage');
+        push @version_storage_dirs, $vsdir;
+    }
+    for my $dir ($resultsdir, @version_dirs, @version_storage_dirs) {
+        unless (-d $dir) {
+            croak "Could not locate directory '$dir'";
+        }
+        else {
+            say "Located: $dir" if $verbose;
+        }
+    }
+    my @psvfiles = ();
+    for my $r ($range_begin..$range_end) {
+        my $sr = "perl-${perl_dev_cycle}.$r";
+        my $vsdir = File::Spec->catdir($resultsdir, $sr, 'storage');
+        my $psv = File::Spec->catfile(
+            $vsdir,
+            "$args->{title}.$sr.psv",
+        );
+        unless (-e $psv) {
+            croak "Could not locate '$psv'";
+        }
+        else {
+            push @psvfiles, $psv;
+            say "Located: $psv" if $verbose;
+        }
+    }
+    dd(\@psvfiles) if ($verbose > 1);
+
+    my $master_data = {};
+
+    for my $psvfile (@psvfiles) {
+        my $rv = read_one_psv($psvfile, $master_data, 0);
+        croak "read_one_psv() did not return true value" unless $rv;
+    }
+    if ($verbose > 1) {
+        say "Current state of master_date";
+        dd($master_data);
+    }
+
+    my $output = "$args->{title}.${perl_dev_cycle}.master.psv";
+    my $foutput = File::Spec->catfile($resultsdir, $output);
+    if (-f $foutput) {
+        copy $foutput => "$foutput.bak"
+            or croak "Unable to backup $foutput";
+    }
+    say "Result will be created in: $foutput" if $verbose;
+
+    my @columns = ('dist');
+    my @fields = ( qw| author distname distversion grade | );
+    for my $r ($range_begin..$range_end) {
+        for my $f (@fields) {
+            push @columns, "perl-$perl_dev_cycle.$r.$f";
+        }
+    }
+    dd(\@columns) if ($verbose > 1);
+
+    write_master_psv($master_data, \@columns, $foutput);
+
+    return $foutput;
+}
+
+sub read_one_psv {
+    my ($file, $master_data, $verbose) = @_;
+    say "Handling $file ..." if $verbose;
+    my $psv = Text::CSV_XS->new({ binary => 1, auto_diag => 1, sep_char => '|', eol => $/ });
+    open my $IN, "<:encoding(utf8)", $file
+        or croak "Unable to open $file for reading";
+
+    my @cols = @{$psv->getline($IN)};
+    dd(\@cols) if ($verbose > 1);
+    my $row = {};
+    $psv->bind_columns(\@{$row}{@cols});
+    while ($psv->getline($IN)) {
+        my $dist = $row->{dist};
+        $master_data->{$dist}{$_} = $row->{$_} for keys %{$row};
+    }
+    close $IN or croak "Unable to close $file after reading";
+    return 1;
+}
+
+sub write_master_psv {
+    my ($master_data, $columnsref, $foutput) = @_;
+    my $psv = Text::CSV_XS->new({ binary => 1, auto_diag => 1, sep_char => '|', eol => $/ });
+    open my $OUT, ">:encoding(utf8)", $foutput
+        or croak "Unable to open $foutput for writing";
+    $psv->print($OUT, $columnsref), "\n" or $psv->error_diag;
+    for my $dist (sort keys %{$master_data}) {
+        $psv->print($OUT, [ @{$master_data->{$dist}}{@{$columnsref}} ])
+            or $psv->error_diag;
+    }
+    close $OUT or croak "Unable to close $foutput after writing";
+    return 1;
+}
+
+sub compute_running_time {
+    my ($starttime, $endtime) = @_;
+    for my $t ($starttime, $endtime) {
+        croak "'$t' is not an integer" unless ($t =~ m/^\d+$/);
+    }
+    croak "Bad order" unless ($endtime >= $starttime);
+    my $d = $endtime - $starttime;
+    return convert_seconds($d);
+}
+
+sub convert_seconds {
+    my $seconds = shift;
+    croak "'$seconds' is not an integer" unless ($seconds =~ m/^\d+$/);
+    my ($hh, $mm, $ss);
+    $hh = sprintf("%02d" => int($seconds / 3600));
+    my $balmin = $seconds % 3600;
+    $mm = sprintf("%02d" => int($balmin / 60));
+    my $balsec = $balmin % 60;
+    $ss = sprintf("%02d" => $balsec);
+    return "$hh:$mm:$ss";
+}
+
+__END__
