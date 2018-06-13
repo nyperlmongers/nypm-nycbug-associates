@@ -95,6 +95,7 @@ Vagrant.configure("2") do |config|
      # test-against-dev's own functionality:
      sudo pkg install -y \
         p5-App-cpanminus-reporter \
+	p5-Archive-Extract \
         p5-CPAN-Testers-Common-Client \
         p5-Devel-Platform-Info \
         p5-Email-Address \
