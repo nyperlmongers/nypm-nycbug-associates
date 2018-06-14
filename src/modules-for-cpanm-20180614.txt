@@ -1530,7 +1530,6 @@ Module::Install::ReadmeFromPod
 MooX::Log::Any
 MooX::Role::Logger
 Net::Pcap
-POE::Component::SSLify
 Parse::CPAN::Packages
 Perlbal
 Regexp::Util
@@ -1739,7 +1738,6 @@ App::Options
 Array::Utils
 B::Compiling
 BenchmarkAnything::Config
-Bot::Cobalt
 Catalyst::Component::ACCEPT_CONTEXT
 Class::Field
 Class::Null
@@ -2843,8 +2841,6 @@ PAR::Packer
 PDLA::Core
 PGPLOT
 POE::Component::IRC::Plugin::BaseWrap
-POE::Component::Metabase::Client::Submit
-POE::Component::Server::IRC
 POE::Component::SmokeBox
 POE::Component::SmokeBox::Dists
 Panda::Export
@@ -2998,3 +2994,7 @@ Data::SimplePassword
 Data::TemporaryBag
 Datahub::Factory
 Date::Leapyear
+DateTime::Format::CLDR
+DateTime::Format::Duration::XSD
+DateTime::Util::Calc
+Desktop::Notify
