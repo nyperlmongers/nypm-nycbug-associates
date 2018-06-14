@@ -2826,7 +2826,6 @@ MooseX::Role::BuildInstanceOf
 MooseX::Types::DateTime::W3C
 MooseX::Types::ISO8601
 Net::Amazon::EC2
-Net::Async::ZMQ
 Net::IMAP::Client
 Net::IMAP::Simple::SSL
 Net::Ident
@@ -2998,3 +2997,4 @@ DateTime::Util::Calc
 Desktop::Notify
 Devel::BeginLift
 Devel::Declare::Parser::Fennec
+Device::ParallelPort
