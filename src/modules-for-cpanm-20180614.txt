@@ -2651,7 +2651,6 @@ Tk::Cloth
 Type::Libraries
 Types::LoadableClass
 Unicode::Japanese
-Unicode::Unihan
 VCS::Lite
 Validate::Tiny
 Version::Compare
@@ -2902,7 +2901,6 @@ Tk::ToolBar
 Tree::R
 Tree::Trie
 Type::EmailAddress
-Unicode::Tussle
 WWW::Facebook::API
 WWW::Google::Calculator
 WebService::Amazon::Signature
@@ -2998,3 +2996,5 @@ DateTime::Format::CLDR
 DateTime::Format::Duration::XSD
 DateTime::Util::Calc
 Desktop::Notify
+Devel::BeginLift
+Devel::Declare::Parser::Fennec
