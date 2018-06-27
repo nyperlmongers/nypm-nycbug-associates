@@ -143,13 +143,19 @@ if ($verbose) {
 }
 my ($latest_handled, $overlook_latest) = ('') x 2;
 unless ($testing) {
-    $latest_handled = $versions_handled[-1];
-    say "latest_handled:        $latest_handled" if $verbose;
+    $latest_handled = $versions_handled[-1] || '';
+    if ($verbose) {
+        if (length $latest_handled) {
+            say "latest_handled (test): $latest_handled";
+        }
+        else {
+            say "We have not yet handled any dev releases in this cycle";
+        }
+    }
 }
 else {
     $overlook_latest = pop @versions_handled;
     $latest_handled = $versions_handled[-1] || '';
-    #say "latest_handled (test): $latest_handled" if $verbose;
     if ($verbose) {
         if (length $latest_handled) {
             say "latest_handled (test): $latest_handled";
@@ -216,116 +222,115 @@ my $tadobj = Test::Against::Dev->new( {
 croak "new() did not return defined value"
     unless defined $tadobj;
 
-#my ($tarball_path, $work_dir, $release_dir);
-#say "Performing live FTP download of Perl tarball;\n  this may take a while.";
-#($tarball_path, $work_dir) = $tadobj->perform_tarball_download( {
-#    host                => $host,
-#    hostdir             => $hostdir,
-#    perl_version        => $latest_on_server,
-#    compression         => $compression,
-#    verbose             => $verbose,
-#    #mock                => $mock,
-#} );
-#
-#croak "perform_tarball_download() failed to return true values"
-#    unless (-f $tarball_path and -d $work_dir);
-#$release_dir = $tadobj->get_release_dir();
-#unless (-d $release_dir) {
-#    croak "Could not locate release_dir ";
-#}
-#else {
-#    say "Located release_dir: $release_dir";
-#}
-#
-#if ($testing) {
-#    say "For safe testing, exiting now" if $verbose;
-#    exit 0;
-#}
-#
-#my $this_perl = $tadobj->configure_build_install_perl({ verbose => $verbose });
-#unless (-f $this_perl) {
-#    croak "Failed to install perl";
-#}
-#else {
-#    say "Installed perl: $this_perl";
-#}
-#
-#my $this_cpanm = $tadobj->fetch_cpanm( { verbose => $verbose } );
-#unless (-f $this_cpanm) {
-#    croak "Failed to install cpanm";
-#}
-#else {
-#    say "Installed cpanm: $this_cpanm";
-#}
-#
-#my $bin_dir = $tadobj->get_bin_dir();
-#unless (-d $bin_dir) {
-#    croak "Failed to locate bin_dir";;
-#}
-#else {
-#    say "Located bin_dir: $bin_dir";
-#}
-#
-#my $lib_dir = $tadobj->get_lib_dir();
-#unless (-d $lib_dir) {
-#    croak "Failed to locate lib_dir";;
-#}
-#else {
-#    say "Located lib_dir: $lib_dir";
-#}
-#
-#my $cpanm_dir = $tadobj->get_cpanm_dir();
-#unless (-d $cpanm_dir) {
-#    croak "Failed to locate cpanm_dir";;
-#}
-#else {
-#    say "Located cpanm_dir: $cpanm_dir";
-#}
-#
-#pp({ %{$tadobj} });
-#
-#my $expected_log = File::Spec->catfile($release_dir, '.cpanm', 'build.log');
-#my $gzipped_build_log;
-#say "Expecting to log cpanm in $expected_log";
-#
-#
-#{
-#    local $@;
-#    croak "Could not locate CPAN river file for testing at $river_file"
-#        unless (-f $river_file);
-#    $gzipped_build_log = $tadobj->run_cpanm( {
-#        module_file => $river_file,
-#        title       => $title,
-#        verbose     => $verbose,
-#    } );
-#    unless ($@) {
-#        say "run_cpanm operated as intended; see $expected_log for PASS/FAIL/etc.";
-#    }
-#    else {
-#        say "run_cpanm did not operate as intended";
-#    }
-#    croak "Could not locate gzipped build.log at $gzipped_build_log"
-#        unless (-f $gzipped_build_log);
-#}
-#
-#my $ranalysis_dir = $tadobj->analyze_cpanm_build_logs( { verbose => $verbose } );
-#unless (-d $ranalysis_dir) {
-#    croak "analyze_cpanm_build_logs failed";
-#}
-#else {
-#    say "analyze_cpanm_build_logs() returned path to version-specific analysis directory '$ranalysis_dir'";
-#}
-#
-#my $fpsvfile = $tadobj->analyze_json_logs( { run => 1, verbose => $verbose } );
-#unless ($fpsvfile) {
-#    croak "analyze_json_logs failed";
-#}
-#else {
-#    say "analyze_json_logs() returned $fpsvfile";
-#}
-#
-#chdir $cwd;
-#
+my ($tarball_path, $work_dir, $release_dir);
+say "Performing live FTP download of Perl tarball;\n  this may take a while.";
+($tarball_path, $work_dir) = $tadobj->perform_tarball_download( {
+    host                => $host,
+    hostdir             => $hostdir,
+    perl_version        => $latest_on_server,
+    compression         => $compression,
+    verbose             => $verbose,
+} );
+
+croak "perform_tarball_download() failed to return true values"
+    unless (-f $tarball_path and -d $work_dir);
+$release_dir = $tadobj->get_release_dir();
+unless (-d $release_dir) {
+    croak "Could not locate release_dir ";
+}
+else {
+    say "Located release_dir: $release_dir";
+}
+
+if ($testing) {
+    say "For safe testing, exiting now" if $verbose;
+    exit 0;
+}
+
+my $this_perl = $tadobj->configure_build_install_perl({ verbose => $verbose });
+unless (-f $this_perl) {
+    croak "Failed to install perl";
+}
+else {
+    say "Installed perl: $this_perl";
+}
+
+my $this_cpanm = $tadobj->fetch_cpanm( { verbose => $verbose } );
+unless (-f $this_cpanm) {
+    croak "Failed to install cpanm";
+}
+else {
+    say "Installed cpanm: $this_cpanm";
+}
+
+my $bin_dir = $tadobj->get_bin_dir();
+unless (-d $bin_dir) {
+    croak "Failed to locate bin_dir";;
+}
+else {
+    say "Located bin_dir: $bin_dir";
+}
+
+my $lib_dir = $tadobj->get_lib_dir();
+unless (-d $lib_dir) {
+    croak "Failed to locate lib_dir";;
+}
+else {
+    say "Located lib_dir: $lib_dir";
+}
+
+my $cpanm_dir = $tadobj->get_cpanm_dir();
+unless (-d $cpanm_dir) {
+    croak "Failed to locate cpanm_dir";;
+}
+else {
+    say "Located cpanm_dir: $cpanm_dir";
+}
+
+pp({ %{$tadobj} });
+
+my $expected_log = File::Spec->catfile($release_dir, '.cpanm', 'build.log');
+my $gzipped_build_log;
+say "Expecting to log cpanm in $expected_log";
+
+
+{
+    local $@;
+    croak "Could not locate CPAN river file for testing at $river_file"
+        unless (-f $river_file);
+    $gzipped_build_log = $tadobj->run_cpanm( {
+        module_file => $river_file,
+        title       => $title,
+        verbose     => $verbose,
+    } );
+    unless ($@) {
+        say "run_cpanm operated as intended; see $expected_log for PASS/FAIL/etc.";
+    }
+    else {
+        say "run_cpanm did not operate as intended";
+    }
+    croak "Could not locate gzipped build.log at $gzipped_build_log"
+        unless (-f $gzipped_build_log);
+}
+
+my $ranalysis_dir = $tadobj->analyze_cpanm_build_logs( { verbose => $verbose } );
+unless (-d $ranalysis_dir) {
+    croak "analyze_cpanm_build_logs failed";
+}
+else {
+    say "analyze_cpanm_build_logs() returned path to version-specific analysis directory '$ranalysis_dir'";
+}
+
+my $fpsvfile = $tadobj->analyze_json_logs( { run => 1, verbose => $verbose } );
+unless ($fpsvfile) {
+    croak "analyze_json_logs failed";
+}
+else {
+    say "analyze_json_logs() returned $fpsvfile";
+}
+
+chdir $cwd;
+
 #$email_body = "Completed run of $0 for $latest_on_server";
 #email_notify( {
 #    email_to            => $email_to,
