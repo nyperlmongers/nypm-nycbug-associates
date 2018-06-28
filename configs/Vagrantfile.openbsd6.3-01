@@ -1,0 +1,165 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://vagrantcloud.com/search.
+  config.vm.box = "arfreitas/openbsd-6.3-cpan-smoker"
+  config.vm.box_version = "0.0.2"
+
+
+  config.vm.provision "shell", inline: <<-SHELL
+     export HOSTNAME="perl-reporter-02"
+     hostname $HOSTNAME
+     perl -Mstrict -E 'say "ev: <$ENV{HOSTNAME}>"; my $conf = q|/etc/rc.conf|; my $new_hostname=$ENV{HOSTNAME}; die "Could not locate conf file $conf" unless -f $conf; my $hostname_seen; open my $IN, q|<|, $conf or die "Unable to open $conf for reading"; while (my $l = <$IN>) { chomp $l; if ($l =~ m/^hostname="?(.*?)"?$/) { $hostname_seen = $1; last; } } close $IN or die "Unable to close $conf after reading"; if (!$hostname_seen) { if ($new_hostname) { open my $OUT, q|>>|, $conf or die "Unable to open $conf for appending"; my $line = qq|hostname="${new_hostname}"|; say $OUT $line; close $OUT or die "Unable to close $conf after appending"; } else { die "No existing hostname but no new hostname was provided"; } } else { say qq|hostname already assigned in $conf as $hostname_seen; not changing|; } exit 0;'
+     hostname
+     if [ ! -f /etc/localtime ]; then
+        tzsetup America/New_York
+     fi
+     sudo pkg_add update
+
+     sudo pkg_add install -y perl5 vim git subversion screen wget
+
+     sudo pkg_add install -y \
+        p5-Ack \
+        p5-App-cpanminus \
+        p5-Data-Dump \
+        p5-Devel-Cover \
+        p5-File-Path \
+        p5-List-Compare \
+        p5-Text-CSV-Hashify \
+        p5-Text-CSV_XS
+
+     sudo pkg_add install -y \
+        p5-App-cpanminus-reporter \
+	p5-Archive-Extract \
+        p5-CPAN-Testers-Common-Client \
+        p5-Devel-Platform-Info \
+        p5-Email-Address \
+        p5-Email-Address-XS \
+        p5-Email-Sender \
+        p5-Email-Simple \
+        p5-File-Fetch
+
+     sudo pkg_add install -y \
+        augeas \
+        curl \
+        dbus \
+        en-aspell \
+        freeglut \
+        fusefs-libs \
+        gdk-pixbuf \
+        glib \
+        gnuplot \
+        gobject-introspection \
+        gsl \
+        gtk3 \
+        hdf \
+        imlib2 \
+        ja-p5-Text-MeCab \
+        libapreq2 \
+        libglade2 \
+        libidn \
+        libqrencode \
+        libssh2 \
+        libtermkey \
+        libxfce4util \
+        libxmu \
+        libxul \
+        libzmq2 \
+        libzmq3 \
+        libzmq4 \
+        p5-Authen-PAM \
+        p5-Cairo \
+        p5-Crypt-OpenPGP \
+        p5-DBD-mysql \
+        p5-DBD-ODBC \
+        p5-DBD-Pg \
+        p5-ExtUtils-F77 \
+        p5-GraphViz \
+        p5-Gtk2 \
+        p5-Gtk3 \
+        p5-HTML-Tidy \
+        p5-Inline-Java \
+        p5-Net-LibIDN \
+        p5-Net-LibIDN2 \
+        p5-Tcl \
+        p5-Text-Aspell \
+        p5-WordNet-QueryData \
+        p5-ZeroMQ \
+        pkgconf \
+        proj \
+        protobuf \
+        rpm4 \
+        rsync \
+        tcl-wrapper \
+        unibilium \
+        v8 \
+        yaz
+
+     sudo cpan Perl::Download::FTP \
+	CPAN::cpanminus::reporter::RetainReports
+  SHELL
+
+  # Disable automatic box update checking. If you disable this, then
+  # boxes will only be checked for updates when the user runs
+  # `vagrant box outdated`. This is not recommended.
+  # config.vm.box_check_update = false
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine. In the example below,
+  # accessing "localhost:8080" will access port 80 on the guest machine.
+  # NOTE: This will enable public access to the opened port
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine and only allow access
+  # via 127.0.0.1 to disable public access
+  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+
+  # Create a private network, which allows host-only access to the machine
+  # using a specific IP.
+  # config.vm.network "private_network", ip: "192.168.33.10"
+
+  # Create a public network, which generally matched to bridged network.
+  # Bridged networks make the machine appear as another physical device on
+  # your network.
+  # config.vm.network "public_network"
+
+  # Share an additional folder to the guest VM. The first argument is
+  # the path on the host to the actual folder. The second argument is
+  # the path on the guest to mount the folder. And the optional third
+  # argument is a set of non-required options.
+   config.vm.synced_folder "../data", "/vagrant_data", disabled: true
+
+  # Provider-specific configuration so you can fine-tune various
+  # backing providers for Vagrant. These expose provider-specific options.
+  # Example for VirtualBox:
+  #
+  # config.vm.provider "virtualbox" do |vb|
+  #   # Display the VirtualBox GUI when booting the machine
+  #   vb.gui = true
+  #
+  #   # Customize the amount of memory on the VM:
+  #   vb.memory = "1024"
+  # end
+  #
+  # View the documentation for the provider you are using for more
+  # information on available options.
+
+  # Enable provisioning with a shell script. Additional provisioners such as
+  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+  # config.vm.provision "shell", inline: <<-SHELL
+  #   apt-get update
+  #   apt-get install -y apache2
+  # SHELL
+end
