@@ -67,7 +67,7 @@ Vagrant.configure("2") do |config|
 #     pkg update
 
   config.vm.provision "shell", inline: <<-SHELL
-     export HOSTNAME="perl-reporter-01"
+     export HOSTNAME="perl-reporter-03"
      hostname $HOSTNAME
      perl -Mstrict -E 'say "ev: <$ENV{HOSTNAME}>"; my $conf = q|/etc/rc.conf|; my $new_hostname=$ENV{HOSTNAME}; die "Could not locate conf file $conf" unless -f $conf; my $hostname_seen; open my $IN, q|<|, $conf or die "Unable to open $conf for reading"; while (my $l = <$IN>) { chomp $l; if ($l =~ m/^hostname="?(.*?)"?$/) { $hostname_seen = $1; last; } } close $IN or die "Unable to close $conf after reading"; if (!$hostname_seen) { if ($new_hostname) { open my $OUT, q|>>|, $conf or die "Unable to open $conf for appending"; my $line = qq|hostname="${new_hostname}"|; say $OUT $line; close $OUT or die "Unable to close $conf after appending"; } else { die "No existing hostname but no new hostname was provided"; } } else { say qq|hostname already assigned in $conf as $hostname_seen; not changing|; } exit 0;'
      hostname
@@ -116,7 +116,6 @@ Vagrant.configure("2") do |config|
         glib \
         gnuplot \
         gobject-introspection \
-        gpgme \
         gsl \
         gtk3 \
         hdf \
