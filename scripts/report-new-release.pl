@@ -69,21 +69,27 @@ Full path to directory where you customarily download files from the network.
 
 =cut
 
+my $date = qx/date/;
+chomp $date;
+say sprintf("%-52s%s" => ("Running $0 at:", $date));
+
 my $self = Perl::Download::FTP->new( {
     host        => 'ftp.funet.fi',
     dir         => '/pub/languages/perl/CPAN/src/5.0',
     verbose     => 1,
 } );
+my $type = 'dev_or_rc';
+my $compression = 'gz';
 
 my @all_releases = $self->ls();
 my @releases = $self->list_releases( {
-    type            => 'dev_or_rc',
-    compression     => 'gz',
+    type            => $type,
+    compression     => $compression,
     verbose         => 1,
 } ) or croak "Wrong" . $self->{ftp}->message;
-say "AAA: $releases[0]";
+say sprintf("%-52s%s" => ("Most recent $type tarball observed on server:", $releases[0]));
 my ($latest_on_server) = $releases[0] =~ m/^(.*?)\.tar/;
-say "BBB: $latest_on_server";
+say sprintf("%-52s%s" => ("Most recent $type version observed on server:", $latest_on_server));
 
 #dd(\@releases);
 
@@ -102,7 +108,11 @@ for my $v (@versions_handled) {
     croak qq|$dv is not a directory"| unless (-d $dv);
 }
 my $last_handled = $versions_handled[-1] || '';
-say "CCC: ", length($last_handled) ? $last_handled : "No versions handled yet";
+
+say sprintf("%-52s%s" => (
+    "Most recent Perl version processed:",
+    length($last_handled) ? $last_handled : "No versions handled yet",
+));
 
 my $body;
 if ($last_handled eq $latest_on_server) {
@@ -112,8 +122,8 @@ if ($last_handled eq $latest_on_server) {
 else {
     my $latest_release = '';
     $latest_release = $self->get_latest_release( {
-        compression     => 'gz',
-        type            => 'dev_or_rc',
+        compression     => $compression,
+        type            => $type,
         path            => $ENV{DOWNLOADS_DIR},
         verbose         => 1,
     } );
@@ -122,7 +132,7 @@ else {
     say $body;
 }
 
-say "Finished!";
+say "Finished!\n";
 exit 0;
 
 #################### SUBROUTINES ####################
