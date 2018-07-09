@@ -71,7 +71,8 @@ Full path to directory where you customarily download files from the network.
 
 my $date = qx/date/;
 chomp $date;
-say sprintf("%-52s%s" => ("Running $0 at:", $date));
+say sprintf("%-52s%s" => ("Date:", $date));
+say "Running $0";
 
 my $self = Perl::Download::FTP->new( {
     host        => 'ftp.funet.fi',
