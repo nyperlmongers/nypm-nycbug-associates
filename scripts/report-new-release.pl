@@ -8,6 +8,7 @@ use Perl::Download::FTP 0.05;
 #use Email::Simple;
 #use Email::Simple::Creator;
 use File::Spec;
+use Getopt::Long;
 
 =head1 NAME - report-new-release.pl
 
@@ -15,7 +16,14 @@ Check server for new dev or RC release and download if needed.
 
 =head1 USAGE
 
-    perl report-new-release.pl
+    perl report-new-release.pl \
+        --application_dir=$HOMEDIR/var/tad \
+        --host=ftp.funet.fi \
+        --hostdir=/pub/languages/perl/CPAN/src/5.0 \
+        --compression=gz \
+        --type=dev_or_rc \
+        --verbose \
+        --download
 
 =head1 PURPOSE
 
@@ -25,13 +33,16 @@ Each time it runs it will get a list of all dev or RC releases in a given
 format currently available via FTP.  It will identify the most recent release
 and extract a string like 'perl-5.29.x' or perl-5.30.0-RCx' from it.
 
-It will then examine the designated F<results> directory for the presence of subdirectories representing perl dev or RC releases which we have already processed with F<Test::Against::Dev>.
+It will then examine the designated F<results> directory for the presence of
+subdirectories representing perl dev or RC releases which we have already
+processed with F<Test::Against::Dev>.
 
 If the most recent release has already been handled, we will send an email
 that says so and C<exit 0>.  (If we don't have email working yet, it will just
 print the content of the email.)
 
-If the most recent dev or rc release has not yet been handled, we will download it, and email/log that we have done so.  In real production, that will kick off the test-against-dev process.
+If the most recent dev or rc release has not yet been handled and if the
+C<--download> option has B<not> been set, then we will and email/log that.
 
 =head1 PREREQUISITES
 
@@ -57,21 +68,13 @@ If the most recent dev or rc release has not yet been handled, we will download 
 
 =back
 
-=head2 Environmental Variables, Directories, etc.
+=head2 Environmental Variables
 
 =over 4
-
-=item * C<$HOMEDIR>
-
-User's home directory.
 
 =item * C<$DOWNLOADS_DIR>
 
 Full path to directory where you customarily download files from the network.
-
-=item * C<$HOMEDIR>/var/tad/results
-
-Directory underneath user's home directory in which a new Perl release will be processed.
 
 =back
 
@@ -82,19 +85,40 @@ chomp $date;
 say sprintf("%-52s%s" => ("Date:", $date));
 say "Running $0";
 
+my ($application_dir, $host, $hostdir, $compression, $type) = (undef) x 5;
+my ($download, $verbose) = ('') x 2;
+GetOptions(
+    "application_dir=s" => \$application_dir,
+    "host=s"            => \$host,
+    "hostdir=s"         => \$hostdir,
+    "compression=s"     => \$compression,
+    "type=s"            => \$type,
+    "download"          => \$download,
+    "verbose"           => \$verbose,
+) or croak "Unable to get options";
+
+unless (-d $application_dir) {
+    croak "Could not locate application_dir '$application_dir'";
+}
+else {
+    say "application_dir:       $application_dir" if $verbose;
+}
+say "host:                  $host"          if $verbose;
+say "hostdir:               $hostdir"       if $verbose;
+say "compression:           $compression"   if $verbose;
+say "type:                  $type"          if $verbose;
+
 my $self = Perl::Download::FTP->new( {
-    host        => 'ftp.funet.fi',
-    dir         => '/pub/languages/perl/CPAN/src/5.0',
-    verbose     => 1,
+    host        => $host,
+    dir         => $hostdir,
+    verbose     => $verbose,
 } );
-my $type = 'dev_or_rc';
-my $compression = 'gz';
 
 my @all_releases = $self->ls();
 my @releases = $self->list_releases( {
     type            => $type,
     compression     => $compression,
-    verbose         => 1,
+    verbose         => $verbose,
 } ) or croak "Wrong" . $self->{ftp}->message;
 say sprintf("%-52s%s" => ("Most recent $type tarball observed on server:", $releases[0]));
 my ($latest_on_server) = $releases[0] =~ m/^(.*?)\.tar/;
@@ -105,7 +129,9 @@ say sprintf("%-52s%s" => ("Most recent $type version observed on server:", $late
 our $dev_pattern = qr/^perl-5\.(29)\.(\d{1,2})/;
 our $rc_pattern  = qr/^perl-5\.(30)\.(\d{1,2})-RC(\d)/;
 
-my $resultsdir = "$ENV{HOMEDIR}/var/tad/results";
+my $resultsdir = File::Spec->catdir($application_dir, 'results');
+croak "Could not locate $resultsdir" unless -d $resultsdir;
+
 opendir my $DIRH, $resultsdir or croak "Unable to opendir";
 my @lines = grep { m/$dev_pattern|$rc_pattern/ } readdir $DIRH;
 closedir $DIRH or croak "Unable to closedir";
@@ -134,7 +160,7 @@ else {
         compression     => $compression,
         type            => $type,
         path            => $ENV{DOWNLOADS_DIR},
-        verbose         => 1,
+        verbose         => $verbose,
     } );
     $body = "We are seeing $latest_on_server for the first time;\n";
     $body .= "  downloaded $latest_release";
