@@ -57,13 +57,21 @@ If the most recent dev or rc release has not yet been handled, we will download 
 
 =back
 
-=head2 Environmental Variables
+=head2 Environmental Variables, Directories, etc.
 
 =over 4
+
+=item * C<$HOMEDIR>
+
+User's home directory.
 
 =item * C<$DOWNLOADS_DIR>
 
 Full path to directory where you customarily download files from the network.
+
+=item * C<$HOMEDIR>/var/tad/results
+
+Directory underneath user's home directory in which a new Perl release will be processed.
 
 =back
 
@@ -97,7 +105,7 @@ say sprintf("%-52s%s" => ("Most recent $type version observed on server:", $late
 our $dev_pattern = qr/^perl-5\.(29)\.(\d{1,2})/;
 our $rc_pattern  = qr/^perl-5\.(30)\.(\d{1,2})-RC(\d)/;
 
-my $resultsdir = '/home/jkeenan/var/tad/results';
+my $resultsdir = "$ENV{HOMEDIR}/var/tad/results";
 opendir my $DIRH, $resultsdir or croak "Unable to opendir";
 my @lines = grep { m/$dev_pattern|$rc_pattern/ } readdir $DIRH;
 closedir $DIRH or croak "Unable to closedir";
