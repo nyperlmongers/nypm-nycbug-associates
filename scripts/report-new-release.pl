@@ -155,15 +155,21 @@ if ($last_handled eq $latest_on_server) {
     say $body;
 }
 else {
-    my $latest_release = '';
-    $latest_release = $self->get_latest_release( {
-        compression     => $compression,
-        type            => $type,
-        path            => $ENV{DOWNLOADS_DIR},
-        verbose         => $verbose,
-    } );
-    $body = "We are seeing $latest_on_server for the first time;\n";
-    $body .= "  downloaded $latest_release";
+    if ($download) {
+        my $latest_release = '';
+        $latest_release = $self->get_latest_release( {
+            compression     => $compression,
+            type            => $type,
+            path            => $ENV{DOWNLOADS_DIR},
+            verbose         => $verbose,
+        } );
+        $body = "We are seeing $latest_on_server for the first time;\n";
+        $body .= "  downloaded $latest_release";
+    }
+    else {
+        $body = "We are seeing $latest_on_server for the first time;\n";
+        $body .= "  but are not downloading it";
+    }
     say $body;
 }
 
