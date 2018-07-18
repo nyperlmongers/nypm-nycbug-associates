@@ -12,6 +12,7 @@ use File::Copy;
 use File::Spec;
 use File::Temp qw(tempdir);
 use Getopt::Long;
+use lib ('/home/jkeenan/gitwork/test-against-dev/blib/lib');
 use Test::Against::Dev;
 use Test::Against::Dev::Sort;
 use Test::Against::Dev::ProcessPSV;
@@ -272,7 +273,11 @@ else {
     say "Installed perl: $this_perl";
 }
 
-my $this_cpanm = $tadobj->fetch_cpanm( { verbose => $verbose } );
+my $cpanm_uri = 'http://raw.githubusercontent.com/jkeenan/cpanminus/no-exit-1.7044/cpanm';
+my $this_cpanm = $tadobj->fetch_cpanm( {
+    verbose => $verbose,
+    uri     => $cpanm_uri,
+} );
 unless (-f $this_cpanm) {
     croak "Failed to install cpanm";
 }
@@ -310,16 +315,15 @@ my $expected_log = File::Spec->catfile($release_dir, '.cpanm', 'build.log');
 my $gzipped_build_log;
 say "Expecting to log cpanm in $expected_log";
 
-
 {
     local $@;
-    croak "Could not locate CPAN river file for testing at $river_file"
-        unless (-f $river_file);
-    $gzipped_build_log = $tadobj->run_cpanm( {
-        module_file => $river_file,
-        title       => $title,
-        verbose     => $verbose,
-    } );
+    eval {
+        $gzipped_build_log = $tadobj->run_cpanm( {
+            module_file => $river_file,
+            title       => $title,
+            verbose     => $verbose,
+        } );
+    };
     unless ($@) {
         say "run_cpanm operated as intended; see $expected_log for PASS/FAIL/etc.";
     }
