@@ -65,6 +65,7 @@ In real production, that will kick off the test-against-dev process.
     --minor_version=29 \
     --compression=gz \
     --river_file=/home/jkeenan/var/tad/src/modules-for-cpanm-20180626.txt \
+    --cpanm_uri=http://raw.githubusercontent.com/jkeenan/cpanminus/no-exit-1.7044/cpanm \
     --title=cpan-river-3000 \
     --email_to='"James E Keenan" <jkeenan@pobox.com>' \
     --email_from='"James E Keenan" <jkeenan@pobox.com>' \
@@ -81,9 +82,9 @@ say sprintf("%-52s%s" => ("Date:", $date));
 say "Running $0";
 
 my ($application_dir, $tdir, $compression, $host, $hostdir,
-    $river_file, $minor_version, $title,
+    $river_file, $cpanm_uri, $minor_version, $title,
     $email_from, $email_to, $email_subject,
-    $verbose, $testing) = (undef) x 12;
+    $verbose, $testing) = (undef) x 14;
 GetOptions(
     "application_dir=s" => \$application_dir,
     "tdir=s"            => \$tdir,
@@ -92,6 +93,7 @@ GetOptions(
     "host=s"            => \$host,
     "hostdir=s"         => \$hostdir,
     "river_file=s"      => \$river_file,
+    "cpanm_uri=s"       => \$cpanm_uri,
     "title=s"           => \$title,
     "email_from=s"      => \$email_from,
     "email_to=s"        => \$email_to,
@@ -126,6 +128,14 @@ unless (-f $river_file) {
 }
 else {
     say "river_file (source):   $river_file" if $verbose;
+}
+if ($verbose) {
+    if ($cpanm_uri) {
+        say "Using $cpanm_uri for 'cpanm'";
+    }
+    else {
+        say "Using Test::Against::Dev default value for 'cpanm'";
+    }
 }
 
 unless (length($title) > 2) {
@@ -198,10 +208,10 @@ if ($verbose) {
 my $latest_on_server = $releases[0];
 say "latest_on_server:      $latest_on_server" if $verbose;
 
-#my $email_body = '';
-#if ($latest_on_server eq $latest_handled) {
-#    # compose and send email indicating no action needed
-#    $email_body = "We've already handled $latest_on_server; no action needed";
+my $email_body = '';
+if ($latest_on_server eq $latest_handled) {
+    # compose and send email indicating no action needed
+    $email_body = "We've already handled $latest_on_server; no action needed";
 #    email_notify( {
 #        email_to            => $email_to,
 #        email_from          => $email_from,
@@ -210,9 +220,10 @@ say "latest_on_server:      $latest_on_server" if $verbose;
 #        email_body          => $email_body,
 #    } );
 #    say "\nFinished!";
-#    exit 0;
-#}
-#
+    say "$email_body\nFinished!\n";
+    exit 0;
+}
+
 ## compose and send email indicating we are taking an action
 ## take the action
 #say "Taking action to process $latest_on_server" if $verbose;
@@ -273,7 +284,6 @@ else {
     say "Installed perl: $this_perl";
 }
 
-my $cpanm_uri = 'http://raw.githubusercontent.com/jkeenan/cpanminus/no-exit-1.7044/cpanm';
 my $this_cpanm = $tadobj->fetch_cpanm( {
     verbose => $verbose,
     uri     => $cpanm_uri,
