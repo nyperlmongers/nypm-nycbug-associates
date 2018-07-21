@@ -12,7 +12,6 @@ use File::Copy;
 use File::Spec;
 use File::Temp qw(tempdir);
 use Getopt::Long;
-use lib ('/home/jkeenan/gitwork/test-against-dev/blib/lib');
 use Test::Against::Dev;
 use Test::Against::Dev::Sort;
 use Test::Against::Dev::ProcessPSV;
