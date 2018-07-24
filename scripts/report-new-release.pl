@@ -4,9 +4,9 @@ use warnings;
 use Data::Dump qw( dd pp );
 use Carp;
 use Perl::Download::FTP 0.05;
-#use Email::Sender::Simple qw(sendmail);
-#use Email::Simple;
-#use Email::Simple::Creator;
+use Email::Sender::Simple qw(sendmail);
+use Email::Simple;
+use Email::Simple::Creator;
 use File::Spec;
 use Getopt::Long;
 
@@ -22,6 +22,9 @@ Check server for new dev or RC release and download if needed.
         --hostdir=/pub/languages/perl/CPAN/src/5.0 \
         --compression=gz \
         --type=dev_or_rc \
+        --email_to='"James E Keenan" <jkeenan@pobox.com>' \
+        --email_from='"James E Keenan" <jkeenan@pobox.com>' \
+        --email_subject='Status of Perl 5 development release' \
         --verbose \
         --download
 
@@ -86,6 +89,7 @@ say sprintf("%-52s%s" => ("Date:", $date));
 say "Running $0";
 
 my ($application_dir, $host, $hostdir, $compression, $type) = (undef) x 5;
+my ($email_from, $email_to, $email_subject) = (undef) x 3;
 my ($download, $verbose) = ('') x 2;
 GetOptions(
     "application_dir=s" => \$application_dir,
@@ -94,6 +98,9 @@ GetOptions(
     "compression=s"     => \$compression,
     "type=s"            => \$type,
     "download"          => \$download,
+    "email_from=s"      => \$email_from,
+    "email_to=s"        => \$email_to,
+    "email_subject=s"   => \$email_subject,
     "verbose"           => \$verbose,
 ) or croak "Unable to get options";
 
@@ -149,10 +156,19 @@ say sprintf("%-52s%s" => (
     length($last_handled) ? $last_handled : "No versions handled yet",
 ));
 
-my $body;
+my $email_body;
 if ($last_handled eq $latest_on_server) {
-    $body = "We've already seen $latest_on_server";
-    say $body;
+    # compose and send email indicating no action needed
+    $email_body = "We've already handled $latest_on_server; no action needed";
+    email_notify( {
+        email_to            => $email_to,
+        email_from          => $email_from,
+        email_subject       => $email_subject,
+        latest_on_server    => $latest_on_server,
+        email_body          => $email_body,
+    } );
+    say "\nFinished!";
+    exit 0;
 }
 else {
     if ($download) {
@@ -163,14 +179,20 @@ else {
             path            => $ENV{DOWNLOADS_DIR},
             verbose         => $verbose,
         } );
-        $body = "We are seeing $latest_on_server for the first time;\n";
-        $body .= "  downloaded $latest_release";
+        $email_body = "We are seeing $latest_on_server for the first time;\n";
+        $email_body .= "  downloaded $latest_release";
     }
     else {
-        $body = "We are seeing $latest_on_server for the first time;\n";
-        $body .= "  but are not downloading it";
+        $email_body = "We are seeing $latest_on_server for the first time;\n";
+        $email_body .= "  but are not downloading it";
     }
-    say $body;
+    email_notify( {
+        email_to            => $email_to,
+        email_from          => $email_from,
+        email_subject       => $email_subject,
+        latest_on_server    => $latest_on_server,
+        email_body          => $email_body,
+    } );
 }
 
 say "Finished!\n";
@@ -210,6 +232,36 @@ sub sort_by_patch_version {
         $lines{$a}{patch} <=> $lines{$b}{patch} ||
         $lines{$a}{rc}    cmp $lines{$b}{rc}
     } keys %lines;
+}
+
+=pod
+
+    email_notify( {
+        email_to => $email_to,
+        email_from => $email_from,
+        email_subject => $email_subject,
+        latest_on_server => $latest_on_server,
+        email_body => $email_body,
+    } );
+
+=cut
+
+sub email_notify {
+    my $args = shift;
+    croak "email_notify() takes hash reference" unless ref($args) eq 'HASH';
+    my $email = Email::Simple->create(
+      header => [
+        To      => $args->{email_to},
+        From    => $args->{email_from},,
+        Subject => join(' ' => ($args->{email_subject}, $args->{latest_on_server})),
+      ],
+      body => $args->{email_body},
+    );
+
+    local $@;
+    eval { sendmail($email); };
+    if ($@) { say "Problem in sending email: <$@>"; exit 1; }
+    else { return 1 };
 }
 
 __END__
