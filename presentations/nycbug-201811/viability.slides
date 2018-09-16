@@ -1,0 +1,623 @@
+#SECTION# Introduction
+Testing CPAN against the Perl 5 Core Distribution: Where Do We Stand?
+*********************************************************************
+
+James E Keenan
+
+The Perl Conference::North America::2018
+#HTML# <bk>
+Salt Lake City, UT
+#HTML# <bk>
+Monday, June 18 2018
+
+Press N for the next page, B for back.
+
+----------------------------------------------------------------------
+Last Year at TPC
+++++++++++++++++
+
+o I spoke about 5 stages of testing the Perl 5 core distribution
+
+1 Individual Contributor
+
+2 Committer
+
+3 Smoke Testing
+
+4 Testing CPAN Modules
+
+5 Outer World
+
+----------------------------------------------------------------------
+Last Year at TPC
+++++++++++++++++
+
+o I spoke about 5 stages of testing the Perl 5 core distribution
+
+1 Individual Contributor
+
+2 Committer
+
+3 Smoke Testing
+
+4 [R[Testing CPAN Modules]R] <-- Today's focus
+
+5 Outer World
+
+----------------------------------------------------------------------
+#SECTION# Testing Core Distribution Against CPAN
+Today:  Focus on Testing Against CPAN Modules
+*********************************************
+
+o Terminology:
+
+    o "[R[Blead]R]" is the master development branch in Perl 5 core repository
+
+    o Does [R[B]R]lead [R[B]R]reak [R[C]R]PAN?
+
+=========================================
+o Does a CPAN distribution which previously passed all its tests ...
+
+    o ... fail to configure, build, test or install when run against Perl 5 blead?
+
+----------------------------------------------------------------------
+BBC Bug Tickets
++++++++++++++++
+
+#IMG# images/catalyst-runtime-bbc.png
+
+----------------------------------------------------------------------
+How Do We Handle "Blead Breaks CPAN" Issues?
+++++++++++++++++++++++++++++++++++++++++++++
+
+o Triage to determine cause:
+
+=========================================
+    o Defect in blead ----> failure in CPAN module?
+
+=========================================
+    o Defect in CPAN module exposed by change in blead?
+
+=========================================
+    o Some combination of above?
+
+=========================================
+o If the defect is, in whole or in part, in Perl 5 blead ...
+
+    o Then ticket becomes blocker for next production release of Perl.
+
+----------------------------------------------------------------------
+Importance of Testing CPAN against Perl 5 Blead
++++++++++++++++++++++++++++++++++++++++++++++++
+
+o We strive for backwards compatibility
+
+=========================================
+o ... but sometimes we have to break things
+
+    o Security fixes
+
+    o Enable Perl's continued growth 
+
+=========================================
+o A breaking change will disrupt Perl used in production
+
+    o The so-called "DarkPAN"
+
+=========================================
+o We use CPAN as a proxy for all the Perl 5 code in the wild
+
+----------------------------------------------------------------------
+How Well Do We Currently Test Blead Against CPAN?
++++++++++++++++++++++++++++++++++++++++++++++++++
+
+=========================================
+o Not systematically enough
+
+=========================================
+o Side-effect of heavy-duty automated CPAN testing, mostly of new uploads, conducted by:
+
+    o Veteran CPANtesters like:
+
+        o Andreas J. Koenig (ANDK)
+        o Slaven Rezic (SREZIC)
+        o Chris Williams (BINGOS)
+
+    o Newcomer (inspired by last year's TPC talk!):
+
+        o Carlos Guevara
+
+=========================================
+o Test CPAN distributions against multiple versions of Perl, including either:
+
+    o Monthly development releases (5.27.0, 5.27.1, ... 5.27.10); or
+    o Specific commits to blead
+
+----------------------------------------------------------------------
+Post-CPAN-Testing Legwork
++++++++++++++++++++++++++
+
+o Tester must scour CPANtesters.org for [R[FAIL]R]s
+
+=========================================
+o Tester must estimate whether the problem is in blead, in CPAN or some mix thereof
+
+    o Tester may have to bisect ([[perl Porting/bisect.pl]]) to identify "breaking" commit
+
+        o Effective, but time-consuming
+
+=========================================
+o Tester must file perlbug ticket
+
+=========================================
+o Perl 5 Porters must discuss bug ticket
+
+=========================================
+o Other distributions which fail due to the same commit are added to the original BBC ticket
+
+----------------------------------------------------------------------
+Limitations of Current Approach
++++++++++++++++++++++++++++++++
+
+=========================================
+o Requires deeply committed CPAN testers to test modules and to maintain testing infrastructure
+
+=========================================
+o Dependent on CPANtesters.org's operational status
+
+    o Reports sometimes not available for days after filing
+
+    o Situation improved since Perl Toolchain Summit, Oslo, April 2018
+
+=========================================
+o Difficult to search CPANtesters.org for [R[FAIL]R]s
+
+=========================================
+o No easy way in rt.perl.org to get list of all distributions failing due to a given commit
+
+    o Must scroll through many posts to a BBC ticket
+
+    o Must manually record when those distributions start to [G[PASS]G] again 
+
+----------------------------------------------------------------------
+No Way to Measure Progress Over Time
+++++++++++++++++++++++++++++++++++++
+
+o How does the number of currently "broken" distributions compare to:
+
+    o Last month in the current development cycle?
+
+    o The same time last year in the previous development cycle?
+
+o Limits Perl 5 committers' ability to anticipate CPAN "breakage"
+
+o Limits Perl 5 Porters' ability to hold Perl 5 committers accountable for CPAN "breakage"
+
+----------------------------------------------------------------------
+#SECTION# A New Approach: Test-Against-Dev
+Criteria for Alternative Approaches
++++++++++++++++++++++++++++++++++++
+
+o Note:  No one solution will address all these limitations
+
+    o But any given solution should address some of them
+
+=========================================
+o Should not depend on CPANtesters.org as source of test reports
+
+=========================================
+o Should not require years of expertise to set up or run
+
+=========================================
+o Should be runnable on multiple OSes
+
+=========================================
+o Should provide overall snapshot of impact of Perl 5 blead on CPAN
+
+=========================================
+o Should provide that snapshot within 24 hours of request for one
+
+=========================================
+o Should be oriented toward the needs of the Perl 5 Porters
+
+----------------------------------------------------------------------
+What I Have Developed:  "Test-Against-Dev"
+++++++++++++++++++++++++++++++++++++++++++
+
+o Run once a month after monthly development release appears on CPAN
+
+    o Have cron job listen for that release and kick off a process
+
+
+o In principle, could be run at any particular commit to blead
+
+    o But running against the monthly release:
+
+        o Is easier to schedule
+
+        o Provides a basis for easily understood time-series data
+
+----------------------------------------------------------------------
+test-against-dev
+++++++++++++++++
+o Download monthly dev release from CPAN via FTP
+
+o Build and install [[perl]]
+
+o Install [[cpanm]] against that [[perl]]
+
+o Install selected subset of CPAN against that [[perl]]
+
+    o Which subset?
+
+----------------------------------------------------------------------
+test-against-dev data
++++++++++++++++++++++
+
+o [[cpanm]] logs in [[build.log]]
+
+o [[test-against-dev]] parses that log file into JOSN for each module
+
+o Analyze JSON to create pipe-separated-values (PSV) files
+
+o Aggregate results with results from previous months
+
+o Manually post data to Perl 5 Porters mailing list
+
+
+----------------------------------------------------------------------
+Implementation: Test::Against::Dev Is Wrapper
++++++++++++++++++++++++++++++++++++++++++++++
+
+#IMG# images/test-against-dev.png
+
+----------------------------------------------------------------------
+Implementation: Start by Getting Monthly Release from CPAN
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+o CPAN module Test::Against::Dev wraps around Perl::Download::FTP
+
+#IMG# images/perl-download-ftp.png
+
+----------------------------------------------------------------------
+Implementation: Parse cpanm log
++++++++++++++++++++++++++++++++
+
+o Using CPAN::cpanminus-reporter-RetainReports
+
+#IMG# images/cpan-cpanminus-reporter-retainreports.png
+
+----------------------------------------------------------------------
+Analyze JSON Files
+++++++++++++++++++
+
+o Test::Against::Dev ...
+
+    o Analyzes that JSON to compose a Pipe-Separated-Values (PSV) file summarizing state of CPAN subset for that month's release
+
+    o Combines one month's PSV file into larger one holding entire development cycle
+
+----------------------------------------------------------------------
+Which CPAN Distributions Should We Test?
+++++++++++++++++++++++++++++++++++++++++
+
+o Why not "test all of CPAN"?
+
+=========================================
+    o Modules that are OS-specific
+
+=========================================
+    o Modules that are outdated or abandoned
+
+=========================================
+    o Modules that behave badly during automated testing
+
+        o Modules that require interactive configuration
+
+        o Modules whose tests rely too much on network connections
+
+        o Modules whose configuration, build or tests time out
+
+        o Modules whose tests fill up your disk
+
+=========================================
+    o Modules that have external dependencies
+
+----------------------------------------------------------------------
+CPAN River as Metaphor
+++++++++++++++++++++++
+
+o Developed by Neil Bowers and QA Hackathon participants
+
+o Imagine the Perl 5 core distribution as the source of a mighty river
+
+#IMG# images/cpan-river-nbowers.png
+
+o CPAN distributions increase the volume of water in the river
+
+o The river eventually flows into the sea -- which is all Perl code everywhere
+
+o But pollution upstream causes problems downstream
+
+----------------------------------------------------------------------
+CPAN River as Graph
++++++++++++++++++++
+
+o Listing of CPAN distributions in dependency order
+
+o Directed acyclic graph (DAG)
+
+#IMG# images/upstream-downstream-nbowers.png
+
+----------------------------------------------------------------------
+CPAN River for Testing Core Distribution During the 5.27 Development Cycle
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+o Use the "Top 1000" -- farthest upstream distributions -- as proxy for all of CPAN
+
+o On my Linode, install monthly development release and 'cpanm'
+
+o Feed "Top 1000" to 'cpanm'
+
+        cat cpan-river-1000.txt | xargs ./bin/cpanm
+
+=========================================
+o Use Test::Against::Dev to parse the build.log
+
+o Write PSV files suitable for opening in spreadsheets
+
+----------------------------------------------------------------------
+Notify Perl 5 Porters
++++++++++++++++++++++
+
+#IMG# images/notify-p5p-cpan-river-1000-20180222.png
+
+----------------------------------------------------------------------
+#SECTION# Summary
+Current Status
+++++++++++++++
+
+o [G[Good]G]
+
+    o Ran on my Linode from November 2017 to April 2018
+
+    o Monthly reports to Perl 5 Porters
+
+    o Perl 5 Porters started to use data to ask questions about status of blead
+
+=========================================
+o [R[Bad]R]
+
+    o 1-person process
+
+    o Only partially automated
+
+    o 1000 distributions is too shallow
+
+----------------------------------------------------------------------
+Plans for 5.29 Development Cycle
+++++++++++++++++++++++++++++++++
+
+o Want to test 3000 distributions during 5.29 development cycle
+
+o Want to run in more professional way
+
+    o More fully automated
+
+    o Managed with input from more experienced sysadmins
+
+o Want to strengthen open-source communities
+
+----------------------------------------------------------------------
+More than Just the Perl Community
++++++++++++++++++++++++++++++++++
+
+o Working with New York City BSD User Group (NYCBUG)
+
+    o Access to servers in data center
+
+    o BSD system administration expertise:  Mark Saad and George Rosamond
+
+#IMG# images/nycbug-web-site.png
+
+----------------------------------------------------------------------
+Perl Community Project "Prep528"
+++++++++++++++++++++++++++++++++
+
+o Philadelphia Perlmongers
+
+    o John Karr, Walt Mankowski, Thomas McKernan
+
+    o Analyzed sets of 10 CPAN distributions which were not [G[PASS]G]ing
+
+    o Filed patches/pull requests to get them working before 5.28.0 release
+
+o New York Perlmongers
+
+    o Andrew Villano:  sysadmin coaching
+
+----------------------------------------------------------------------
+Other Approaches
+++++++++++++++++
+
+o TIMTOWTDI
+
+o Other people developing approaches to testing blead against CPAN:
+
+    o Ryan Voots (simcop2387)
+
+    o Todd Rinaldo (toddr), Nicolas R (atoomic) and other Houston Perlmongers
+
+----------------------------------------------------------------------
+Thank You
+*********
+
+o Sponsors of Perl 5 Core Hackathon, Amsterdam, October 2017
+
+    o Booking.com; cPanel; and more
+
+o Shout-outs:
+
+    o David Golden
+
+        o MongoDB-based program to calculate the CPAN river.
+
+    o Neil Bowers:
+
+        o Raised consciousness about the CPAN River
+
+        o Supplied two images.
+
+
+----------------------------------------------------------------------
+References
+**********
+
+o TPC::NA::2017 Presentation: How Do We Assess and Maintain the Health of the Perl 5 Codebase?
+
+#HTML# <a name="tpcna2017_pdf" href="http://thenceforward.net/perl/tpc/TPC-NA-2017/p5-codebase-health.pdf">PDF</a>
+#HTML# <bk>
+
+#HTML# <a name="tpcna2017_slides" href="http://thenceforward.net/perl/tpc/TPC-NA-2017/slides/">Slides</a>
+#HTML# <bk>
+
+#HTML# <a name="tpcna2017_video" href="https://www.youtube.com/watch?v=yLFHyxALAbE&list=PLA9_Hq3zhoFxdSVDA4v9Af3iutQxLI14m&index=65&t=4s">Video</a>
+#HTML# <bk>
+
+
+o Perl 5 Smoke Testing
+
+#HTML# <a name="test-smoke.org" href="http://perl5.test-smoke.org/search">Smoke test summaries at perl5.test-smoke.org</a>
+#HTML# <bk>
+
+#HTML# <a name="develop-help.com" href="http://perl.develop-help.com/?b=blead">Smoke test summaries at perl.develop-help.com</a>
+#HTML# <bk>
+
+#HTML# <a name="smoke 48878" href="http://perl5.test-smoke.org/report/48878">Smoke 48878: First recent smoke test on FreeBSD-10.3</a>
+#HTML# <bk>
+
+#HTML# <a name="smoke 50778" href="http://perl5.test-smoke.org/report/50778">Smoke 50778: First recent smoke test on FreeBSD-11.0</a>
+#HTML# <bk>
+
+o CPAN Distributions Cited
+
+#HTML# <a name="App-cpanminus-reporter" href="http://search.cpan.org/dist/App-cpanminus-reporter/">App-cpanminus-reporter</a>
+#HTML# <bk>
+
+#HTML# <a name="Perl-Download-FTP" href="http://search.cpan.org/dist/Perl-Download-FTP/">Perl-Download-FTP</a>
+#HTML# <bk>
+
+#HTML# <a name="CPAN-cpanminus-reporter-RetainReports" href="http://search.cpan.org/dist/CPAN-cpanminus-reporter-RetainReports/">CPAN-cpanminus-reporter-RetainReports</a>
+#HTML# <bk>
+
+#HTML# <a name="Test-Against-Dev" href="http://search.cpan.org/dist/Test-Against-Dev/">Test-Against-Dev</a>
+#HTML# <bk>
+
+#HTML# <a name="Test-Smoke" href="http://search.cpan.org/dist/Test-Smoke/">Test-Smoke</a>
+#HTML# <bk>
+
+o CPAN River
+
+#HTML# <a name="river_of_cpan" href="http://neilb.org/2015/04/20/river-of-cpan.html">Original Neil Bower River of CPAN Post</a>
+#HTML# <bk>
+
+#HTML# <a name="cpan_river" href="http://neilb.org/tag/cpan-river/">Selected Neil Bower CPAN River Posts</a>
+#HTML# <bk>
+
+#HTML# <a name="xdg-index-cpan-meta" href="https://github.com/dagolden/zzz-index-cpan-meta">David Golden's Computation of CPAN River</a>
+#HTML# <bk>
+
+o Output from Test::Against::Dev
+
+#HTML# <a name="5.27-master-psv" href="http://thenceforward.net/perl/misc/cpan-river-1000-perl-5.27-master.psv.gz">5.27 Test-Against-Dev PSV (Original Format)</a>
+#HTML# <bk>
+
+#HTML# <a name="5.27-master-psv-xformat" href="http://thenceforward.net/perl/misc/xformat-cpan-river-1000-perl-5.27-master.psv.gz">5.27 Test-Against-Dev PSV (Enhanced Format)</a>
+#HTML# <bk>
+
+(Links confirmed as of March 09 2018)
+
+----------------------------------------------------------------------
+#SECTION# Bonus Slides
+Bonus Slides
+************
+----------------------------------------------------------------------
+Perl-Download-FTP
++++++++++++++++++
+
+#HTML# <a name="Perl-Download-FTP" href="http://search.cpan.org/dist/Perl-Download-FTP/">Perl-Download-FTP on CPAN</a>
+#HTML# <bk>
+
+o Why download via FTP?
+
+    o Why not?  TIMTOWTDI
+
+    o Each monthly dev release tarball first appears only in that month's Release Manager's personal directory on CPAN.
+
+        o I don't want to have to write code in a 'cron' job to handle the Release Manager's CPAN id.
+
+o But this has revealed holes in our listings on cpan.org
+
+    o Certain monthly release tarballs missing because their Release Managers deleted them from their home directories
+
+
+#HTML# <a name="rt-132529" href="https://rt.perl.org/Ticket/Display.html?id=132529">RT 132529: Tarballs missing from CPAN mirrors</a>
+#HTML# <bk>
+
+o Whatever!  It's pluggable
+
+#IMG# images/perl-download-ftp.png
+
+----------------------------------------------------------------------
+App-cpanminus-reporter
+++++++++++++++++++++++
+
+#HTML# <a name="app-cpanminus-reporter" href="http://search.cpan.org/dist/App-cpanminus-reporter/">App-cpanminus-reporter on CPAN</a>
+#HTML# <bk>
+
+o App-cpanminus-reporter is to 'cpanm' as ...
+
+    o CPAN-Reporter is to 'cpan'
+
+o Module written by Breno G. de Oliveira (GARU)
+
+    o Command-line utility 'cpanminus-reporter'
+
+    o Parses 'cpanm' 'build.log' and transmits reports to CPANtesters.org
+
+    o But does *not* retain reports on disk
+
+#IMG# images/app-cpanminus-reporter.png
+
+----------------------------------------------------------------------
+CPAN-cpanminus-reporter-RetainReports
++++++++++++++++++++++++++++++++++++++
+
+#HTML# <a name="CcrRR" href="http://search.cpan.org/dist/CPAN-cpanminus-reporter-RetainReports/">CPAN-cpanminus-reporter-RetainReports on CPAN</a>
+#HTML# <bk>
+
+o Subclasses App-cpanminus-reporter
+
+o Does not transmit reports to CPANtesters.org
+
+o Writes JSON files to a single directory for each run of 'cpanm'
+
+o JSON can be re-ingested by 'perl' to create analytics, e.g., PSV files
+
+#IMG# images/cpan-cpanminus-reporter-retainreports.png
+
+----------------------------------------------------------------------
+CPAN River: Conceptual Limitations
+++++++++++++++++++++++++++++++++++
+
+o Won't include distributions which, though widely used, have not been extensively subclassed
+
+    o Test-Smoke
+
+o Will include distributions that have been extensively subclassed but which have fallen out of use
+
+    o Class-DBI
+
+o Will include "one-person empires":  trees of distributions with only one author
+
+----------------------------------------------------------------------

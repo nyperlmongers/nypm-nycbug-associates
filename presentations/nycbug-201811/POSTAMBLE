@@ -1,0 +1,47 @@
+<!-- POSTAMBLE -->
+<!-- Edit: copyright date -->
+<br clear=all>
+
+<hr>
+
+<table width=100%>
+<tr>
+  <td align=left width=20%>
+    <a accesskey="h" id="home" name="home" href="index.html">Home</a>
+    <a accesskey="l" id="last" name="last" href="$MJD_LAST_FILE">Last</a>
+    <a accesskey="t" id="toc" name="toc" href="TABLE_OF_CONTENTS.html">TOC</a>
+  <td align=center width=60%>Copyright &copy; 2018 James E Keenan and Andrew
+Villano</td>
+  <td align=right width=20%>
+    <a accesskey="b" href="$MJD_PREV_FILE">Back</a>
+    <a accesskey="n" href="$MJD_NEXT_FILE">Next</a>
+  </td>
+</tr>
+</table>
+
+<script><!--
+document.getElementById("next").focus();
+    document.onkeydown = function (evt) {
+        var code = evt.keyCode;
+        switch (code) {
+        case 34:
+        case 78:
+            location.href = document.links["next"].href;
+            break;
+        case 76:
+            location.href = document.links["last"].href;
+            break;
+        case 33:
+        case 66:
+            location.href = document.links["back"].href;
+            break;
+        case 72:
+            location.href = document.links["home"].href;
+            break;
+        case 84:
+            location.href = document.links["toc"].href;
+            break;
+        }
+        return true;
+    };
+--></script>

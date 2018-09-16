@@ -1,0 +1,28 @@
+<html>
+<!-- TOC_HEAD -->
+<!-- Edit: title h1 h2 with presentation name, venue, date -->
+<link rel="stylesheet" type="text/css" href="jkeenan_traditional.css" />
+<head>
+<title>Ensuring Perl's Viability on FreeBSD: A NYCBUG-NY.PM Collaboration</title>
+
+</head>
+<body bgcolor=white>
+<h1>Ensuring Perl's Viability on FreeBSD: A NYCBUG-NY.PM Collaboration</h1>
+<br /><br />
+
+<h2>James E Keenan and Andrew Villano
+<br /><br />
+
+New York City BSD User Group/New York Perlmongers</br />
+November 07 2018
+</h2>
+</br />
+
+
+<p>
+
+</p>
+
+<h1>Table of Contents</h1>
+
+<span class="toc">
