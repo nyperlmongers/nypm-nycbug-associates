@@ -1,0 +1,7 @@
+R    #ff0000
+G    #057f05
+B    #0000ff
+P    #0000ff
+V    purple
+E    sub { "&$_;" }
+C    sub { qq{<FONT COLOR="purple"><B><TT>$_</TT></B></FONT>} }

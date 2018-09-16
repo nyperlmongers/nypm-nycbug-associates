@@ -1,0 +1,115 @@
+=encoding utf8
+
+=head1 Ensuring Perl's Viability on FreeBSD: A NYCBUG-NY.PM Collaboration
+
+=head2 Authors
+
+James E Keenan (jkeenan@cpan.org)
+
+Andrew Villano
+
+=head2 Location
+
+    New York City BSD User Group / New York Perlmongers
+    November 07 2018
+
+=head2 Synopsis
+
+How have NYCBUG and New York Perlmongers collaborated to ensure the continued
+viability of Perl 5 on FreeBSD?
+
+=head2 Introduction
+
+Tonight Andrew Villano and I report on the progress of a collaboration between
+the New York City BSD User Group (NYCBUG) and New York Perlmongers (NY.pm) to
+ensure the continued viabilty of the Perl 5 programming language and ecosystem
+on the FreeBSD operating system.  We'll consider:
+
+=over 4
+
+=item * The Perl 5 core distribution and development process
+
+=item * Testing the Perl 5 core distribution on various platforms
+
+=item * The Perl 5 ecosystem:  CPAN
+
+=item * Testing CPAN on various platforms:  CPANtesters
+
+=item * The Perl 5 development process in relation to CPAN
+
+=item * The need for diversity in testing environments
+
+=item * The NYCBUG-NY.pm collaboration
+
+=item * Preparation of the testing environment
+
+=item * Testing Perl monthly development releases against CPAN on FreeBSD
+
+=item * Impacts
+
+=back
+
+=head2 The Perl 5 Core Distribution and Development Process
+
+When we speak of B<"Perl"> tonight we're talking about Perl 5, the version of
+the language introduced by Larry Wall in 1994 and under continuous development
+ever since.  Perl's development takes place on an annual cycle.  Every year a
+new production version of Perl is released in late spring.  The current
+production version is C<5.28.0>, released in June of this year.  The fact that
+the C<28> in the middle of that version is an B<even> number indicates a
+production version.  With the release of 5.28.0 we began a new annual
+development cycle in which we issue monthly development releases whose middle
+number is the next higher B<odd> number: C<5.29.0> came out in July, C<5.29.1>
+in August, and so forth -- so that we're now up to C<5.29.4>.  On a daily
+basis changes to the source code are made to a F<git> repository housed at
+L<B<perl.org>|https://perl5.git.perl.org/>.  Once a month those changes are
+rolled up into a tarball for the next development release of the Perl 5 core
+distribution.
+
+When we speak of the B<"Perl 5 core distribution"> we mean the source code
+required to build the F<perl> executable plus a set of libraries -- usually
+referred to as B<modules> -- that are shipped with the core distribution because
+they are essential or highly useful for use of Perl in production
+environments.  If, say, you are a sysadmin who primarily uses Perl to automate
+system administration tasks, chances are that almost all the functionality you
+need can be found in the core distribution.
+
+=head2 Testing the Perl 5 Core Distribution
+
+The Perl 5 core distribution comes with a test suite that has been built up
+over a 24-year period.  People who have a commit bit to the core distribution
+are expected to run the test suite on their local machines before pushing
+commits to the repository.  That provides a basic proof that the code changes
+do what they claim to do and do no harm to the rest of the core distribution
+-- at least on that committer's platform.
+
+But Perl 5 has been ported to over 100 different platforms over the course of
+its lifetime.  How do we guarantee that changes in the core distribution work
+on those platforms?  The answer is B<smoke-testing>.  A network of volunteers
+maintain machines -- mostly virtual machines, in all likelihood -- which are
+set up with different operating systems, different versions of those operating
+systems and a variety of C compilers on those different OS versions.  Those
+volunteers then listen for updates to the core distribution and the test suite
+for different permutations of OS, OS version, C compiler and F<perl>
+configuration options.  The results are 
+transmitted to a central website,
+L<B<test-smoke.org>|http://perl5.test-smoke.org/search>.
+
+
+
+
+=head2 CPAN: The Perl 5 Ecosystem
+
+The Perl core distribution, however, is a relatively small part of the overall
+Perl ecosphere.  That ecosphere largely consists of the open source modules
+found on L<B<CPAN>|https://www.cpan.org/>, the Comprehensive Perl Archive
+Network, an archive founded in 1995 and now consisting of 175,000 modules in
+39,000 distributions contributed by more than 13,000 authors.  Many people
+consider CPAN to be Perl's true B<"killer app">.
+
+
+
+
+
+=cut
+
