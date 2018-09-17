@@ -139,13 +139,48 @@ production release.
 The Perl core distribution is, however, a relatively small part of the overall
 Perl ecosphere.  That ecosphere largely consists of the open source modules
 found on L<CPAN -- the Comprehensive Perl Archive
-Network|https://www.cpan.org/>, an archive founded in 1995 and now consisting of 175,000 modules in
-39,000 distributions contributed by more than 13,000 authors.  Many people
-consider CPAN to be Perl's true I<"killer app">.
+Network|https://www.cpan.org/>, an archive founded in 1995 and now consisting
+of 175,000 modules in 39,000 distributions contributed by more than 13,000
+authors.  Many people consider CPAN to be Perl's true I<"killer app">.
+
+The usefulness of any given CPAN module depends, however, not just on its own
+functionality but on whether it can be used with different versions of F<perl>
+and on different operating systems.  For nearly two decades the L<CPANtesters
+project|http://www.cpantesters.org/> has provided a way to determine just
+that.  If, for example, I want to see my CPAN module
+L<List::Compare|https://metacpan.org/release/List-Compare> works on FreeBSD, I
+can enter data into a simple web form and get L<the results|http://matrix.cpantesters.org/?dist=List-Compare;os=freebsd;reports=1>.
+
+=head2 The Perl 5 Development Process in Relation to CPAN
+
+When I ask, "Can a given CPAN module work with different versions of F<perl> on
+FreeBSD?", I can refer both to I<past> production releases of F<perl> but to
+I<future> versions as well -- at least insofar as a "future" version of
+F<perl> is reflected in the latest monthly development release.  This enables
+us to ask an important quality-assurance question:  I<"Do the changes we've
+made in the core distribution since our last production release 'break' any
+CPAN modules?"  If they do, then we need to evaluate the benefits of changes
+to the core distribution against the potential disruption to users of such
+CPAN modules.
+
+In the Perl 5 core repository, the main development branch is known, for
+arcane historical reasons, as I<blead> rather than, say, I<master>.  So among
+Perl developers this question is often referred to in shorthand as I<"Does blead
+break CPAN?">  If so, to what extent?  Under which configurations and on which
+operating systems?  Is the cause of the breakage found solely within changes
+in the core distribution?  Or have changes in the core exposed flaws in the
+code of a "broken" CPAN module?  How do we address such breakage?
 
 
+=item * The need for diversity in testing environments
 
+=item * The NYCBUG-NY.pm collaboration
 
+=item * Preparation of the testing environment
+
+=item * Testing Perl monthly development releases against CPAN on FreeBSD
+
+=item * Impacts
 
 =cut
 
