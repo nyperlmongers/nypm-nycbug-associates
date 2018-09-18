@@ -221,6 +221,10 @@ Vagrant's website were too small to hold the data that would accumulate over
 the course of an annual development cycle.  Andrew figured out how to enlarge
 a VM; I'm now going to ask him to describe that process.
 
+=head2 Setting Up and Enlarging a FreeBSD VM on a FreeBSD Host
+
+[TK]
+
 =head2 Testing Perl monthly development releases against CPAN on FreeBSD
 
 Once we had a properly sized FreeBSD VM sitting on the host, we had to prepare
