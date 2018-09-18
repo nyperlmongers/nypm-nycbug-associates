@@ -171,16 +171,102 @@ operating systems?  Is the cause of the breakage found solely within changes
 in the core distribution?  Or have changes in the core exposed flaws in the
 code of a "broken" CPAN module?  How do we address such breakage?
 
+Over the past five years the Perl community has addressed these questions by
+formulating a concept called the I<"CPAN river">.  CPAN modules depend upon
+the core distribution, but they also depend on other CPAN modules.  Imagine
+the core distribution as a stream which rises high in the mountains.  As it
+flows down to the sea, other streams -- those are the modules on CPAN -- feed
+into it and it becomes a mighty river.  Eventually the river reaches the sea
+-- which is all the Perl code in production all over the world.
 
-=item * The need for diversity in testing environments
+But now imagine that there's pollution "upstream" or that a dam is built which
+impedes the flow of the CPAN river.  Then all the "downstream" users suffer.
+What that suggests is that if we want to find out whether blead has broken
+CPAN, we start by testing modules "high upstream" on the CPAN river against
+Perl monthly development releases, then proceed downstream from there.  It's
+probably not feasible to test all 39,000 CPAN distributions against blead, but
+if we test a large sample of them we're likely to get a good picture of the
+impact which the F<perl> of the future will have on the CPAN of the present.
 
-=item * The NYCBUG-NY.pm collaboration
+And that is precisely what we have done at NYCBUG.
 
-=item * Preparation of the testing environment
+=head2 The NYCBUG-NY.pm collaboration
+
+From the fall of 2017 into the spring of 2018, I was using my Debian Linux
+Linode to test 1000 CPAN modules
+at the top of the CPAN river against Perl 5 monthly development releases.
+I posted that data on the L<Perl 5 Porters mailing
+list|https://www.nntp.perl.org/group/perl.perl5.porters/> and it was used to
+evaluate our readiness for the F<perl-5.28.0> production release.  However, I
+came to feel (i) that 1000 was too small a sample; and (ii) running this QA
+exercise just on Linux was likely to hide problems which could occur on other
+operating systems.  I decided to test monthly development releases against the
+3000 CPAN distributions highest upstream on the CPAN river and to do so on
+FreeBSD.  I further recognized that the FreeBSD VMs sitting on my laptop were
+inadequate for this task and that I needed to collaborate with people who knew
+more about system management and VM management than I ever would.
+
+So early this year I approached the NYCBUG Admin team about securing server
+space in the NYCBUG rack at NYInternet.  George Rosamond thought this was a
+good idea and Mark Saad came forward to be the point person for NYCBUG on this
+collaboration.  Mark installed a server whose hostname is
+F<perlmonger.nycbug.org> large enough to hold a variety of virtual machines
+that could be configured for a variety of tasks with different versions of
+FreeBSD, OpenBSD and so forth.  I spoke about this project at the March
+technical meeting of New York Perlmongers (NY.pm).  Andrew Villano, an
+experienced system administrator on Windows and Linux, was in attendance that
+evening.  He was eager to learn BSD sysadmin skills and so he stepped forward
+to help.  We quickly realized that the FreeBSD VMs you get "off the rack" from
+Vagrant's website were too small to hold the data that would accumulate over
+the course of an annual development cycle.  Andrew figured out how to enlarge
+a VM; I'm now going to ask him to describe that process.
 
 =item * Testing Perl monthly development releases against CPAN on FreeBSD
 
-=item * Impacts
+Once we had a properly sized FreeBSD VM sitting on the host, we had to prepare
+it for use in our QA process.  If you're trying to install 3000 CPAN modules,
+chances are that many of them have external dependencies -- mainly C libraries
+which would have to be installed with the FreeBSD F<pkg> utility.  We
+conducted several dry-runs and, as we learned the scope of packages that we
+needed to install, we added those packages to the
+L<F<Vagrantfile>|https://github.com/nyperlmongers/nypm-nycbug-associates/blob/master/configs/Vagrantfile.larger-storage>
+we used to govern the VM, as well as adding the CPAN modules which we needed
+to run the I<test-against-dev> program.  We installed a F<crontab> entry which
+runs daily and "listens" for a new Perl 5 monthly developmental release.  Once
+a month, generally soon after the 20th, the program downloads a tarball of a
+monthly development release, installs it, then works through a list of 3000
+CPAN modules, trying to install them in dependency order.  When we're done, we
+parse the installation log to write the results of that installation to a JSON
+file for each module.  Then we tabulate the results into a
+monthly pipe-separated-values file, which is in turn appended to a master PSV
+file tallying the results of this year's annual developmental cycle.  We store
+the results in our
+L<github repository|https://github.com/nyperlmongers/nypm-nycbug-associates/tree/master/results/perl-5.29-cycle>
+and run certain analytics programs which we
+L<report to the Perl 5 Porters mailing list|https://www.nntp.perl.org/group/perl.perl5.porters/2018/08/msg251924.html>
+mailing list.
+
+=head2 Impacts
+
+From the Perl point-of-view, the purpose of the test-against-dev project is to
+promote the viability of Perl and CPAN as an ecosphere in which technological
+applications can be implemented and run in production.  The project alerts
+core language developers to possible adverse impacts of changes in the core
+distribution on important CPAN libraries.  It also enables us to alert key
+CPAN developers as to where their libraries need to change to adapt to the
+ongoing development of the Perl 5 language.  In particular, by running this QA
+project on FreeBSD we bring to light places where overly Linux-centric
+developers need to adapt their code to work on a wide variety of OSes.
+
+In a more subtle way, this project has a benefit for BSD as well.  If we use
+FreeBSD to demonstrate that the Perl/CPAN ecosphere continues to be viable for
+application development as the core language develops, then we also
+demonstrate that FreeBSD continues to be a viable platform on which to run
+applications in what is still one of the most popular, "high-level", dynamic
+programming languages.  In short, we enhance the viability of FreeBSD itself.
+
+And that's the result of a collaboration between NYCBUG and New York
+Perlmongers.  Thank you very much.
 
 =cut
 
