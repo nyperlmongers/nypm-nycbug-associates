@@ -223,16 +223,133 @@ a VM; I'm now going to ask him to describe that process.
 
 =head2 Setting Up and Enlarging a FreeBSD VM on a FreeBSD Host
 
-Most Vagrant images are purposely kept small for purposes of portability. We're going to want to enlarge our Virtual Machine so that it can accommodate more storage. First, we're going to want to login to the FreeBSD Host via ssh and su to a shared user we created named 'vmuser'. We created a shared user as we found that it is difficult to share Vagrantfiles among multiple users. su to 'vmuser' and cd to the directory that you're keeping the Vagrantfile in. At this point we're going to have to stop the Virtual Machine as you cannot do an online resize -- issue 'vagrant halt' to do that. Now we're going to cd to the directory of the Virtualbox VM image, let's assume the path is /home/vmuser/Virtualbox\ VMs\mybox_default_12345678. You will now want to confirm the location of the Virtual Machine disk file, we'll do that with this command: `VBoxManage showvminfo mybox_default_12345678 | grep ".vmdk"` . 
+Most L<Vagrant images|https://app.vagrantup.com/boxes/search> are purposely
+kept small for purposes of portability.  We're going to want to enlarge our
+Virtual Machine so that it can accommodate more storage. First, we're going to
+want to login to the FreeBSD Host via ssh and F<su> to a shared user. We
+created a shared user as we found that it is difficult to share Vagrantfiles
+among multiple users.  We F<cd> to the directory that we're keeping the
+Vagrantfile in. At this point we're going to have to stop the Virtual Machine
+as you cannot do an online resize -- issue F<vagrant halt> to do that. Now
+we're going to F<cd> to the directory of the Virtualbox VM image, let's assume
+the path is F</home/vmuser/Virtualbox/VMs/mybox_default_12345678>. You will
+now want to confirm the location of the Virtual Machine disk file.  We'll do
+that with this command:
 
-Another issue we'll run into is that .vmdk files cannot be resized, they must be converted to .vdi files first. A VMDK file or VDI file is a file that contains the Virtualbox VM image used by Vagrant. It is analogous to an ISO for a CD. A reference for this can be found here: https://www.virtualbox.org/manual/ch05.html. Staying in the same directory (and assuming your .vmdk file is named box-disk1.vmdk) run the command `VBoxManage clonehd "box-disk1.vmdk" "clone-disk1.vdi" --format vdi`. Let's verify the conversion was successful and the size of the new file with the command `VBoxManage showhdinfo "clone-disk1.vdi"`. We're finally going to resize the Virtual Machine. Keeping in mind the scale is in MegaBytes the following example will resize the disk to 100 GigaBytes `VBoxManage modifyhd "clone-disk.vdi" --resize 102400`. Let's confirm the name of the storage controller we're going to be attaching the .vdi file to with the command: `VBoxManage showvminfo mbox_default_12345678 | grep "Storage"`. Assuming the name of the storage controller retreived in the previous step is "SATA Controller", we will attach the new .vdi file to the VM via: `VBoxManage storageattach mybox_default_12345678 --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium clone-disk1.vdi`. Let's bring the VM back up by cd'ing back to the directory of the Vagrantfile and then issuing the command 'vagrant up' and logging into the VM with the command 'vagrant ssh'. 
+    VBoxManage showvminfo mybox_default_12345678 | grep ".vmdk"
 
-FreeBSD does not install any LVM by default, however should you use an OS that does you would use the requisite pvcreate, vgextend, lvextend and resize2fs commands. Logical Volume Management or "LVM" is a method of utilizing storage that is often more convenient that conventional disk partitioning schemes. It is able to use disks or partitions (Physical Volumes) and pool them into Groups (Volume Groups) which can be further divided up into smaller logical groups (Logical Volumes). LVM has the benefit of being able to be modified online and if designed properly, can be fault tolerant; More reading on this can be done here: https://en.wikipedia.org/wiki/Logical_volume_management . Install package firstboot-growfs as we cannot growfs while the filesystems are mounted and we cannot go down to another runlevel from Vagrant as that would terminate our network connectivity. This package automatically performs a growfs on the next boot. Growfs is will resize the filesystem similar to what resize2fs would do on linux. It will scan the disk, examine the existing partition layout and if given no options, expand the filesystem to the size of the partition utilizing all available space; A reference for Growfs can be found here: https://www.freebsd.org/cgi/man.cgi?growfs(8). Runlevels are modes of operation that exist in *NIX operating systems. Each runlevel exists for a distinct purpose. Runlevel 0 will shutdown the system, Runlevel 1 will shutdown any GUI and networking services and bring the system to single user mode, Runlevel 3 is multi-user mode with networking, Runlevel 5 starts the system normally and Runlevel 6 reboots the system.
+Another issue we'll run into is that F<.vmdk> files cannot be resized, they must
+be converted to F<.vdi> files first. A VMDK file or VDI file is a file that
+contains the Virtualbox VM image used by Vagrant. It is analogous to an ISO
+for a CD. Staying in the same directory
+(and assuming your F<.vmdk> file is named F<box-disk1.vmdk>) run the command:
 
-In the directory of the Vagrantfile, run `vagrant reload --provision` to kick off the growfs process. On the next boot, should everything be successful your primary volume should indicate a large increase in storage via a `df -k` command.
+    VBoxManage clonehd "box-disk1F<.vmdk>" "clone-disk1.vdi" --format vdi
 
-Credits:
-https://gist.github.com/christopher-hopper/9755310
+Let's verify the conversion was successful and the size of the new file with the
+command:
+
+    VBoxManage showhdinfo "clone-disk1.vdi"
+
+We're finally going to resize the Virtual Machine.  Keeping in mind the scale
+is in MegaBytes the following example will resize the disk to 100 GigaBytes:
+
+    VBoxManage modifyhd "clone-disk.vdi" --resize 102400
+
+Let's confirm the name of the storage
+controller we're going to be attaching the F<.vdi> file to with the command:
+
+    VBoxManage showvminfo mbox_default_12345678 | grep "Storage"
+
+Assuming the name of the storage controller retreived in the previous step is "SATA
+Controller", we will attach the new F<.vdi> file to the VM via:
+
+    VBoxManage storageattach mybox_default_12345678 \
+        --storagectl "SATA Controller" \
+        --port 0 \
+        --device 0 \
+        --type hdd \
+        --medium clone-disk1.vdi
+
+Let's bring the VM back up by F<cd>-ing back to the directory of the
+Vagrantfile and then issuing the command F<vagrant up> and logging into the VM
+with the command F<vagrant ssh>. 
+
+=head3 Logical Volume Management (LVM)
+
+L<Logical Volume Management (LVM)|https://en.wikipedia.org/wiki/Logical_volume_management> is a method of
+utilizing storage that is often more convenient that conventional disk
+partitioning schemes. LVM is able to use disks or partitions (Physical
+Volumes) and pool them into Groups (Volume Groups) which can be further
+divided up into smaller logical groups (Logical Volumes).  LVM has the benefit
+of being able to be modified online and if designed properly, can be fault
+tolerant.
+
+FreeBSD does not install any Logical Volume Management (LVM) by default.
+However, should you use an OS that does, you would use the requisite
+F<pvcreate>, F<vgextend>, F<lvextend> and F<resize2fs> commands.
+
+On FreeBSD we install package F<firstboot-growfs> as we cannot F<growfs> while
+the filesystems are mounted and we cannot go down to another runlevel from
+Vagrant as that would terminate our network connectivity. This package
+automatically performs a F<growfs> on the next boot.
+L<F<growfs>|https://www.freebsd.org/cgi/man.cgi?growfs(8)> will resize the
+filesystem similar to what
+L<F<resize2fs>|https://linux.die.net/man/8/resize2fs>  would do on Linux. It
+will scan the disk, examine the existing partition layout and if given no
+options, expand the filesystem to the size of the partition utilizing all
+available space.
+
+=head3 Runlevels
+
+L<Runlevels|https://en.wikipedia.org/wiki/Runlevel> are modes of operation
+that exist in *NIX operating systems. Each runlevel exists for a distinct
+purpose.
+
+=over 4
+
+=item 
+
+Runlevel 0 will shutdown the system.
+
+=item *
+
+Runlevel 1 will shutdown any GUI and networking services and bring the system
+to single user mode.
+
+=item *
+
+Runlevel 3 is multi-user mode with networking.
+
+=item *
+
+Runlevel 5 starts the system normally and Runlevel 6 reboots the system.
+
+=back
+
+In the directory of the Vagrantfile, run
+
+    vagrant reload --provision
+
+to kick off the F<growfs> process. On the next boot, should everything be
+successful your primary volume should indicate a large increase in storage via
+a F<df -k> command.
+
+References:
+
+=over 4
+
+=item * L<https://gist.github.com/christopher-hopper/9755310>
+
+=item * L<https://www.virtualbox.org/manual/ch05.html>
+
+=item * L<https://en.wikipedia.org/wiki/Logical_volume_management>
+
+=item * L<https://www.freebsd.org/cgi/man.cgi?growfs(8)>
+
+=item * L<https://en.wikipedia.org/wiki/Runlevel>
+
+=back
 
 =head2 Testing Perl monthly development releases against CPAN on FreeBSD
 
@@ -240,20 +357,21 @@ Once we had a properly sized FreeBSD VM sitting on the host, we had to prepare
 it for use in our QA process.  If you're trying to install 3000 CPAN modules,
 chances are that many of them have external dependencies -- mainly C libraries
 which would have to be installed with the FreeBSD F<pkg> utility.  We
-conducted several dry-runs and, as we learned the scope of packages that we
-needed to install, we added those packages to the
+conducted several dry-runs to learn the scope of packages that we
+needed to install.  We added those packages to the
 L<F<Vagrantfile>|https://github.com/nyperlmongers/nypm-nycbug-associates/blob/master/configs/Vagrantfile.larger-storage>
 we used to govern the VM, as well as adding the CPAN modules which we needed
 to run the I<test-against-dev> program.  We installed a F<crontab> entry which
-runs daily and "listens" for a new Perl 5 monthly developmental release.  Once
-a month, generally soon after the 20th, the program downloads a tarball of a
-monthly development release, installs it, then works through a list of 3000
-CPAN modules, trying to install them in dependency order.  When we're done, we
-parse the installation log to write the results of that installation to a JSON
-file for each module.  Then we tabulate the results into a
-monthly pipe-separated-values file, which is in turn appended to a master PSV
-file tallying the results of this year's annual developmental cycle.  We store
-the results in our
+runs daily and listens for a new Perl 5 monthly developmental release.
+
+Once a month, generally soon after the 20th, the program downloads a tarball
+of a monthly development release, installs it, then works through a list of
+3000 CPAN modules, trying to install them in dependency order.  When we're
+done, we parse the installation log to write the results of that installation
+to a JSON file for each module.  Then we tabulate the results into a monthly
+pipe-separated-values file, which is in turn appended to a master PSV file
+tallying the results of this year's annual developmental cycle.  We store the
+results in our
 L<github repository|https://github.com/nyperlmongers/nypm-nycbug-associates/tree/master/results/perl-5.29-cycle>
 and run certain analytics programs which we
 L<report to the Perl 5 Porters mailing list|https://www.nntp.perl.org/group/perl.perl5.porters/2018/08/msg251924.html>
