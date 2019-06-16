@@ -79,7 +79,7 @@ Vagrant.configure("2") do |config|
      sudo pkg update
 
      # Widely used packages which should be immediately upgraded:
-     sudo pkg install -y perl5 vim git subversion screen wget
+     sudo pkg install -y perl5 vim git subversion screen wget cmdwatch
 
      # Packages which provide CPAN libraries which facilitate jkeenan's
      # programming:
@@ -90,21 +90,29 @@ Vagrant.configure("2") do |config|
         p5-Devel-Cover \
         p5-File-Path \
         p5-List-Compare \
+        p5-Path-Tiny \
         p5-Text-CSV-Hashify \
         p5-Text-CSV_XS
 
-     # Packages which provide CPAN libraries specifically needed for
-     # test-against-dev's own functionality:
+    # Packages which provide CPAN libraries specifically needed for
+    # test-against-dev's own functionality:
      sudo pkg install -y \
         p5-App-cpanminus-reporter \
-	p5-Archive-Extract \
+        p5-Archive-Extract \
+        p5-CGI-Utils \
         p5-CPAN-Testers-Common-Client \
         p5-Devel-Platform-Info \
         p5-Email-Address \
         p5-Email-Address-XS \
         p5-Email-Sender \
         p5-Email-Simple \
-        p5-File-Fetch
+        p5-File-Fetch \
+        p5-HTTP-Daemon \
+        p5-HTTP-Message \
+        p5-JSON \
+        p5-JSON-XS \
+        p5-System-Info \
+        p5-Test-NoWarnings
 
      # Packages needed to install libraries needed for XS modules in cpan-top-3000:
      sudo pkg install -y \
@@ -165,6 +173,6 @@ Vagrant.configure("2") do |config|
 
      # CPAN libraries needed for test-against-dev
      sudo cpan Perl::Download::FTP \
-	CPAN::cpanminus::reporter::RetainReports
+    CPAN::cpanminus::reporter::RetainReports
   SHELL
 end
