@@ -22,6 +22,7 @@ Check server for new dev or RC release and download if needed.
         --hostdir=/pub/languages/perl/CPAN/src/5.0 \
         --compression=gz \
         --type=dev_or_rc \
+        --dev_cycle=31 \
         --email_to='"James E Keenan" <jkeenan@pobox.com>' \
         --email_from='"James E Keenan" <jkeenan@pobox.com>' \
         --email_subject='Status of Perl 5 development release' \
@@ -88,7 +89,7 @@ chomp $date;
 say sprintf("%-52s%s" => ("Date:", $date));
 say "Running $0";
 
-my ($application_dir, $host, $hostdir, $compression, $type) = (undef) x 5;
+my ($application_dir, $host, $hostdir, $compression, $type, $dev_cycle) = (undef) x 6;
 my ($email_from, $email_to, $email_subject) = (undef) x 3;
 my ($download, $verbose) = ('') x 2;
 GetOptions(
@@ -98,6 +99,7 @@ GetOptions(
     "compression=s"     => \$compression,
     "type=s"            => \$type,
     "download"          => \$download,
+    "dev_cycle=i"       => \$dev_cycle,
     "email_from=s"      => \$email_from,
     "email_to=s"        => \$email_to,
     "email_subject=s"   => \$email_subject,
@@ -114,6 +116,16 @@ say "host:                  $host"          if $verbose;
 say "hostdir:               $hostdir"       if $verbose;
 say "compression:           $compression"   if $verbose;
 say "type:                  $type"          if $verbose;
+
+my $rc_cycle;
+unless ($dev_cycle =~ m/^\d\d$/) {
+    croak "Value for 'dev_cycle' must be two-digit number";
+}
+else {
+    say "dev_cycle:             $dev_cycle" if $verbose;
+    $rc_cycle = sprintf("%02d", $dev_cycle + 1);
+    say "rc_cycle:              $rc_cycle" if $verbose;
+}
 
 my $self = Perl::Download::FTP->new( {
     host        => $host,
@@ -133,8 +145,8 @@ say sprintf("%-52s%s" => ("Most recent $type version observed on server:", $late
 
 #dd(\@releases);
 
-our $dev_pattern = qr/^perl-5\.(29)\.(\d{1,2})/;
-our $rc_pattern  = qr/^perl-5\.(30)\.(\d{1,2})-RC(\d)/;
+our $dev_pattern = qr/^perl-5\.($dev_cycle)\.(\d{1,2})/;
+our $rc_pattern  = qr/^perl-5\.($rc_cycle)\.(\d{1,2})-RC(\d)/;
 
 my $resultsdir = File::Spec->catdir($application_dir, 'results');
 croak "Could not locate $resultsdir" unless -d $resultsdir;
