@@ -42,6 +42,10 @@ unless (-f $build_log) {
 else {
     say "build_log:             $build_log" if $verbose;
 }
+say "perl_version:          $perl_version" if $verbose;
+
+my ($perldevcycle) = $perl_version =~ m/^perl-(5\.\d+)\.\d+$/;
+say "perldevcycle:          $perldevcycle" if $verbose;
 
 unless (length($title) > 2) {
     croak "Title '$title' is suspiciously short";
@@ -64,6 +68,7 @@ my $self = Test::Against::Dev::Salvage->new( {
     results_dir             => $results_dir,
     verbose                 => $verbose,
 } );
+dd($self);
 
 my $gzipped_build_log = $self->gzip_cpanm_build_log();
 my $ranalysis_dir = $self->analyze_cpanm_build_logs( { verbose => $verbose } );
@@ -71,7 +76,7 @@ my $fpsvfile = $self->analyze_json_logs( { verbose => $verbose } );
 
 my $master_psvfile = consolidate_psvfiles( {
     results_dir     => $results_dir,
-    perldevcycle    => '5.29',
+    perldevcycle    => $perldevcycle,
     title           => $title,
     verbose         => $verbose,
 } );
@@ -133,7 +138,7 @@ sub consolidate_psvfiles {
     say "master_file will be $master_file" if $verbose;
     if (! -f $master_file) {
         say "$master_file does not yet exist" if $verbose;
-        my $key = "$args->{perldevcycle}.0";
+        my $key = 'perl-' . $args->{perldevcycle} . '.0';
         if (
             (scalar keys %versions == 1) and
             (exists $versions{$key})
@@ -146,7 +151,7 @@ sub consolidate_psvfiles {
             exit 0;
         }
         else {
-            croak "Don't know how to handles this situation";
+            croak "Don't know how to handle this situation";
         }
     } # This block either exit 0 or croak.
 
