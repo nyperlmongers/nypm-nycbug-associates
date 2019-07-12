@@ -68,7 +68,7 @@ Vagrant.configure("2") do |config|
   #   apt-get install -y apache2
   # SHELL
 
-  config.vm.provision "shell", inline: <<-SHELL
+  config.vm.provision "shell", run: "always", inline: <<-SHELL
      export HOSTNAME="perl-reporter-07"
      hostname $HOSTNAME
      perl -Mstrict -E 'say "ev: <$ENV{HOSTNAME}>"; my $conf = q|/etc/rc.conf|; my $new_hostname=$ENV{HOSTNAME}; die "Could not locate conf file $conf" unless -f $conf; my $hostname_seen; open my $IN, q|<|, $conf or die "Unable to open $conf for reading"; while (my $l = <$IN>) { chomp $l; if ($l =~ m/^hostname="?(.*?)"?$/) { $hostname_seen = $1; last; } } close $IN or die "Unable to close $conf after reading"; if (!$hostname_seen) { if ($new_hostname) { open my $OUT, q|>>|, $conf or die "Unable to open $conf for appending"; my $line = qq|hostname="${new_hostname}"|; say $OUT $line; close $OUT or die "Unable to close $conf after appending"; } else { die "No existing hostname but no new hostname was provided"; } } else { say qq|hostname already assigned in $conf as $hostname_seen; not changing|; } exit 0;'
@@ -147,7 +147,6 @@ Vagrant.configure("2") do |config|
         libxfce4util \
         libxmu \
         libxslt \
-        libxul \
         libzmq2 \
         libzmq3 \
         libzmq4 \
@@ -162,6 +161,7 @@ Vagrant.configure("2") do |config|
         p5-DBD-ODBC \
         p5-DBD-Pg \
         p5-ExtUtils-Config \
+        p5-ExtUtils-Depends \
         p5-ExtUtils-F77 \
         p5-ExtUtils-PkgConfig \
         p5-File-Rsync \
