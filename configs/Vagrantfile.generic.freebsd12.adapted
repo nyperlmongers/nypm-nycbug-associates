@@ -167,6 +167,7 @@ Vagrant.configure("2") do |config|
         p5-ExtUtils-PkgConfig \
         p5-File-Rsync \
         p5-Geo-Proj4 \
+        p5-Glib2 \
         p5-GraphViz \
         p5-Gtk2 \
         p5-Gtk3 \
@@ -195,7 +196,10 @@ Vagrant.configure("2") do |config|
 
      # CPAN libraries needed for test-against-dev
      sudo cpan Perl::Download::FTP \
-     CPAN::cpanminus::reporter::RetainReports \
-     Test::Against::Dev
+        CPAN::cpanminus::reporter::RetainReports \
+        Test::Against::Dev
+
+     # CPAN libraries apparently not provided by FreeBSD packages
+     sudo cpan Glib::MakeHelper
   SHELL
 end
