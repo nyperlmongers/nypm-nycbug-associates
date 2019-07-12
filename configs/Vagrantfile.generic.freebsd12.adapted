@@ -119,6 +119,7 @@ Vagrant.configure("2") do |config|
 
      # Packages needed to install libraries needed for XS modules in cpan-top-3000:
      sudo pkg install -y \
+        aspell \
         augeas \
         curl \
         dbus \
@@ -129,7 +130,9 @@ Vagrant.configure("2") do |config|
         glib \
         gnuplot \
         gobject-introspection \
+        graphviz \
         gsl \
+        gtk2 \
         gtk3 \
         hdf \
         imlib2 \
@@ -138,39 +141,54 @@ Vagrant.configure("2") do |config|
         libglade2 \
         libidn \
         libqrencode \
+        libsodium \
         libssh2 \
         libtermkey \
         libxfce4util \
         libxmu \
+        libxslt \
         libxul \
         libzmq2 \
         libzmq3 \
         libzmq4 \
+        mpfr \
         p5-Authen-PAM \
+        p5-BerkeleyDB \
         p5-Cairo \
+        p5-Crypt-GPG \
         p5-Crypt-OpenPGP \
+        p5-Crypt-Sodium \
         p5-DBD-mysql \
         p5-DBD-ODBC \
         p5-DBD-Pg \
+        p5-ExtUtils-Config \
         p5-ExtUtils-F77 \
+        p5-ExtUtils-PkgConfig \
+        p5-File-Rsync \
+        p5-Geo-Proj4 \
         p5-GraphViz \
         p5-Gtk2 \
         p5-Gtk3 \
         p5-HTML-Tidy \
+        p5-HTML-Tidy5 \
         p5-Inline-Java \
+        p5-Math-MPFR \
         p5-Net-LibIDN \
         p5-Net-LibIDN2 \
         p5-Tcl \
         p5-Text-Aspell \
         p5-WordNet-QueryData \
         p5-ZeroMQ \
+        p5-ZMQ-FFI \
         pkgconf \
         proj \
         protobuf \
         rpm4 \
         rsync \
         tcl-wrapper \
+        tidyp \
         unibilium \
+        unixODBC \
         v8 \
         yaz
 
