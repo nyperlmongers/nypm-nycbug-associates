@@ -128,6 +128,7 @@ Vagrant.configure("2") do |config|
         fusefs-libs \
         gdk-pixbuf2 \
         glib \
+        gnupg \
         gnuplot \
         gobject-introspection \
         graphviz \
