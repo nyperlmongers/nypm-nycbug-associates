@@ -138,6 +138,7 @@ Vagrant.configure("2") do |config|
         imlib2 \
         ja-p5-Text-MeCab \
         libapreq2 \
+        libdnet \
         libglade2 \
         libidn \
         libqrencode \
