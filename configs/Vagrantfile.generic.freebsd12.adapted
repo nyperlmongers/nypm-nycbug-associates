@@ -148,7 +148,6 @@ Vagrant.configure("2") do |config|
         libxfce4util \
         libxmu \
         libxslt \
-        libzmq2 \
         libzmq3 \
         libzmq4 \
         mpfr \
@@ -166,7 +165,6 @@ Vagrant.configure("2") do |config|
         p5-ExtUtils-F77 \
         p5-ExtUtils-PkgConfig \
         p5-File-Rsync \
-        p5-Geo-Proj4 \
         p5-Glib2 \
         p5-GraphViz \
         p5-Gtk2 \
@@ -180,7 +178,6 @@ Vagrant.configure("2") do |config|
         p5-Tcl \
         p5-Text-Aspell \
         p5-WordNet-QueryData \
-        p5-ZeroMQ \
         p5-ZMQ-FFI \
         pkgconf \
         proj \
