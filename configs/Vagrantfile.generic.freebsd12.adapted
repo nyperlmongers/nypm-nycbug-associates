@@ -112,6 +112,7 @@ Vagrant.configure("2") do |config|
         p5-HTTP-Message \
         p5-JSON \
         p5-JSON-XS \
+        p5-Params-Util \
         p5-System-Info \
         p5-Test-Fatal \
         p5-Test-NoWarnings \
