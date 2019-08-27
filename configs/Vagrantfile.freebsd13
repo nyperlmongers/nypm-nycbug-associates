@@ -83,10 +83,13 @@ Vagrant.configure("2") do |config|
      # Widely used packages which should be immediately upgraded:
      pkg install -y perl5 vim git subversion screen wget
 
+     # Facilitate ports development work
+     pkg install -y poudriere portlint
+
      # Packages which provide CPAN libraries which facilitate jkeenan's
      # programming:
      pkg install -y \
-        p5-Ack \
+        p5-ack \
         p5-App-cpanminus \
         p5-Data-Dump \
         p5-Devel-Cover \
