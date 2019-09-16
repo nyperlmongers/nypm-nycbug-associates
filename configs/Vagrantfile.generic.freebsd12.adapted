@@ -82,17 +82,24 @@ Vagrant.configure("2") do |config|
      sudo pkg install -y perl5 vim git subversion screen wget cmdwatch
 
      # Packages which provide CPAN libraries which facilitate jkeenan's
-     # programming:
+     # programming (including smoke-testing core distribution):
      sudo pkg install -y \
         p5-Ack \
         p5-App-cpanminus \
+        p5-common-sense \
+        p5-CGI \
         p5-Data-Dump \
         p5-Devel-Cover \
         p5-File-Path \
+        p5-HTTP-Daemon \
+        p5-HTTP-Message \
+        p5-JSON \
+        p5-JSON-XS \
         p5-List-Compare \
         p5-Path-Tiny \
         p5-Text-CSV-Hashify \
-        p5-Text-CSV_XS
+        p5-Text-CSV_XS \
+        p5-Test-NoWarnings
 
     # Packages which provide CPAN libraries specifically needed for
     # test-against-dev's own functionality:
@@ -107,15 +114,16 @@ Vagrant.configure("2") do |config|
         p5-Email-Address-XS \
         p5-Email-Sender \
         p5-Email-Simple \
-        p5-File-Fetch \
-        p5-HTTP-Daemon \
-        p5-HTTP-Message \
-        p5-JSON \
-        p5-JSON-XS \
+        p5-File-Fetch
+        #p5-File-Fetch
+        #p5-HTTP-Daemon \
+        #p5-HTTP-Message \
+        #p5-JSON \
+        #p5-JSON-XS \
         p5-Params-Util \
         p5-System-Info \
         p5-Test-Fatal \
-        p5-Test-NoWarnings \
+        #p5-Test-NoWarnings \
         p5-Test-RequiresInternet
 
      # Packages needed to install libraries needed for XS modules in cpan-top-3000:
