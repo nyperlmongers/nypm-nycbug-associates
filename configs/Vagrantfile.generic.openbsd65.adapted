@@ -69,8 +69,9 @@ Vagrant.configure("2") do |config|
   # SHELL
 
   config.vm.provision "shell", run: "always", inline: <<-SHELL
-     export HOSTNAME="perl-reporter-07"
+     export HOSTNAME="perl-reporter-09"
      hostname $HOSTNAME
+     hostname
 
      # Update packages that came with the VM
      sudo pkg_add -u curl sudo vim wget
