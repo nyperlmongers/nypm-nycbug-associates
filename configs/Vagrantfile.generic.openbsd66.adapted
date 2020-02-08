@@ -96,6 +96,15 @@ Vagrant.configure("2") do |config|
         p5-Text-CSV_XS \
         p5-Text-CSV-Hashify
 
+     # Packages which are prerequisites for CPAN libraries in next stanza:
+     # (Commented out because they were automatically installed via 'cpan'.)
+#     sudo pkg_add \
+#        p5-CGI \
+#        p5-File-Next \
+#        p5-Sub-Uplevel \
+#        p5-Test-Deep \
+#        p5-Test-Warn
+
 #     # CPAN libraries needed for jkeenan's programming but not provided in OpenBSD ports
      sudo cpan \
         App::cpanminus \
