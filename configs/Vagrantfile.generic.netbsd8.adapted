@@ -92,12 +92,13 @@ Vagrant.configure("2") do |config|
      # programming in general:
      # I'd like to include p5-ack here but it has test failure:
      # https://github.com/beyondgrep/ack3/issues/230
-     sudo pkgin install \
-        p5-Data-Dump
+     # 2020-03-05: Observed that p5-Data-Dump is not being installed;
+     # try installing via CPAN
 
      # CPAN libraries needed for smoke-testing core distribution:
      sudo cpan \
         CGI::Utils \
+	Data::Dump \
         System::Info \
         Perl::Download::FTP::Distribution
 
