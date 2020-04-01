@@ -75,12 +75,12 @@ Vagrant.configure("2") do |config|
      hostname
 
      # Widely used packages which should be immediately upgraded:
-     sudo pkgin install perl vim git subversion screen wget watch
+     sudo pkgin -y install perl vim git subversion screen wget watch
      # On FreeBSD, substitute 'cmdwatch' for 'watch'
 
      # Packages which provide CPAN libraries which facilitate jkeenan's
      # programming (smoke-testing core distribution):
-     sudo pkgin install \
+     sudo pkgin -y install \
         p5-CGI \
         p5-JSON \
         p5-JSON-XS \
