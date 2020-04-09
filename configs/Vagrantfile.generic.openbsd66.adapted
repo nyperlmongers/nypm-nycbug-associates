@@ -87,9 +87,11 @@ Vagrant.configure("2") do |config|
         p5-Devel-Cover \
         p5-HTTP-Daemon \
         p5-HTTP-Message \
+        p5-IO-Socket-SSL \
         p5-JSON \
         p5-JSON-XS \
         p5-List-Compare \
+        p5-Net-SSLeay \
         p5-Path-Tiny \
         p5-Test-NoWarnings \
         p5-Text-CSV \
@@ -103,14 +105,19 @@ Vagrant.configure("2") do |config|
 #        p5-File-Next \
 #        p5-Sub-Uplevel \
 #        p5-Test-Deep \
+#        p5-Test-RequiresInternet \
 #        p5-Test-Warn
 
 #     # CPAN libraries needed for jkeenan's programming but not provided in OpenBSD ports
      sudo cpan \
         App::cpanminus \
-#        App::Ack \
         CGI::Util \
         System::Info
+
+#        App::Ack not yet working
+
+     sudo cpan \
+        Perl::Download::FTP
 
   SHELL
 end
