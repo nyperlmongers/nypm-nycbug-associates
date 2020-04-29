@@ -79,7 +79,8 @@ Vagrant.configure("2") do |config|
      sudo pkg update
 
      # Widely used packages which should be immediately upgraded:
-     sudo pkg install -y perl5 vim git subversion screen wget cmdwatch
+     sudo pkg install -y perl5 vim git subversion screen wget cmdwatch \
+         freecolor
 
      # Packages which provide CPAN libraries which facilitate jkeenan's
      # programming (including smoke-testing core distribution):
