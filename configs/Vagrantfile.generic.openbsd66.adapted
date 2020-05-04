@@ -84,6 +84,7 @@ Vagrant.configure("2") do |config|
      sudo pkg_add \
         p5-Capture-Tiny \
         p5-common-sense \
+        p5-Data-Dump \
         p5-Devel-Cover \
         p5-HTTP-Daemon \
         p5-HTTP-Message \
