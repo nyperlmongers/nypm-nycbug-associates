@@ -427,7 +427,6 @@ Syntax::Keyword::Junction
 HTTP::CookieJar
 Module::ScanDeps
 Const::Fast
-Data::Printer
 XML::Twig
 HTTP::Server::Simple::PSGI
 URI::Find
@@ -920,7 +919,6 @@ Test::ClassAPI
 Cache::FastMmap
 File::Path::Expand
 IO::Prompt::Tiny
-Log::Handler
 MooX::StrictConstructor
 Sub::Attribute
 Config::Simple
@@ -1408,7 +1406,6 @@ failures
 sanity
 Bytes::Random::Secure::Tiny
 Catalyst::Plugin::StackTrace
-Data::Alias
 Data::Peek
 File::Path::Tiny
 Filesys::Statvfs
@@ -1991,7 +1988,6 @@ Email::Store
 Escape::Houdini
 Filesys::Virtual::Plain
 Graph::ChuLiuEdmonds
-HTML::DOM
 HTML::FromANSI
 HTTP::Simple
 HTTP::Throwable
@@ -2021,7 +2017,6 @@ Parse::Template
 Path::Class::Iterator
 Perl::Critic::Bangs
 Perl::Critic::StricterSubs
-Perl::PrereqScanner::Lite
 Proc::InvokeEditor
 Regexp::RegGrp
 Regexp::SQL::LIKE
@@ -2079,7 +2074,6 @@ Git::PurePerl
 Gtk2::GladeXML
 HTML::Declare
 HTML::StripScripts::Parser
-HTML::Template::Default
 HTTP::Response::Encoding
 Hash::AutoHash
 Hook::AfterRuntime
@@ -2188,12 +2182,10 @@ DateTime::Format::Atom
 DateTime::TimeZone::SystemV
 Devel::Caller::Perl
 Dist::Zilla::Role::RepoFileInjector
-EntityModel::Log
 ExtUtils::H2PM
 FCGI::Client
 File::FindLib
 File::IgnoreReadonly
-Geo::Proj4
 Getopt::Compact
 Git::Wrapper::Plus
 HTML::Table
@@ -2209,7 +2201,6 @@ LWP::Protocol::socks
 Lingua::EN::Syllable
 Lingua::JA::Regular::Unicode
 Locale::Maketext::Gettext
-MARC::File::XML
 MOP
 Mail::Transport
 Math::BaseCalc
@@ -2335,7 +2326,6 @@ Dezi::App
 Dist::Zilla::Role::PluginBundle::Merged
 Email::Stuff
 Encode::Detect
-EntityModel::Class
 FFI::Raw
 File::ConfigDir
 File::DataClass
@@ -2495,7 +2485,6 @@ DateTime::Event::Easter
 DateTime::Event::Random
 Devel::Pragma
 Email::FolderType::Net
-EntityModel
 Excel::Template
 Exception::Died
 Exporter::Declare::Magic
@@ -2720,7 +2709,6 @@ Filesys::Virtual::Async
 FindBin::Real
 Format::Util
 GPS::Point
-Gapp
 Geo::Coordinates::Converter
 Geo::Forward
 Geo::Inverse
@@ -2998,4 +2986,16 @@ Devel::Declare::Parser::Fennec
 Devel::Trace
 Device::ParallelPort
 Dir::Manifest
+Dist::Zilla::Role::ModuleIncluder
+Dist::Zilla::Util::RoleDB
+Dpkg
+EBook::EPUB
+Email::Filter
+Encode::IMAPUTF7
+Event::Notify
+Excel::Template::Plus
+Exporter::Extensible
+Facebook::Graph
+Fatal::Exception
+File::Find::Closures
 install
