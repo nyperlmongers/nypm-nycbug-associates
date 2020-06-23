@@ -485,6 +485,7 @@ DateTime::Format::Mail
 Devel::CheckBin
 Statistics::CaseResampling
 Chart::Gnuplot
+Dumbbench
 Devel::Caller
 Sub::Override
 Set::Infinite
@@ -1744,6 +1745,7 @@ XS::Framework
 autobox::Transform
 Algorithm::Loops
 Alien::autoconf
+Array::Iterator
 BenchmarkAnything::Reporter
 Best
 Bio::Variation
@@ -2996,5 +2998,4 @@ Devel::Declare::Parser::Fennec
 Devel::Trace
 Device::ParallelPort
 Dir::Manifest
-Dist::Zilla::Role::ModuleIncluder
-Dist::Zilla::Util::RoleDB
+install
