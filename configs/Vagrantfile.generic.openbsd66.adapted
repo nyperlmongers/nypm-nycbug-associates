@@ -114,19 +114,17 @@ Vagrant.configure("2") do |config|
 #        p5-Test-RequiresInternet \
 #        p5-Test-Warn
 
-#     # CPAN libraries needed for jkeenan's programming but not provided in OpenBSD ports
+#    # CPAN libraries needed for jkeenan's programming but not provided in OpenBSD ports
      sudo cpan \
         App::cpanminus \
         Perl5::Build::Warnings \
+        Perl::Download::FTP \
         CGI::Util \
         System::Info \
         CPAN::Reporter \
         Task::CPAN::Reporter
 
 #        App::Ack not yet working
-
-     sudo cpan \
-        Perl::Download::FTP
 
   SHELL
 end
