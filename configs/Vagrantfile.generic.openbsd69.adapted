@@ -103,7 +103,8 @@ Vagrant.configure("2") do |config|
         p5-Sub-Info \
         p5-Sub-Name \
         p5-Test-Pod \
-        p5-Test-Reporter
+        p5-Test-Reporter \
+        p5-ack
 
      # Packages which are prerequisites for CPAN libraries in next stanza:
      # (Commented out because they were automatically installed via 'cpan'.)
@@ -124,8 +125,6 @@ Vagrant.configure("2") do |config|
         System::Info \
         CPAN::Reporter \
         Task::CPAN::Reporter
-
-#        App::Ack not yet working
 
   SHELL
 end
