@@ -77,12 +77,12 @@ Vagrant.configure("2") do |config|
      sudo pkg_add -u curl sudo vim wget
 
      # Add my most useful packages
-     sudo pkg_add git subversion
-     sudo pkg_add screen--
+     sudo pkg_add -u git subversion
+     sudo pkg_add -u screen--
 
      # Packages which provide CPAN libraries which facilitate jkeenan's
      # programming (including smoke-testing core distribution):
-     sudo pkg_add \
+     sudo pkg_add -u \
         p5-Capture-Tiny \
         p5-common-sense \
         p5-Data-Dump \
@@ -119,6 +119,7 @@ Vagrant.configure("2") do |config|
 #    # CPAN libraries needed for jkeenan's programming but not provided in OpenBSD ports
      sudo cpan \
         App::cpanminus \
+        Encode \
         Perl5::Build::Warnings \
         Perl::Download::FTP \
         CGI::Util \
