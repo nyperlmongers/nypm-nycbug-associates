@@ -125,7 +125,8 @@ Vagrant.configure("2") do |config|
         CGI::Util \
         System::Info \
         CPAN::Reporter \
-        Task::CPAN::Reporter
+        Task::CPAN::Reporter \
+        Devel::Git::MultiBisect
 
   SHELL
 end
