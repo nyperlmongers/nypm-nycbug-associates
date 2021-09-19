@@ -127,6 +127,7 @@ Vagrant.configure("2") do |config|
         CPAN::Reporter \
         Task::CPAN::Reporter \
         Devel::Git::MultiBisect \
+        Sub::Name \
         Devel::NYTProf
 
   SHELL
