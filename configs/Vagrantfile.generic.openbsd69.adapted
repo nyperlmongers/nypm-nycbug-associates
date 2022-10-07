@@ -46,6 +46,10 @@ Vagrant.configure("2") do |config|
         p5-Test-Reporter \
         p5-ack
 
+     # Per afresh1 recommendation Jan 12 2022
+     sudo pkg_add \
+	g++-8.4
+
      # Packages which are prerequisites for CPAN libraries in next stanza:
      # (Commented out because they were automatically installed via 'cpan'.)
 #     sudo pkg_add \
@@ -68,7 +72,8 @@ Vagrant.configure("2") do |config|
         Task::CPAN::Reporter \
         Devel::Git::MultiBisect \
         Sub::Name \
-        Devel::NYTProf
+        Devel::NYTProf \
+        DB_File
 
   SHELL
 end
