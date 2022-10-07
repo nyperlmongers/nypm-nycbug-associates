@@ -19,6 +19,8 @@ Vagrant.configure("2") do |config|
      # Add my most useful packages
      sudo pkg_add -u git subversion
      sudo pkg_add -u screen--
+     # Oct 07 2022
+     sudo pkg_add gnuwatch
 
      # Packages which provide CPAN libraries which facilitate jkeenan's
      # programming (including smoke-testing core distribution):
